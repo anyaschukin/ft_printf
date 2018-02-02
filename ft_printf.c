@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/02 15:46:04 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/02 17:59:20 by aschukin         ###   ########.fr       */
 
 /*                                                                            */
 /* ************************************************************************** */
@@ -33,7 +33,6 @@ static int	ft_printf_parse(char **format, va_list *ap, t_print *arg)
 		return (-1);
 	*/
 	ret += ft_printf_conversion(*format, ap, *arg);
-	(*format)++;
 	return (ret);
 	}
 
@@ -98,7 +97,7 @@ int main(void)
 {
 	char *c;
 
-	c = "ab";
-	ft_printf("Printy: %c \n", c);
-	printf("Printy: %c \n", c);
+	c = "What did you do to my unicorn?! \n";
+	ft_printf("Printy: %s \n", c);
+	printf("Printy: %s \n", c);
 }
