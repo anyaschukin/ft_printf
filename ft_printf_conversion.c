@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 17:48:07 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/02 16:02:52 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/02 18:00:13 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@ int	ft_printf_conversion(char *format, va_list *ap, t_print arg)
 
 	if (*format == 'd' || *format == 'i')
 	{
-		nb = va_arg(*ap, int);
-		ft_putnbr(nb);
+		if (nb < -2147483647 || nb > 2147483647)
+			return (-1);
+		else
+		{
+			nb = va_arg(*ap, int);
+			ft_putnbr(nb);
+		}
 	}
 	if (*format == 'c')
 	{
@@ -31,7 +36,7 @@ int	ft_printf_conversion(char *format, va_list *ap, t_print arg)
 	}
 	if (*format == 's')
 	{
-		str = (unsigned char) va_arg(*ap, int);
+		str = va_arg(*ap, char *);
 		ft_putstr(str);
 	}
 	return (0);
