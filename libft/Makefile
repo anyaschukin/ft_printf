@@ -6,7 +6,7 @@
 #    By: aschukin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 17:33:54 by aschukin          #+#    #+#              #
-#    Updated: 2017/11/28 18:40:03 by aschukin         ###   ########.fr        #
+#    Updated: 2018/02/07 16:28:36 by aschukin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS = ft_atoi.c \
 	   ft_isdigit.c \
 	   ft_isprint.c \
 	   ft_itoa.c \
+	   ft_itoa_base.c \
 	   ft_lstadd.c \
 	   ft_lstcount.c \
 	   ft_lstdel.c \
