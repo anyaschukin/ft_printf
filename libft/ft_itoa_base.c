@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 14:31:42 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/07 16:26:23 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/07 16:27:37 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static int	ft_count_base(int num, int base)
 
 char	*ft_itoa_base(int num, int base)
 {
+	// cast int in long long?
 	char	*str;
 	int		count;
 	int		i;
