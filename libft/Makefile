@@ -6,7 +6,7 @@
 #    By: aschukin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 17:33:54 by aschukin          #+#    #+#              #
-#    Updated: 2018/02/07 16:28:36 by aschukin         ###   ########.fr        #
+#    Updated: 2018/02/12 13:38:31 by aschukin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,12 +41,14 @@ SRCS = ft_atoi.c \
 	   ft_memset.c \
 	   ft_putchar.c \
 	   ft_putchar_fd.c \
+	   ft_putwchar.c \
 	   ft_putendl.c \
 	   ft_putendl_fd.c \
 	   ft_putnbr.c \
 	   ft_putnbr_fd.c \
 	   ft_putstr.c \
 	   ft_putstr_fd.c \
+	   ft_putwstr.c \
 	   ft_strcapitalize.c \
 	   ft_strcat.c \
 	   ft_strlcat.c \
@@ -77,6 +79,7 @@ SRCS = ft_atoi.c \
 	   ft_strtrim.c \
 	   ft_tolower.c \
 	   ft_toupper.c \
+	   ft_utoa_base.c \
 
 FLAGS = -Wall -Werror -Wextra
 
