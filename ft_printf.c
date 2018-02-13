@@ -23,7 +23,7 @@ static int	ft_printf_parse(char **format, va_list *ap, t_print *arg)
 	(*format)++;
 	if (format == '\0')
 		return (-1);
-	/*if (ft_check_flag(format, arg) == NULL)
+	/*if (ft_check_flags(format, arg) == NULL)
 		return (-1);
 	if (ft_check_width(format, ap, arg) == NULL)
 		return (-1);

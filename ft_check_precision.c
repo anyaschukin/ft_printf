@@ -15,27 +15,22 @@
 
 void	ft_check_precision(char *format, va_list *ap, t_print *arg)
 {
-	int ret;
 	char *cpy;
+	unsigned long long i;
 
-	ret = 0;
+	i = 0;
 	cpy = (char *)format; // cast to prevent const char warnings
-	if (*cpy == '.')
+	cpy[i] = '.' ? arg->precision_field = 1 : 0;
+	cpy[i] = '.' ? i++ : 0; 
+	while (cpy[i] >= '0' && cpy[i] <= '9')
 	{
-		arg->precision_field = 1;
-		cpy++;
-		while(*cpy && ft_strchr("012345689", *cpy) != NULL)
-		{
-			
-			// could do a strcat for each digit of cpy that's a number
-			// then to an atoi and save in arg->precision
-			// but is there a more elegant way?
-		}
-//		while (ft_isdigit(*format))
-//		{
-//			
-//			arg->precision = va_arg(*ap, int);
-//			(*format)++;
-//		}
+		arg->precision = arg->precision * 10 + (cpy[i] - 48);
+		i++;
 	}
-}
+	if (arg->precision > INT_MAX || arg->precision < 0)
+	{
+		arg->precision_field = 0;
+		arg->precision = 0;
+	}
+	return (n * sign);
+
