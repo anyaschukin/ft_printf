@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 13:19:35 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/02 14:32:55 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/16 15:51:23 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FT_PRINTF_H
@@ -40,67 +40,53 @@ typedef struct s_print
 		h,
 		j,
 		l,
-		L,
 		ll,
-		t,
-		w,
 		z,
-	} size;
+	} length;
 
 	size_t index;
 	char buf[BUFF_SIZE];
 }				t_print;
 
-
 /*
-**	Conversion Character Functions
+** ft_printf Functions
 */
 
+int		ft_printf(const char *format, ...);
+int		ft_printf_conversion(char *format, va_list *ap, t_print arg);
+size_t	ft_check_flags(const char *format, t_print *arg);
+size_t	ft_check_width(char *format, va_list *ap, t_print *arg);
+size_t	ft_check_precision(char *format, va_list *ap, t_print *arg);
+size_t	ft_check_length(const char *format, t_print *arg);
+intmax_t	ft_length_conversion(intmax_t nb, t_print *arg);
+uintmax_t	ft_ulength_conversion(uintmax_t nb, t_print *arg);
+
+
 /*
+** Conversion Character Functions
+*/
 
 typedef struct s_funct
 {
-		char *(*ptrfunct)(va_list ap, char format);
-		char spot;
-}				t_funct;
+		void (*ptrfunct)(char *, va_list *, t_print);
+		char flag;
+}	t_funct;
 
-t_funct g_tab[] =
-{
-	{&print_d, 'd'},
-	{&print_i, 'i'},  // same function as for 'd', so you can just recycle that function
-	{&print_u, 'u'},
-	{&print_s, 's'},
-	{&print_S, 'S'},
-	{&print_c, 'c'},
-	{&print_m, 'm'},
-	{&print_b, 'b'},
-	{&print_x, 'x'},
-	{&print_X, 'X'},
-	{&print_p, 'p'},
-	{NULL, -1}
-}
+void	flag_c(char *format, va_list *ap, t_print arg);
+void	flag_d(char *format, va_list *ap, t_print arg);
+void	flag_i(char *format, va_list *ap, t_print arg);
+void	flag_o(char *format, va_list *ap, t_print arg);
+void	flag_p(char *format, va_list *ap, t_print arg);
+void	flag_s(char *format, va_list *ap, t_print arg);
+void	flag_u(char *format, va_list *ap, t_print arg);
+void	flag_x(char *format, va_list *ap, t_print arg);
 
-va_list       print_d(va_arg ap, int);
-va_list       print_i(va_arg ap, int);
-va_list       print_u(va_arg ap, int);
-va_list       print_s(va_arg ap, char *);
-va_list       print_S(va_arg ap, char *);
-va_list       print_c(va_arg ap, int);
-va_list       print_m(va_arg ap, int);
-va_list       print_b(va_arg ap, int);
-va_list       print_x(va_arg ap, int);
-va_list       print_X(va_arg ap, int);
-va_list       print_p(va_arg ap, int);
+void	flag_cap_C(char *format, va_list *ap, t_print arg);
+void	flag_cap_D(char *format, va_list *ap, t_print arg);
+void	flag_cap_O(char *format, va_list *ap, t_print arg);
+void	flag_cap_S(char *format, va_list *ap, t_print arg);
+void	flag_cap_U(char *format, va_list *ap, t_print arg);
+void	flag_cap_X(char *format, va_list *ap, t_print arg);
 
-
-*/
-
-/*
-**	ft_printf Functions
-**
-*/
-
-int ft_printf(const char *format, ...);
-int ft_printf_conversion(char *format, va_list *ap, t_print arg);
 
 #endif

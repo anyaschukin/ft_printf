@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_flag.c                                    :+:      :+:    :+:   */
+/*   flag_x.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/11 18:39:14 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/14 17:43:29 by aschukin         ###   ########.fr       */
+/*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
+/*   Updated: 2018/02/14 16:15:37 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdarg.h>
 
-static int	is_flag(char c)
+void	flag_x(char *format, va_list *ap, t_print arg)
 {
-	return (c == '-' || c == '+' || c == '0' || c == ' ' || c == '#');
-}
+	unsigned long long nb;
 
-size_t	ft_check_flags(const char *format, t_print *arg)
-{
-	int i;
-	
-	while (is_flag(format[i]))
-	{
-		format[i] == '-' ? arg->isdash = 1 : 0;
-		format[i] == '+' ? arg->isplus = 1 : 0;
-		format[i] == '0' ? arg->iszero = 1 : 0;
-		format[i] == ' ' ? arg->isspace = 1 : 0;
-		format[i] == '#' ? arg->ishash = 1 : 0;
-		i++;
-	}
-	return (i);
+	nb = va_arg(*ap, unsigned long long);
+	ft_putnbr(*ft_utoa_base(nb, 16));
 }

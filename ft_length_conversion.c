@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_flag.c                                    :+:      :+:    :+:   */
+/*   ft_length_conversion.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/11 18:39:14 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/14 17:43:29 by aschukin         ###   ########.fr       */
+/*   Created: 2018/02/15 14:17:59 by aschukin          #+#    #+#             */
+/*   Updated: 2018/02/15 15:21:19 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	is_flag(char c)
+intmax_t	ft_length_conversion(intmax_t nb, t_print *arg)
 {
-	return (c == '-' || c == '+' || c == '0' || c == ' ' || c == '#');
-}
-
-size_t	ft_check_flags(const char *format, t_print *arg)
-{
-	int i;
-	
-	while (is_flag(format[i]))
-	{
-		format[i] == '-' ? arg->isdash = 1 : 0;
-		format[i] == '+' ? arg->isplus = 1 : 0;
-		format[i] == '0' ? arg->iszero = 1 : 0;
-		format[i] == ' ' ? arg->isspace = 1 : 0;
-		format[i] == '#' ? arg->ishash = 1 : 0;
-		i++;
-	}
-	return (i);
+	if (arg->length == 1)
+		nb = nb;
+	else if (arg->length == 2)
+		nb = (char)nb;
+	else if (arg->length == 3)
+		nb = (short)nb;
+	else if (arg->length == 4)
+		nb = (intmax_t)nb;
+	else if (arg->length == 5)
+		nb = (long)nb;
+	else if (arg->length == 6)
+		nb = (long long)nb;
+	else if (arg->length == 7)
+		nb = (size_t)nb;
+	return (nb);
 }
