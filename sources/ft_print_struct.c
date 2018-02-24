@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 20:41:53 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/22 20:46:10 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/24 16:20:30 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	ft_print_struct(t_print *arg)
 	printf("Hash: %u\n", arg->ishash);
 	printf("Width Field: %u\n", arg->width_field);
 	printf("Width: %u\n", arg->width);
-	printf("Precision Field: %u\n", arg->precision_field);
-	printf("Precision: %u\n", arg->precision);
+	printf("Precision Field: %d\n", arg->precision_field);
+	printf("Precision: %d\n", arg->precision);
+	printf("Length: %d\n", arg->length);
 
 }

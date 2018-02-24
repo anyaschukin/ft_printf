@@ -6,8 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/23 17:58:31 by aschukin         ###   ########.fr       */
-
+/*   Updated: 2018/02/24 17:18:47 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +14,19 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-static size_t	ft_printf_parse(char **format, va_list *ap, t_print *arg)
+static size_t	ft_printf_parse(char **format, va_list *ap, t_print *arg, size_t i)
 {
-	size_t i;
-
-	i = 0;
 //	(*format)++;
 	if (format == '\0')
 		return (-1);
 	ft_init_struct(arg);
 	i = (ft_check_flags(*format, arg, i));
-	//	return (-1);
-//	if (!(ft_check_width(*format, arg, i)))
+	i = (ft_check_width(*format, arg, i));
+	i = (ft_check_precision(*format, arg, i));
+	i = (ft_check_length(*format, arg, i));
+	i = (ft_check_errors(*format, arg, i));
 //		return (-1);
-//	if (!(ft_check_precision(*format, arg)))
-//		return (-1);
-//	if (!(ft_check_length(*format, arg)))
-//		return (-1);
-//	if (!(ft_check_errors(*format, arg)))
-//		return (-1);
-	i += ft_printf_conversion(*format, ap, arg, i);
+	i = ft_printf_conversion(*format, ap, arg, i);
 	return (i);
 }
 
@@ -44,26 +36,25 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 	t_print arg;
 	size_t	i;
 
+	i = 0;
 	ft_bzero(&arg, sizeof(arg));
 	ft_memset(buf, 0, BUFF_SIZE - 1);
-	while(*format)
+	while(format[i])
 	{
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			format++;
+			i++;
 			//ft_printf_buffer(format, buf); // put memset in here?
-			ft_printf_parse((char **)&format, ap, &arg);
-			format++;
+			i = ft_printf_parse((char **)&format, ap, &arg, i);
+			printf("\n 4 precision_field = %d\n", arg.precision_field);
 		}
 		else
 		{
-			ft_putchar(*format);
-			format++;
+			ft_putchar(format[i]);
+			i++;
 		}
-//		i++;
 	}
 	ft_print_struct(&arg);
-	printf("Index: %zu\n", i);
 	return (i);
 }
 

@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 13:19:35 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/23 16:25:13 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/24 17:18:44 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FT_PRINTF_H
@@ -58,8 +58,8 @@ size_t	ft_init_struct(t_print *arg);
 size_t	ft_check_flags(char *format, t_print *arg, size_t i);
 size_t	ft_check_width(char *format, t_print *arg, size_t i);
 size_t	ft_check_precision(char *format, t_print *arg, size_t i);
-size_t	ft_check_length(const char *format, t_print *arg);
-size_t	ft_check_errors(const char *format, t_print *arg);
+size_t	ft_check_length(const char *format, t_print *arg, size_t i);
+size_t	ft_check_errors(const char *format, t_print *arg, size_t i);
 intmax_t	ft_length_conversion(intmax_t nb, t_print *arg);
 uintmax_t	ft_ulength_conversion(uintmax_t nb, t_print *arg);
 
@@ -80,7 +80,7 @@ typedef struct s_funct
 */
 
 int	flag_c(char *format, va_list *ap, t_print *arg);
-int	flag_d(char *format, va_list *ap, t_print *arg, size_t i);
+void	flag_d(char *format, va_list *ap, t_print *arg);
 int	flag_i(char *format, va_list *ap, t_print *arg);
 int	flag_o(char *format, va_list *ap, t_print *arg);
 int	flag_p(char *format, va_list *ap, t_print *arg);

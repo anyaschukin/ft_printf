@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/21 16:44:28 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/23 17:54:00 by aschukin         ###   ########.fr       */
+/*   Created: 2018/02/24 11:52:36 by aschukin          #+#    #+#             */
+/*   Updated: 2018/02/24 16:47:27 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 int	main(void)
 {
 	char	*c;
-	int		i;
+	int		x;
 
 	c = "What did you do to my unicorn?! \n";
-	i = 123;
-	ft_printf("ft_printf: %+d\n", i);
-	printf("printf: %+d\n", i);
+	x = 123456;
+	ft_printf("ft_printf: %+2.11d\n", x);
+	//printf("printf: %2.11hd\n", x);
 	return (0);
 }

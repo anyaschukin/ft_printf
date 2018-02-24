@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 18:39:49 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/21 18:29:37 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/24 17:54:49 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,27 @@
 
 static int	what_length(char c)
 {
-	return (c == 'h' || c == 'j' || c == 'l' || c == 'L' || \
-			c == 't' || c == 'w' || c == 'z');
+	return (c == 'h' || c == 'j' || c == 'l'|| c == 'z');
 }
 
-size_t	ft_check_length(const char *format, t_print *arg)
+size_t	ft_check_length(const char *format, t_print *arg, size_t i)
 {
-	int i;
-
-	i = 0;
 	while (what_length(format[i]))
 	{
-		format[i] == 'h' ? arg->length = 1 : 0;
-		format[i] == 'j' ? arg->length = 1 : 0;
-		format[i] == 'l' ? arg->length = 1 : 0;
-		format[i] == 'L' ? arg->length = 1 : 0;
-		format[i] == 't' ? arg->length = 1 : 0;
-		format[i] == 't' ? arg->length = 1 : 0;
-		format[i] == 'w' ? arg->length = 1 : 0;
-		format[i] == 'z' ? arg->length = 1 : 0;
+		format[i] == 'h' ? arg->length = h : 0;
+		format[i] == 'j' ? arg->length = j : 0;
+		format[i] == 'l' ? arg->length = l : 0;
+		format[i] == 'z' ? arg->length = z : 0;
+		if (format[i] == 'h' && format[i + 1] == 'h')
+		{
+			arg->length = hh;
+			i++;
+		}
+		if (format[i] == 'l' && format[i + 1] == 'l')
+		{
+			arg->length = ll;
+			i++;
+		}
 		i++;
 	}
 	return (i);
