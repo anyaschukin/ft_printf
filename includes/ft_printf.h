@@ -57,7 +57,7 @@ size_t		ft_printf_conversion(char *format, va_list *ap, t_print *arg, size_t i);
 size_t	ft_init_struct(t_print *arg);
 size_t	ft_check_flags(char *format, t_print *arg, size_t i);
 size_t	ft_check_width(char *format, t_print *arg, size_t i);
-size_t	ft_check_precision(char *format, t_print *arg);
+size_t	ft_check_precision(char *format, t_print *arg, size_t i);
 size_t	ft_check_length(const char *format, t_print *arg);
 size_t	ft_check_errors(const char *format, t_print *arg);
 intmax_t	ft_length_conversion(intmax_t nb, t_print *arg);
