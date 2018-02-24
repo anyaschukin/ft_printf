@@ -17,25 +17,23 @@
 
 size_t	ft_check_width(char *format, t_print *arg, size_t i)
 {
-	char	*cpy;
-	int		multi;
-	size_t	ret;
+	int	multi;
+	size_t	tmp;
 
-	ret = i;
-	printf("two ");
-	printf("%zu ", i);
+	multi = 1;
+	tmp = i;
 //	cpy = (char *)format; // cast to prevent const char warnings
 	if (format[i] <= '0' || format[i] >= '9')
 		return (i);
-	printf("three ");
+//	while (format[i] >= '0' || format[i] <= '9')
+//		i++;
 	while (format[i] >= '0' || format[i] <= '9')
-		i++;
-	while (i > ret)
 	{
+		tmp++;
 		arg->width = arg->width + (format[--i] - 48) * multi;
 		multi *= 10;
 	}
 	if (arg->width > INT_MAX || arg->width <= 0)
 		arg->width = 0;
-	return (i);
+	return (tmp);
 }

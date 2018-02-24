@@ -14,24 +14,23 @@
 #include <stdarg.h>
 #include <limits.h>
 
-size_t	ft_check_precision(char *format, t_print *arg)
+size_t	ft_check_precision(char *format, t_print *arg, size_t i)
 {
-	char		*cpy;
-	int			i;
+//	char		*cpy;
 	size_t		ret;
 
-	i = 0;
-	ret = i;
-	cpy = (char *)format; // cast to prevent const char warnings
-	cpy[i] = '.' ? arg->precision_field = 1 : 0;
-//	cpy[i] = '.' ? i++ : 0;
-	if (cpy[i] == '.')
+//	i = 0;
+//	ret = i;
+//	cpy = (char *)format; // cast to prevent const char warnings
+	format[i] = '.' ? arg->precision_field = 1 : 0;
+//	format[i] = '.' ? i++ : 0;
+	if (format[i] == '.')
 		i++;
 //	if (!(ft_isdigit(cpy[i])))
 //		arg->precision_field = 0;
-	while (cpy[i] >= '0' && cpy[i] <= '9')
+	while (format[i] >= '0' && format[i] <= '9')
 	{
-		arg->precision = arg->precision * 10 + (cpy[i] - 48);
+		arg->precision = arg->precision * 10 + (format[i] - 48);
 		i++;
 	}
 	if (arg->precision > INT_MAX || arg->precision <= 0)
