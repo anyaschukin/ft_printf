@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 16:29:59 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/07 18:10:12 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/22 16:05:29 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_utoa_base(uintmax_t num, int base)
 	return (str);
 }
 
-int	main()
+/*int	main()
 {
 	unsigned long long num;
 	int base;
@@ -62,4 +62,4 @@ int	main()
 	base = 8;
 	printf("%s\n", ft_utoa_base(num, base));
 	return (0);
-}
+}*/
