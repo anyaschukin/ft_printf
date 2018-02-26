@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:56:29 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/24 18:50:56 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/26 17:55:19 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,5 @@ size_t	ft_check_errors(const char *format, t_print *arg, size_t i)
 	precision_err
 	length_err
 */
-	
-	
 	return (i);
 }

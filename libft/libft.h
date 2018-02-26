@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:49:26 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/12 13:46:49 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/25 17:09:58 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int					ft_count(int num);
 void				ft_putchar(char c);
 void				ft_putwchar(wchar_t c);
 void				ft_putstr(char const *s);
-void				ft_putwstr(char *s);
+void				ft_putwstr(wchar_t *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
