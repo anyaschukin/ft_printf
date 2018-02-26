@@ -6,7 +6,7 @@
 #    By: aschukin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/26 10:27:55 by aschukin          #+#    #+#              #
-#    Updated: 2018/02/23 16:17:08 by aschukin         ###   ########.fr        #
+#    Updated: 2018/02/26 13:26:37 by aschukin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,13 @@ NAME = libftprintf.a
 
 SRC_PATH = sources
 SRC_NAME = ft_printf.c \
-			ft_check_flags.c ft_check_length.c \
-			ft_check_precision.c ft_check_width.c ft_length_conversion.c \
-			ft_check_errors.c ft_init_struct.c \
-			ft_pointer_address.c ft_printf_conversion.c ft_put_wchar.c \
+			ft_init_struct.c ft_check_flags.c ft_check_length.c \
+			ft_check_precision.c ft_check_width.c ft_check_errors.c \
+			ft_length_conversion.c ft_ulength_conversion.c \
+			ft_printf_conversion.c \
 			flag_c.c flag_d.c flag_p.c flag_o.c flag_s.c flag_u.c flag_x.c \
-			flag_capx.c \
+			flag_capx.c ft_pointer_address.c \
+			ft_putwchar.c ft_putwstr.c \
 			ft_print_struct.c
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 

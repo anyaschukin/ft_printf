@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 17:48:07 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/24 17:56:55 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/26 17:55:14 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@
 
 size_t	ft_printf_conversion(char *format, va_list *ap, t_print *arg, size_t i)
 {
-	format[i] == 'c' ? flag_c(format, ap, arg) : 0;
-	format[i] == 'C' ? flag_c(format, ap, arg) : 0;
-	format[i] == 'd' ? flag_d(format, ap, arg) : 0;
-	format[i] == 'D' ? flag_d(format, ap, arg) : 0;
-	format[i] == 'i' ? flag_d(format, ap, arg) : 0;
-	format[i] == 'o' ? flag_o(format, ap, arg) : 0;
-	format[i] == 'O' ? flag_o(format, ap, arg) : 0;
-	format[i] == 'p' ? flag_p(format, ap, arg) : 0;
-	format[i] == 's' ? flag_s(format, ap, arg) : 0;
-	format[i] == 'S' ? flag_s(format, ap, arg) : 0;
-	format[i] == 'u' ? flag_u(format, ap, arg) : 0;
-	format[i] == 'U' ? flag_u(format, ap, arg) : 0;
-	format[i] == 'x' ? flag_x(format, ap, arg) : 0;
-	format[i] == 'X' ? flag_x(format, ap, arg) : 0;
+	format[i] == 'c' ? flag_c(format, ap, arg, i) : 0;
+	format[i] == 'C' ? flag_c(format, ap, arg, i) : 0;
+	format[i] == 'd' ? flag_d(format, ap, arg, i) : 0;
+	format[i] == 'D' ? flag_d(format, ap, arg, i) : 0;
+	format[i] == 'i' ? flag_d(format, ap, arg, i) : 0;
+	format[i] == 'o' ? flag_o(format, ap, arg, i) : 0;
+	format[i] == 'O' ? flag_o(format, ap, arg, i) : 0;
+	format[i] == 'p' ? flag_p(format, ap, arg, i) : 0;
+	format[i] == 's' ? flag_s(format, ap, arg, i) : 0;
+	format[i] == 'S' ? flag_s(format, ap, arg, i) : 0;
+	format[i] == 'u' ? flag_u(format, ap, arg, i) : 0;
+	format[i] == 'U' ? flag_u(format, ap, arg, i) : 0;
+	format[i] == 'x' ? flag_x(format, ap, arg, i) : 0;
+	format[i] == 'X' ? flag_x(format, ap, arg, i) : 0;
 	i++;
 	return (i);
 }

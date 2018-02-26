@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 13:19:35 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/24 17:18:44 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/26 17:55:12 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FT_PRINTF_H
@@ -33,16 +33,16 @@ typedef struct s_print
 	unsigned int precision;
 
 	char converter;
-
+	// need padding?
 	enum
 	{
-		none,
-		hh,
-		h,
-		j,
-		l,
-		ll,
-		z,
+		none, // 1
+		hh,   // 2
+		h,    // 3
+		j,    // 4
+		l,    // 5
+		ll,   // 6
+		z,    // 7
 	} length;
 
 	size_t index;
@@ -52,6 +52,7 @@ typedef struct s_print
 /*
 ** ft_printf Functions
 */
+
 size_t		ft_printf(const char *format, ...);
 size_t		ft_printf_conversion(char *format, va_list *ap, t_print *arg, size_t i);
 size_t	ft_init_struct(t_print *arg);
@@ -79,16 +80,25 @@ typedef struct s_funct
 }	t_funct;
 */
 
-int	flag_c(char *format, va_list *ap, t_print *arg);
-void	flag_d(char *format, va_list *ap, t_print *arg);
-int	flag_i(char *format, va_list *ap, t_print *arg);
-int	flag_o(char *format, va_list *ap, t_print *arg);
-int	flag_p(char *format, va_list *ap, t_print *arg);
-int	flag_s(char *format, va_list *ap, t_print *arg);
-int	flag_u(char *format, va_list *ap, t_print *arg);
-int	flag_x(char *format, va_list *ap, t_print *arg);
+void	flag_c(char *format, va_list *ap, t_print *arg, size_t i);
+void	flag_d(char *format, va_list *ap, t_print *arg, size_t i);
+void	flag_i(char *format, va_list *ap, t_print *arg, size_t i);
+void	flag_o(char *format, va_list *ap, t_print *arg, size_t i);
+void	flag_p(char *format, va_list *ap, t_print *arg, size_t i);
+void	flag_s(char *format, va_list *ap, t_print *arg, size_t i);
+void	flag_u(char *format, va_list *ap, t_print *arg, size_t i);
+void	flag_x(char *format, va_list *ap, t_print *arg, size_t i);
 
-int	flag_capx(char *format, va_list *ap, t_print *arg);
+void	flag_capx(char *format, va_list *ap, t_print *arg, size_t i);
+
+
+/*
+**
+*/
+
+void	ft_putwchar(wchar_t c);
+void	ft_putwstr(wchar_t *wstr);
+
 
 
 #endif

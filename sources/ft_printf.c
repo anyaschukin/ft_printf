@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/24 17:18:47 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/26 17:55:21 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@
 static size_t	ft_printf_parse(char **format, va_list *ap, t_print *arg, size_t i)
 {
 //	(*format)++;
-	if (format == '\0')
-		return (-1);
-	ft_init_struct(arg);
-	i = (ft_check_flags(*format, arg, i));
-	i = (ft_check_width(*format, arg, i));
-	i = (ft_check_precision(*format, arg, i));
-	i = (ft_check_length(*format, arg, i));
-	i = (ft_check_errors(*format, arg, i));
-//		return (-1);
+	while (!(ft_strchr("cCdDioOpsSuUxX", **format)) || **format != '\0')
+	{
+		i = (ft_check_flags(*format, arg, i));
+		i = (ft_check_width(*format, arg, i));
+		i = (ft_check_precision(*format, arg, i));
+		i = (ft_check_length(*format, arg, i));
+		i = (ft_check_errors(*format, arg, i));
+		(*format)++;
+		i++;
+	}
 	i = ft_printf_conversion(*format, ap, arg, i);
 	return (i);
 }
@@ -44,12 +45,14 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 		if (format[i] == '%')
 		{
 			i++;
-			//ft_printf_buffer(format, buf); // put memset in here?
+			ft_init_struct(&arg);
 			i = ft_printf_parse((char **)&format, ap, &arg, i);
-			printf("\n 4 precision_field = %d\n", arg.precision_field);
+		// if (ret == -1 || ret == '\0')
+		//		break;     >> this way, if there is an error mid-parsing OR you reach the end of the string, break!
 		}
 		else
 		{
+			//ft_printf_buffer(format, buf); // put memset in here?
 			ft_putchar(format[i]);
 			i++;
 		}
