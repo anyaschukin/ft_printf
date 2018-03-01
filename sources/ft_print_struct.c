@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 20:41:53 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/24 16:20:30 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/01 18:02:51 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 void	ft_print_struct(t_print *arg)
 {
+	printf("\n");
 	printf("Dash: %u\n", arg->isdash);
 	printf("Plus: %u\n", arg->isplus);
 	printf("Zero: %u\n", arg->iszero);
@@ -25,5 +26,6 @@ void	ft_print_struct(t_print *arg)
 	printf("Precision Field: %d\n", arg->precision_field);
 	printf("Precision: %d\n", arg->precision);
 	printf("Length: %d\n", arg->length);
-
+	printf("i: %d\n", arg->i);
+	printf("Origial format: %s\n", arg->format);
 }

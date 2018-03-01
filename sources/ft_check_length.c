@@ -17,25 +17,25 @@ static int	what_length(char c)
 	return (c == 'h' || c == 'j' || c == 'l'|| c == 'z');
 }
 
-size_t	ft_check_length(const char *format, t_print *arg, size_t i)
+size_t	ft_check_length(t_print *arg)
 {
-	while (what_length(format[i]))
+	while (what_length(arg->format[arg->i]))
 	{
-		format[i] == 'h' ? arg->length = h : 0;
-		format[i] == 'j' ? arg->length = j : 0;
-		format[i] == 'l' ? arg->length = l : 0;
-		format[i] == 'z' ? arg->length = z : 0;
-		if (format[i] == 'h' && format[i + 1] == 'h')
+		arg->format[arg->i] == 'h' ? arg->length = h : 0;
+		arg->format[arg->i] == 'j' ? arg->length = j : 0;
+		arg->format[arg->i] == 'l' ? arg->length = l : 0;
+		arg->format[arg->i] == 'z' ? arg->length = z : 0;
+		if (arg->format[arg->i] == 'h' && arg->format[arg->i + 1] == 'h')
 		{
 			arg->length = hh;
-			i++;
+			arg->i++;
 		}
-		if (format[i] == 'l' && format[i + 1] == 'l')
+		if (arg->format[arg->i] == 'l' && arg->format[arg->i + 1] == 'l')
 		{
 			arg->length = ll;
-			i++;
+			arg->i++;
 		}
-		i++;
+		arg->i++;
 	}
-	return (i);
+	return (arg->i);
 }

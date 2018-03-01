@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 16:38:07 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/26 17:03:18 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/28 14:58:00 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "limits.h"
 #include "stdint.h"
 #include "locale.h"
+#include <stdio.h>
 
 int	main()
 {
@@ -62,12 +63,12 @@ int	main()
 
 	//FLAG_d
 	//ret += ft_printf("1 @moulitest: %.d %.0d\n", 0, 0);
-	//comp += printf("1 @moulitest: %.d %.	0d\n", 0, 0);
+	comp += printf("1 @moulitest: %.d %.0d\n", 0, 0);
 	//ret += ft_printf("@moulitest: %5.d %5.0d\n", 0, 0);
-	//comp += printf("@moulitest: %5.d %5.0d\n", 0, 0);
+	comp += printf("@moulitest: %5.d %5.0d\n", 0, 0);
 	//ft_printf("%d", 1);
 	//ret += ft_printf("the %d\n", 1);
-	//comp += printf("the %d\n", 1);
+	comp += printf("the %d\n", 1);
 	//ret += ft_printf("%d is one\n", 1);
 	//comp += printf("%d is one\n", 1);
 	//ft_printf("%d", 1);
@@ -75,19 +76,19 @@ int	main()
 	//ft_printf("%d", 4242);
 	//ft_printf("%d", 2147483647);
 	//ret+= ft_printf("10 %d\n", 2147483648);
-	//comp += printf("10 %d\n", 2147483648);
+	comp += printf("10 %d\n", 2147483648);
 	//ft_printf("%d", 2147483648);
 	//ret += ft_printf("%d\n", 2147483649);
-	//comp += printf("%d\n", 2147483649);
+	comp += printf("%d\n", 2147483649);
 	//ft_printf("% d", 42);
 	//ret += ft_printf("% d\n", -42);
-	//comp += printf("% d\n", -42);
+	comp += printf("% d\n", -42);
 	//ft_printf("%+d", 42);
 	//ft_printf("%+d", 42);
 	//ret += ft_printf("%+d\n", 0);
-	//comp += printf("%+d\n", 0);
+	comp += printf("%+d\n", 0);
 	//ret += ft_printf("%+lld\n", 4242424242424242424242);
-	//comp += printf("%+lld\n", 4242424242424242424242);
+	comp += printf("%+lld\n", 4242424242424242424242);
 	//ft_printf("% +d", 42);
 	//ft_printf("% +d", 42);
 	//ft_printf("%+ d", 42);
@@ -99,7 +100,7 @@ int	main()
 	//ft_printf("%+  d", 42);
 	//ft_printf("%+  d",42);
 	//ret += ft_printf("% ++d\n", 42);
-	//comp += printf("% ++d\n", 42);
+	comp += printf("% ++d\n", 42);
 	//ft_printf("% ++d", 42);
 	//ft_printf("%++ d", 42);
 	//ft_printf("30 %++ d", 42);
@@ -108,7 +109,7 @@ int	main()
 	//ft_printf("%5d", 42);
 	//ft_printf("%05d", 42);
 	//ret += ft_printf("%0+5d\n", 42);
-	//comp += printf("%0+5d\n", 42);
+	comp += printf("%0+5d\n", 42);
 	//ft_printf("%5d", 42);
 	//ft_printf("%05d", 42);
 	//ft_printf("%0+5d", 42);
@@ -117,50 +118,50 @@ int	main()
 	//ft_printf("%5d", 42);
 	//ft_printf("%05d", 42);
 	//ret += ft_printf("%hd\n", 32767);
-	//comp += printf("%hd\n", 32767);
+	comp += printf("%hd\n", 32767);
 	//ret += ft_printf("%hd\n", -32768);
-	//comp += printf("%hd\n", -32768);
+	comp += printf("%hd\n", -32768);
 	//ret += ft_printf("%hd\n", 32768);
-	//comp += printf("%hd\n", 32768);
+	comp += printf("%hd\n", 32768);
 	//ret += ft_printf("%hd\n", -32769);
-	//comp += printf("%hd\n", -32769);
+	comp += printf("%hd\n", -32769);
 	//ret += ft_printf("%hhd\n", 127);
-	//comp += printf("%hhd\n", 127);
+	comp += printf("%hhd\n", 127);
 	//ret += ft_printf("%hhd\n", 128);
-	//comp += printf("%hhd\n", 128);
+	comp += printf("%hhd\n", 128);
 	//ret += ft_printf("%hhd\n", 129);
-	//comp += printf("%hhd\n", 129);
+	comp += printf("%hhd\n", 129);
 	//ret += ft_printf("%ld\n", 2147483647);
-	//comp += printf("%ld\n", 2147483647);
+	comp += printf("%ld\n", 2147483647);
 	//ret += ft_printf("%ld\n", 2147483648);
-	//comp += printf("%ld\n", 2147483648);
+	comp += printf("%ld\n", 2147483648);
 	//ret += ft_printf("%ld\n", 2147483649);
-	//comp += printf("%ld\n", 2147483649);
+	comp += printf("%ld\n", 2147483649);
 	//ret += ft_printf("%lld\n", 9223372036854775807);
-	//comp += printf("%lld\n", 9223372036854775807);
+	comp += printf("%lld\n", 9223372036854775807);
 	//ret = ft_printf("%lld\n",9223372036854775808);
-	//comp = printf("%lld\n", 9223372036854775808);
+	comp = printf("%lld\n", 9223372036854775808);
 	//ret += ft_printf("%jd\n", 9223372036854775807);
-	//comp += printf("%jd\n", 9223372036854775807);
+	comp += printf("%jd\n", 9223372036854775807);
 	//ret += ft_printf("%jd\n", -9223372036854775808);
-	//comp += printf("%jd\n", -9223372036854775808);
+	comp += printf("%jd\n", -9223372036854775808);
 	//ret += ft_printf("%jd\n", 9223372036854775808);
-	//comp += printf("%jd\n", 9223372036854775808);
+	comp += printf("%jd\n", 9223372036854775808);
 	//ret += ft_printf("%zd\n", 4294967295);
-	//comp += printf("%zd\n", 4294967295);
+	comp += printf("%zd\n", 4294967295);
 	//ret += ft_printf("%zd\n", 4294967296);
-	//comp += printf("%zd\n", 4294967296);
+	comp += printf("%zd\n", 4294967296);
 	//ret+= ft_printf("%zd\n", 0);
-	//comp += printf("%zd\n", 0);
+	comp += printf("%zd\n", 0);
 	//ret +=ft_printf("%zd\n", 1);
-	//comp += printf("%zd\n", 1);
+	comp += printf("%zd\n", 1);
 	//ft_printf("%d", 1);
 	//ft_printf("%d %d", 1, 2);
 	//ft_printf("%d %d %d", 1, 2, 33);
 	//ft_printf("%d %d %d %d", 1, 2, 33, 42);
 	//ft_printf("%d %d %d %d gg!", 1, 2, 33, 42, 0);
 	//ret += ft_printf("%4.15d\n", 42);
-	//comp += printf("%4.15d\n", 42);
+	comp += printf("%4.15d\n", 42);
 	//ft_printf("%.2d", 4242);
 	//ft_printf("80 %.10d", 4242);
 	//ft_printf("%10.5d", 4242);
@@ -174,12 +175,12 @@ int	main()
 	//ft_printf("@moulitest: %.10d", 42);
 	//ft_printf("%.d %.	0d", 42, 43);
 	//ret += ft_printf("%.d %.0d\n", 0, 0);
-	//comp += p	rintf("%.d %.0d\n", 0, 0);
+	comp += printf("%.d %.0d\n", 0, 0);
 	//ret += ft_printf("@moulitest: %5.d %5.0d\n", 0, 0);
-	//comp += printf("@moulitest: %5.d %5.0d\n", 0, 0);
-	//comp += printf("%5u\n", 4294967295);
+	comp += printf("@moulitest: %5.d %5.0d\n", 0, 0);
+	comp += printf("%5u\n", 4294967295);
 	//ret += ft_printf("%lu\n", -42);
-	//comp += printf("%lu\n", -42);
+	comp += printf("%lu\n", -42);
 	//
 	//FLAG_O
 	//

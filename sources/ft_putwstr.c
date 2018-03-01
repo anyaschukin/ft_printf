@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count.c                                         :+:      :+:    :+:   */
+/*   ft_putwstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 19:31:15 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/01 10:17:38 by aschukin         ###   ########.fr       */
+/*   Created: 2018/02/25 16:32:37 by aschukin          #+#    #+#             */
+/*   Updated: 2018/02/25 17:16:02 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
-size_t	ft_count(size_t num)
+// YOU HAVE THE SAME FUNCTION (WRITTEN DIFFERENTLY) IN YOUR LIBFT!!
+
+void	ft_putwstr(wchar_t *wstr)
 {
-	size_t count;
-
-	count = 0;
-	if (num <= 0)
-	{
-		count = count + 1;
-	}
-	while (num != 0)
-	{
-		count++;
-		num = num / 10;
-	}
-	return (count);
+	while (*wstr)
+		ft_putwchar(*wstr++);
 }

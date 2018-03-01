@@ -6,13 +6,13 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:46:48 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/22 19:58:07 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/25 16:49:13 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	flag_p(char *format, va_list *ap, t_print *arg)
+void	flag_p(va_list *ap, t_print *arg)
 {
 	int		nb;
 	int		len;
@@ -24,5 +24,5 @@ int	flag_p(char *format, va_list *ap, t_print *arg)
 	//ft_putstr("0x");
 	//ft_putstr(nbr	);
 	len = (int)ft_strlen(nbr);
-	return (len);
+//	return (len);
 }

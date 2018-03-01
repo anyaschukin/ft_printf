@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/24 11:52:36 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/26 13:25:24 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/01 18:10:50 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	main(void)
 {
 	char	c;
 	char	*str;
-	long	x;
+	int		d;
 
 	c = 'a';
 	str = "What did you do to my unicorn?! \n";
-	x = 123456;
-	ft_printf("ft_printf: %15.10ld\n", x);
-	printf("printf: %15.10ld\n", x);
+	d = 650;
+	ft_printf("ft_printf: %+10d\n", d);
+//printf("printf: %+10d\n", d);
 	return (0);
 }

@@ -6,19 +6,25 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:06:02 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/22 19:58:13 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/25 17:11:10 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include <stdarg.h>
 
-int	flag_s(char *format, va_list *ap, t_print *arg)
+void	flag_s(va_list *ap, t_print *arg)
 {
-	char *str;
-	int ret;
+	wchar_t *str;
 
-	str = va_arg(*ap, char *);
-	ft_putwstr(str);
-	return (ret);
+	if (arg->length == 5  && arg->format[arg->i] == 'S')
+	{
+		str = va_arg(*ap, wchar_t *);
+		ft_putwstr(str);
+	}
+	else
+	{
+		str = va_arg(*ap, wchar_t *);
+		ft_putstr((char *)str);
+	}
 }

@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_wchar.c                                     :+:      :+:    :+:   */
+/*   ft_putwchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/21 18:30:22 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/25 17:16:38 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	ft_put_wchar(wchar_t c)
+// YOU HAVE THE SAME FUNCTION (same writing maybe?) IN YOUR LIBFT!!
+
+void	ft_putwchar(wchar_t c)
 {
 	if (c <= 0x7F)
 	{

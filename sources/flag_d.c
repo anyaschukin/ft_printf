@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:58:38 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/26 17:55:17 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/01 18:25:26 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include <stdio.h>
 
 
-static intmax_t	length_d(char *format, va_list *ap, t_print *arg, size_t i)
+static intmax_t	length_d(va_list *ap, t_print *arg)
 {
-	if (arg->length == 2 && format[i] != 'D')
+	if (arg->length == 2 && arg->format[arg->i] != 'D')
 		return ((long long)((signed char)va_arg(*ap, int)));
-	else if (arg->length == 3 && format[i] != 'D')
+	else if (arg->length == 3 && arg->format[arg->i] != 'D')
 		return ((long long)((short int)va_arg(*ap, int)));
-	else if (arg->length == 5 || format[i] == 'D')
+	else if (arg->length == 5 || arg->format[arg->i] == 'D')
 		return ((long long)va_arg(*ap, long));
 	else if (arg->length == 6)
 		return ((long long)va_arg(*ap, long long));
@@ -33,22 +33,32 @@ static intmax_t	length_d(char *format, va_list *ap, t_print *arg, size_t i)
 		return (va_arg(*ap, int));
 }
 
-void	flag_d(char *format, va_list *ap, t_print *arg, size_t i)
+void	flag_d(va_list *ap, t_print *arg)
 {
 	long long	nb;
+	size_t		len;
 	int			ret; // add to i for final ret
 
-	nb = length_d(format, ap, arg, i);
+	nb = length_d(ap, arg);
+	len = ft_count(nb);
+/*	if (arg->isdash == 1)
+	{
+		(arg->isplus = 1 && nb > 0)? write(1, "+", 1) : 0;
+		ft_putnbr(nb); 
+	}*/
+	while ((arg->precision > len) && arg->precision-- > 0)
+	{
+		arg->iszero = 1? write (1, "0", 1) : write(1, " ", 1);
+	}
 	if (arg->isplus == 1 && nb > 0)
 	{
 		write(1, "+", 1);
-		ret++;
 	}
-	while ((arg->width > nb) && arg->width-- > 0)
+	ft_putnbr(nb);
+	while ((arg->width > len) && arg->width-- > 0)
 	{
 		arg->iszero = 1? write(1, "0", 1) : write(1, " ", 1);
-		ret++;
 	}
 //	ret += ft_strlen(nb);
-	ft_putnbr(nb);
+//ft_putnbr(nb);
 }

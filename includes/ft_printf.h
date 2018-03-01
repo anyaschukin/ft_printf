@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 13:19:35 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/26 17:55:12 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/01 16:54:28 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FT_PRINTF_H
@@ -33,6 +33,8 @@ typedef struct s_print
 	unsigned int precision;
 
 	char converter;
+	int	i;
+	const char *format;
 	// need padding?
 	enum
 	{
@@ -54,13 +56,13 @@ typedef struct s_print
 */
 
 size_t		ft_printf(const char *format, ...);
-size_t		ft_printf_conversion(char *format, va_list *ap, t_print *arg, size_t i);
+size_t		ft_printf_conversion(va_list *ap, t_print *arg);
 size_t	ft_init_struct(t_print *arg);
-size_t	ft_check_flags(char *format, t_print *arg, size_t i);
-size_t	ft_check_width(char *format, t_print *arg, size_t i);
-size_t	ft_check_precision(char *format, t_print *arg, size_t i);
-size_t	ft_check_length(const char *format, t_print *arg, size_t i);
-size_t	ft_check_errors(const char *format, t_print *arg, size_t i);
+size_t	ft_check_flags(t_print *arg);
+size_t	ft_check_width(t_print *arg);
+size_t	ft_check_precision(t_print *arg);
+size_t	ft_check_length(t_print *arg);
+size_t	ft_check_errors(t_print *arg);
 intmax_t	ft_length_conversion(intmax_t nb, t_print *arg);
 uintmax_t	ft_ulength_conversion(uintmax_t nb, t_print *arg);
 
@@ -80,16 +82,16 @@ typedef struct s_funct
 }	t_funct;
 */
 
-void	flag_c(char *format, va_list *ap, t_print *arg, size_t i);
-void	flag_d(char *format, va_list *ap, t_print *arg, size_t i);
-void	flag_i(char *format, va_list *ap, t_print *arg, size_t i);
-void	flag_o(char *format, va_list *ap, t_print *arg, size_t i);
-void	flag_p(char *format, va_list *ap, t_print *arg, size_t i);
-void	flag_s(char *format, va_list *ap, t_print *arg, size_t i);
-void	flag_u(char *format, va_list *ap, t_print *arg, size_t i);
-void	flag_x(char *format, va_list *ap, t_print *arg, size_t i);
+void	flag_c(va_list *ap, t_print *arg);
+void	flag_d(va_list *ap, t_print *arg);
+void	flag_i(va_list *ap, t_print *arg);
+void	flag_o(va_list *ap, t_print *arg);
+void	flag_p(va_list *ap, t_print *arg);
+void	flag_s(va_list *ap, t_print *arg);
+void	flag_u(va_list *ap, t_print *arg);
+void	flag_x(va_list *ap, t_print *arg);
 
-void	flag_capx(char *format, va_list *ap, t_print *arg, size_t i);
+void	flag_capx(va_list *ap, t_print *arg);
 
 
 /*

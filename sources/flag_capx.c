@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 14:07:27 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/22 19:57:45 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/02/25 17:12:30 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 // temorary function, everything within brackets is nonsense
 
-int	flag_capx(char *format, va_list *ap, t_print *arg)
+void	flag_capx(va_list *ap, t_print *arg)
 {
-	char *str;
-	int ret;
+	wchar_t *str;
 
-	str = va_arg(*ap, char *);
+	str = va_arg(*ap, wchar_t *);
 	ft_putwstr(str);
-	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 17:48:07 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/26 17:55:14 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/01 16:52:21 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-size_t	ft_printf_conversion(char *format, va_list *ap, t_print *arg, size_t i)
+size_t	ft_printf_conversion(va_list *ap, t_print *arg)
 {
-	format[i] == 'c' ? flag_c(format, ap, arg, i) : 0;
-	format[i] == 'C' ? flag_c(format, ap, arg, i) : 0;
-	format[i] == 'd' ? flag_d(format, ap, arg, i) : 0;
-	format[i] == 'D' ? flag_d(format, ap, arg, i) : 0;
-	format[i] == 'i' ? flag_d(format, ap, arg, i) : 0;
-	format[i] == 'o' ? flag_o(format, ap, arg, i) : 0;
-	format[i] == 'O' ? flag_o(format, ap, arg, i) : 0;
-	format[i] == 'p' ? flag_p(format, ap, arg, i) : 0;
-	format[i] == 's' ? flag_s(format, ap, arg, i) : 0;
-	format[i] == 'S' ? flag_s(format, ap, arg, i) : 0;
-	format[i] == 'u' ? flag_u(format, ap, arg, i) : 0;
-	format[i] == 'U' ? flag_u(format, ap, arg, i) : 0;
-	format[i] == 'x' ? flag_x(format, ap, arg, i) : 0;
-	format[i] == 'X' ? flag_x(format, ap, arg, i) : 0;
-	i++;
-	return (i);
+	arg->format[arg->i] == 'C' ? flag_c(ap, arg) : 0;
+	arg->format[arg->i] == 'c' ? flag_c(ap, arg) : 0;
+	arg->format[arg->i] == 'd' ? flag_d(ap, arg) : 0;
+	arg->format[arg->i] == 'D' ? flag_d(ap, arg) : 0;
+	arg->format[arg->i] == 'i' ? flag_d(ap, arg) : 0;
+	arg->format[arg->i] == 'o' ? flag_o(ap, arg) : 0;
+	arg->format[arg->i] == 'O' ? flag_o(ap, arg) : 0;
+	arg->format[arg->i] == 'p' ? flag_p(ap, arg) : 0;
+	arg->format[arg->i] == 's' ? flag_s(ap, arg) : 0;
+	arg->format[arg->i] == 'S' ? flag_s(ap, arg) : 0;
+	arg->format[arg->i] == 'u' ? flag_u(ap, arg) : 0;
+	arg->format[arg->i] == 'U' ? flag_u(ap, arg) : 0;
+	arg->format[arg->i] == 'x' ? flag_x(ap, arg) : 0;
+	arg->format[arg->i] == 'X' ? flag_x(ap, arg) : 0;
+	arg->i++;
+	return (arg->i);
 }
 
 

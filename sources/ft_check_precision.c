@@ -16,7 +16,7 @@
 //
 #include <stdio.h>
 
-size_t	ft_check_precision(char *format, t_print *arg, size_t i)
+size_t	ft_check_precision(t_print *arg)
 {
 	int		multi;
 	int		save;
@@ -25,25 +25,26 @@ size_t	ft_check_precision(char *format, t_print *arg, size_t i)
 	multi = 1;
 	tmp = 0;
 //	cpy = (char *)format; // cast to prevent const char warnings
-	format[i] == '.' ? arg->precision_field = 1 : 0;
-	if (format[i] == '.')
-		i++;
-	save = i;
+	arg->format[arg->i] == '.' ? arg->precision_field = 1 : 0;
+	if (arg->format[arg->i] == '.')
+		arg->i++;
+	save = arg->i;
 //	if (!(ft_isdigit(cpy[i])))
 //		arg->precision_field = 0;
-	while (format[i] >= '0' && format[i] <= '9')
-		i++;
-	while (i > save)
+	while (arg->format[arg->i] >= '0' && arg->format[arg->i] <= '9')
+		arg->i++;
+	while (arg->i > save)
 	{
 		tmp++;
-		arg->precision = arg->precision + (format[--i] - 48) * multi;
+		arg->i--;
+		arg->precision = arg->precision + (arg->format[arg->i] - 48) * multi;
 		multi *= 10;
 	}
-	i += tmp;
+	arg->i += tmp;
 	if (arg->precision > INT_MAX || arg->precision <= 0)
 	{
 		arg->precision_field = -1;
 		arg->precision = 0;
 	}
-	return (i);
+	return (arg->i);
 }

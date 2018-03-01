@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/26 17:55:21 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/01 16:59:08 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,51 +14,51 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-static size_t	ft_printf_parse(char **format, va_list *ap, t_print *arg, size_t i)
+static size_t	ft_printf_parse(va_list *ap, t_print *arg)
 {
-//	(*format)++;
-	while (!(ft_strchr("cCdDioOpsSuUxX", **format)) || **format != '\0')
+	//	(*format)++;
+	while (!(ft_strchr("cCdDioOpsSuUxX", arg->format[arg->i])) && arg->format[arg->i] != '\0')
 	{
-		i = (ft_check_flags(*format, arg, i));
-		i = (ft_check_width(*format, arg, i));
-		i = (ft_check_precision(*format, arg, i));
-		i = (ft_check_length(*format, arg, i));
-		i = (ft_check_errors(*format, arg, i));
-		(*format)++;
-		i++;
+		ft_check_flags(arg);
+		ft_check_width(arg);
+		ft_check_precision(arg);
+		ft_check_length(arg);
+		ft_check_errors(arg);
+//		(*format)++;
 	}
-	i = ft_printf_conversion(*format, ap, arg, i);
-	return (i);
+	ft_printf_conversion(ap, arg);
+	return (arg->i);
 }
 
 static size_t	ft_check_printf(const char *format, va_list *ap)
 {
 	char buf[BUFF_SIZE];
 	t_print arg;
-	size_t	i;
 
-	i = 0;
-	ft_bzero(&arg, sizeof(arg));
+	arg.i = 0;
+	arg.format = format;
+//	ft_bzero(&arg, sizeof(arg));
 	ft_memset(buf, 0, BUFF_SIZE - 1);
-	while(format[i])
+	while(arg.format[arg.i])
 	{
-		if (format[i] == '%')
+		if (arg.format[arg.i] == '%')
 		{
-			i++;
+			arg.i++;
 			ft_init_struct(&arg);
-			i = ft_printf_parse((char **)&format, ap, &arg, i);
+			ft_printf_parse( ap, &arg); // have this return the len of what I printed
 		// if (ret == -1 || ret == '\0')
 		//		break;     >> this way, if there is an error mid-parsing OR you reach the end of the string, break!
 		}
 		else
 		{
 			//ft_printf_buffer(format, buf); // put memset in here?
-			ft_putchar(format[i]);
-			i++;
+//			ft_putchar('B');
+			ft_putchar(arg.format[arg.i]);
+			arg.i++; // also increment len every time I print something
 		}
 	}
 	ft_print_struct(&arg);
-	return (i);
+	return (arg.i);
 }
 
 // (char **)&format
