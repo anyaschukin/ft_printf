@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 18:40:15 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/01 16:37:10 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/06 20:08:41 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ size_t	ft_check_width(t_print *arg)
 	multi = 1;
 	save = arg->i;
 	tmp = 0;
-//	cpy = (char *)format; // cast to prevent const char warnings
-	if (arg->format[arg->i] <= '0' || arg->format[arg->i] >= '9')
+	if (arg->format[arg->i] < '0' || arg->format[arg->i] > '9')
 		return (arg->i);
 	while (arg->format[arg->i] >= '0' && arg->format[arg->i] <= '9')
 		arg->i++;

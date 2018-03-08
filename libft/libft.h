@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:49:26 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/01 10:17:28 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/08 16:50:45 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,12 @@ int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin_free(char *s1, char *s2, size_t to_free);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
 char				*ft_utoa_base(uintmax_t num, int base);
-size_t					ft_count(size_t num);
+size_t				ft_count(long long num);
 void				ft_putchar(char c);
 void				ft_putwchar(wchar_t c);
 void				ft_putstr(char const *s);
@@ -89,4 +90,5 @@ int					ft_delim_count(char const *s, char delimter);
 char				*ft_strcapitalize(char *str);
 int					ft_lstcount(t_list *lst);
 char				*ft_strrev(char *str);
+void				error_exit(char *message, int exit_code);
 #endif

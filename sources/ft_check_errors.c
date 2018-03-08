@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:56:29 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/01 16:33:45 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/06 19:18:14 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_check_errors(t_print *arg)
 ** Zero error checks
 */
 
-	if (arg->iszero == 1 && (arg->format[arg->i] == 'd' || arg->format[arg->i] == 'i' \
+	if (arg->iszero == 1 && !(arg->format[arg->i] == 'd' || arg->format[arg->i] == 'i' \
 			|| arg->format[arg->i] == 'o' || arg->format[arg->i] == 'u' || arg->format[arg->i] == 'x' \
 			|| arg->format [arg->i] == 'X'))
 		arg->iszero = 0;
@@ -44,10 +44,13 @@ size_t	ft_check_errors(t_print *arg)
 			|| arg->format[arg->i] == 'p' || arg->format[arg->i] == 's' || arg->format[arg->i] == 'S'))
 		return (-1); // what do I want it to return here?
 
+	if (arg->format[arg->i] == '\'')
+		arg->i++;
 	/*	flag_err
 	width_err
 	precision_err
 	length_err
 */
+
 	return (arg->i);
 }

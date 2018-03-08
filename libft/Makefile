@@ -6,7 +6,7 @@
 #    By: aschukin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 17:33:54 by aschukin          #+#    #+#              #
-#    Updated: 2018/02/12 13:38:31 by aschukin         ###   ########.fr        #
+#    Updated: 2018/03/08 16:51:01 by aschukin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS = ft_atoi.c \
 	   ft_bzero.c \
 	   ft_count.c\
 	   ft_delim_count.c \
+	   error_exit.c \
 	   ft_isalnum.c \
 	   ft_isalpha.c \
 	   ft_isascii.c \
@@ -62,6 +63,7 @@ SRCS = ft_atoi.c \
 	   ft_striter.c \
 	   ft_striteri.c \
 	   ft_strjoin.c \
+	   ft_strjoin_free.c \
 	   ft_strlen.c \
 	   ft_strmap.c \
 	   ft_strmapi.c \

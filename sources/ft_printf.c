@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/01 16:59:08 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/08 17:12:48 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 	arg.i = 0;
 	arg.format = format;
 //	ft_bzero(&arg, sizeof(arg));
-	ft_memset(buf, 0, BUFF_SIZE - 1);
+//	ft_memset(buf, 0, BUFF_SIZE - 1);
 	while(arg.format[arg.i])
 	{
 		if (arg.format[arg.i] == '%')
@@ -57,7 +57,7 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 			arg.i++; // also increment len every time I print something
 		}
 	}
-	ft_print_struct(&arg);
+//	ft_print_struct(&arg);
 	return (arg.i);
 }
 

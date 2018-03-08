@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:58:38 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/01 18:25:26 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/08 18:48:48 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,19 @@ static intmax_t	length_d(va_list *ap, t_print *arg)
 void	flag_d(va_list *ap, t_print *arg)
 {
 	long long	nb;
-	size_t		len;
-	int			ret; // add to i for final ret
+	intmax_t	len;
+	t_out		out;
 
 	nb = length_d(ap, arg);
-	len = ft_count(nb);
-/*	if (arg->isdash == 1)
-	{
-		(arg->isplus = 1 && nb > 0)? write(1, "+", 1) : 0;
-		ft_putnbr(nb); 
-	}*/
-	while ((arg->precision > len) && arg->precision-- > 0)
-	{
-		arg->iszero = 1? write (1, "0", 1) : write(1, " ", 1);
-	}
-	if (arg->isplus == 1 && nb > 0)
-	{
-		write(1, "+", 1);
-	}
-	ft_putnbr(nb);
-	while ((arg->width > len) && arg->width-- > 0)
-	{
-		arg->iszero = 1? write(1, "0", 1) : write(1, " ", 1);
-	}
-//	ret += ft_strlen(nb);
-//ft_putnbr(nb);
+	
+
+	len = ft_strlen(ft_itoa(nb));
+	if(!(out.string = (char*)malloc(sizeof(char) * len + 1)))
+		error_exit(ERROR, 1);
+	out.string = combine(arg, &out, len);
+	len = ft_strlen(out.string);
+	ft_putstr(out.string);
+	free(out.string);
+	// return (out.ret); return how many characters we've printed
+
 }
