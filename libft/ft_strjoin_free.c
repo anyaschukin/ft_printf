@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 15:24:46 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/08 17:01:39 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/09 11:53:40 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ char	*ft_strjoin_free(char *s1, char *s2, size_t to_free)
 	if (to_free == 2)
 		free(s2);
 	if (to_free == 3)
+	{
 		free(s1);
 		free(s2);
+	}
 	return(str);
 }

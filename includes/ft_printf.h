@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 13:19:35 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/01 16:54:28 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/09 14:50:09 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FT_PRINTF_H
@@ -17,6 +17,7 @@
 # include <limits.h>
 
 # define BUFF_SIZE 1
+# define ERROR "Error: out of memory. Exiting"
 
 typedef struct s_print
 {
@@ -32,6 +33,9 @@ typedef struct s_print
 	unsigned int precision_field;
 	unsigned int precision;
 
+	unsigned int ispositive : 1;
+	unsigned int isnegative : 1;
+	
 	char converter;
 	int	i;
 	const char *format;
@@ -51,6 +55,13 @@ typedef struct s_print
 	char buf[BUFF_SIZE];
 }				t_print;
 
+typedef struct s_out
+{
+	char	*string;
+	char	*value;
+	int		ret;
+} t_out;
+
 /*
 ** ft_printf Functions
 */
@@ -65,6 +76,7 @@ size_t	ft_check_length(t_print *arg);
 size_t	ft_check_errors(t_print *arg);
 intmax_t	ft_length_conversion(intmax_t nb, t_print *arg);
 uintmax_t	ft_ulength_conversion(uintmax_t nb, t_print *arg);
+char	*combine(t_print *arg, t_out *out, intmax_t len);
 
 //int	ft_old_printf_conversion(char *format, va_list *ap, t_print arg);
 void	ft_print_struct(t_print *arg);
