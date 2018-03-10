@@ -61,17 +61,30 @@ static char	*apply_width(t_print *arg, t_out *out, intmax_t len)
 	return (out->string);
 }
 
-static char	*apply_zero_dash(t_print *arg, t_out *out, intmax_t len)
+static char	*apply_zero_dash(t_print *arg, t_out *out)
 {
 	char		*add;
-	intmax_t	tmp;
+	intmax_t	len;
+	intmax_t	vlen;
 	intmax_t	move;
-	intmax_t	i;
-//	if (arg->iszero == 1 && arg-width > len)
 
-
-	ft_memmove(out->string, out->value, move);
-
+	len = ft_strlen(out->string);
+	vlen = ft_strlen(out->value);
+/*	if (arg->iszero == 1 && arg->width > vlen)
+	{
+		(arg->ispositive == 1 || arg->isnegative == 1) ? arg->width : 0;
+//		if (arg->isplus)
+//			arg->width++;
+		while(arg->width-- > vlen)
+			ft_memset(out->string, '0', (arg->width - vlen));
+	}
+//	if (arg->isplus)
+//		*out->string = (arg->ispositive == 1) ? '+' : '-' ;
+*/	if (arg->isdash == 1)
+	{
+		move = vlen - len;
+		ft_strrotate(out->string, len, move);
+	}
 	return (out->string);
 }
 
@@ -80,10 +93,11 @@ char	*combine(t_print *arg, t_out *out, intmax_t len)
 	arg->precision_field == 1 ? apply_precision(arg, out, len) : 0;
 	(arg->isplus == 1 || arg->isspace == 1) ? apply_plus_space_hash(arg, out, len) : 0;
 	arg->width_field == 1 ? apply_width(arg, out, ft_strlen(out->string)) : 0;
+	(arg->isdash == 1 || arg->iszero == 1) ? apply_zero_dash(arg, out) : 0;
 	return (out->string);
 }
 
-
+// NEED TO CLEAN UP LEN VARIABLES
 
 
 
