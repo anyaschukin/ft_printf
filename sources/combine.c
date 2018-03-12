@@ -70,17 +70,16 @@ static char	*apply_zero_dash(t_print *arg, t_out *out)
 
 	len = ft_strlen(out->string);
 	vlen = ft_strlen(out->value);
-/*	if (arg->iszero == 1 && arg->width > vlen)
+	if (arg->iszero == 1 && arg->width > vlen)
 	{
-		(arg->ispositive == 1 || arg->isnegative == 1) ? arg->width : 0;
-//		if (arg->isplus)
-//			arg->width++;
-		while(arg->width-- > vlen)
-			ft_memset(out->string, '0', (arg->width - vlen));
+		arg->isnegative ? arg->width++ : 0;
+		ft_memset(out->string, '0', arg->width - vlen);
+		if (arg->isplus && arg->ispositive == 1)
+			*out->string = '+';
+		else if (arg->isnegative == 1)
+			*out->string = '-';
 	}
-//	if (arg->isplus)
-//		*out->string = (arg->ispositive == 1) ? '+' : '-' ;
-*/	if (arg->isdash == 1)
+	else if (arg->isdash == 1)
 	{
 		move = vlen - len;
 		ft_strrotate(out->string, len, move);

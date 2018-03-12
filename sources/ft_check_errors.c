@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:56:29 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/06 19:18:14 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/10 22:48:07 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ size_t	ft_check_errors(t_print *arg)
 	if (arg->isspace == 1 && arg->isplus == 1)
 		arg->isspace = 0;
 
+	if (arg->precision_field == 1)
+		arg->isdash = 0;
 /*
 ** Length error checks
 */

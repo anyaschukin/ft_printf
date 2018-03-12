@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 20:41:53 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/09 13:34:38 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/10 21:06:32 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_print_struct(t_print *arg)
 	printf("Space: %u\n", arg->isspace);
 	printf("Hash: %u\n", arg->ishash);
 	printf("Positive: %u\n", arg->ispositive);
-	printf("Negative: %u\n", arg->ispositive);
+	printf("Negative: %u\n", arg->isnegative);
 	printf("Width Field: %u\n", arg->width_field);
 	printf("Width: %u\n", arg->width);
 	printf("Precision Field: %d\n", arg->precision_field);

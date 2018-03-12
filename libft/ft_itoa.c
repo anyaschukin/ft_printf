@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 11:08:54 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/15 13:12:19 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/10 22:21:11 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ char	*ft_itoa(int num)
 		i--;
 	}
 	str[count] = '\0';
-	free (str);
+	//free(str);
 	return (str);
 }

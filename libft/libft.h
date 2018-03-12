@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:49:26 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/08 16:50:45 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/10 15:02:43 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ int					ft_delim_count(char const *s, char delimter);
 char				*ft_strcapitalize(char *str);
 int					ft_lstcount(t_list *lst);
 char				*ft_strrev(char *str);
+char				*ft_strrotate(char *str, intmax_t size, intmax_t amt);
 void				error_exit(char *message, int exit_code);
 #endif

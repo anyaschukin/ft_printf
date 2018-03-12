@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:58:38 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/09 18:20:33 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/12 11:34:59 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,16 @@ void	flag_d(va_list *ap, t_print *arg)
 	t_out		out;
 
 	nb = length_d(ap, arg);
-	nb > 0 ? arg->ispositive = 1 : 0;
-	nb < 0? arg->isnegative = 1 : 0;
-	len = ft_strlen(ft_itoa(nb));
+	(nb >= 0) ? (arg->ispositive = 1) \
+		   : (arg->isnegative = 1);
+	len = ft_count(nb);
 	out.value = ft_itoa(nb);
 	if(!(out.string = (char*)malloc(sizeof(char) * len + 1)))
 		error_exit(ERROR, 1);
-//	out.string = ft_strcpy(out.string, ft_itoa(nb));
-//	out.string[len] = '\0';
+	out.string = ft_strcpy(out.string, out.value);
 	out.string = combine(arg, &out, len);
-	len = ft_strlen(out.string);
 	ft_putstr(out.string);
-	free(out.string);
-	ft_bzero(out.string, len);
+	ft_strdel(&out.string);
 	// return (out.ret); return how many characters we've printed
 
 }

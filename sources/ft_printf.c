@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/09 18:25:16 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/12 11:43:23 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 		{
 			arg.i++;
 			ft_init_struct(&arg);
-			ft_printf_parse( ap, &arg); // have this return the len of what I printed
+			ft_printf_parse(ap, &arg); // have this return the len of what I printed
 		// if (ret == -1 || ret == '\0')
 		//		break;     >> this way, if there is an error mid-parsing OR you reach the end of the string, break!
 		}
