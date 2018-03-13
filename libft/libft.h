@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:49:26 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/10 15:02:43 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/13 17:51:39 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_delim_count(char const *s, char delimter);
 char				*ft_strcapitalize(char *str);
+char				*ft_strtolower(char *str);
+char				*ft_strtoupper(char *str);
 int					ft_lstcount(t_list *lst);
 char				*ft_strrev(char *str);
 char				*ft_strrotate(char *str, intmax_t size, intmax_t amt);

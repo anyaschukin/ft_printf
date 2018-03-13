@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:58:38 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/12 11:34:59 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/13 11:21:01 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ void	flag_d(va_list *ap, t_print *arg)
 		error_exit(ERROR, 1);
 	out.string = ft_strcpy(out.string, out.value);
 	out.string = combine(arg, &out, len);
+	arg->ret += ft_strlen(out.string);
 	ft_putstr(out.string);
 	ft_strdel(&out.string);
-	// return (out.ret); return how many characters we've printed
-
 }

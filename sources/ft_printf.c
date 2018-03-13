@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/12 11:43:23 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/13 19:14:41 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 	t_print arg;
 
 	arg.i = 0;
+	arg.ret = 0;
 	arg.format = format;
 //	ft_bzero(&arg, sizeof(arg));
 //	ft_memset(buf, 0, BUFF_SIZE - 1);
@@ -54,10 +55,11 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 			//ft_printf_buffer(format, buf); // put memset in here?
 			ft_putchar(arg.format[arg.i]);
 			arg.i++; // also increment len every time I print something
+			arg.ret++;
 		}
 	}
-//	ft_print_struct(&arg);
-	return (arg.i);
+	ft_print_struct(&arg);
+	return (arg.ret);
 }
 
 // (char **)&format

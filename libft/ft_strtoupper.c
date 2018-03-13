@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_struct.c                                   :+:      :+:    :+:   */
+/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/22 19:50:18 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/13 15:27:02 by aschukin         ###   ########.fr       */
+/*   Created: 2018/03/13 17:49:52 by aschukin          #+#    #+#             */
+/*   Updated: 2018/03/13 17:50:27 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-void	ft_init_struct(t_print *arg)
+char	*ft_strtoupper(char *str)
 {
-	arg->converter = 0;
-	arg->isdash = 0;
-	arg->isplus = 0;
-	arg->iszero = 0;
-	arg->isspace = 0;
-	arg->ishash = 0;
-	arg->width_field = 0;
-	arg->width = 0;
-	arg->precision_field = 0;
-	arg->precision = 0;
-	arg->ispositive = 0;
-	arg->isnegative = 0;
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		str[i] = ft_toupper(str[i]);
+	return (str);
 }

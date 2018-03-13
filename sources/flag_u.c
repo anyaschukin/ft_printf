@@ -6,29 +6,29 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:10:53 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/12 11:24:28 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/13 13:05:38 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include <stdarg.h>
 
-static intmax_t	length_u(va_list *ap, t_print *arg)
+static uintmax_t	length_u(va_list *ap, t_print *arg)
 {
-	if (arg->length == 2 && arg->format[arg->i] != 'D')
-		return ((unsigned long long)((unsigned char)va_arg(*ap, int)));
-	else if (arg->length == 3 && arg->format[arg->i] != 'D')
-		return ((unsigned long long)((unsigned short int)va_arg(*ap, int)));
-	else if (arg->length == 5 || arg->format[arg->i] == 'D')
-		return ((unsigned long long)va_arg(*ap, unsigned long));
+	if (arg->length == 2 && arg->format[arg->i] != 'U')
+		return ((unsigned char)va_arg(*ap, uintmax_t));
+	else if (arg->length == 3 && arg->format[arg->i] != 'U')
+		return ((unsigned short int)va_arg(*ap, uintmax_t));
+	else if (arg->length == 5 || arg->format[arg->i] == 'U')
+		return ((unsigned long)va_arg(*ap, uintmax_t));
 	else if (arg->length == 6)
-		return ((unsigned long long)va_arg(*ap, unsigned long long));
+		return ((unsigned long long)va_arg(*ap, uintmax_t));
 	else if (arg->length == 4)
 		return ((uintmax_t)va_arg(*ap, uintmax_t));
 	else if (arg->length == 7)
 		return ((unsigned long long)va_arg(*ap, size_t));
 	else
-		return ((unsigned long long)va_arg(*ap, int));
+		return ((unsigned int)va_arg(*ap, uintmax_t));
 }
 
 void	flag_u(va_list *ap, t_print *arg)
@@ -44,6 +44,7 @@ void	flag_u(va_list *ap, t_print *arg)
 		error_exit(ERROR, 1);
 	out.string = ft_strcpy(out.string, out.value);
 	out.string = combine(arg, &out, len);
+	arg->ret += ft_strlen(out.string);
 	ft_putstr(out.string);
 	ft_strdel(&out.string);
 }
