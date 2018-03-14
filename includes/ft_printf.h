@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 13:19:35 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/13 15:25:40 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/14 17:09:05 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FT_PRINTF_H
@@ -59,9 +59,9 @@ typedef struct s_print
 
 typedef struct s_out
 {
-	char	*string;
-	char	*value;
-	int		ret;
+	char		*string;
+	char		*value;
+	intmax_t	vlen;
 } t_out;
 
 /*
@@ -105,15 +105,10 @@ void	flag_s(va_list *ap, t_print *arg);
 void	flag_u(va_list *ap, t_print *arg);
 void	flag_x(va_list *ap, t_print *arg);
 
-void	flag_capx(va_list *ap, t_print *arg);
-
 
 /*
 **
 */
-
-void	ft_putwchar(wchar_t c);
-void	ft_putwstr(wchar_t *wstr);
 
 
 

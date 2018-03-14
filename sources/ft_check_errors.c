@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:56:29 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/13 19:50:57 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/14 17:26:10 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_check_errors(t_print *arg)
 ** Space error checks
 */
 
-	if (arg->isspace == 1 && (arg->format[arg->i] == 'x' || arg->format[arg->i] == 'X'))
+	if (arg->isspace == 1 && (arg->format[arg->i] == 'c' || arg->format[arg->i] == 'C' || arg->format[arg->i] == 'x' || arg->format[arg->i] == 'X' || arg->format[arg->i] == 'p'))
 			arg->isspace = 0;
 	if (arg->isspace == 1 && arg->isplus == 1)
 		arg->isspace = 0;
@@ -28,7 +28,7 @@ size_t	ft_check_errors(t_print *arg)
 ** Hash error checks
 */
 
-	if (arg->ishash == 1 && (arg->format[arg->i] == 'c' || arg->format[arg->i] == 'd' \
+	if (arg->ishash == 1 && (arg->format[arg->i] == 'c' || arg->format[arg->i] == 'C' || arg->format[arg->i] == 'd' \
 			|| arg->format[arg->i] == 'i' || arg->format[arg->i] == 'p' || arg->format[arg->i]  == 's' \
 			|| arg->format[arg->i] == 'u'))
 		arg->ishash = 0;
@@ -36,9 +36,8 @@ size_t	ft_check_errors(t_print *arg)
 /*
 ** Zero error checks
 */
-
 	if (arg->iszero == 1 && !(arg->format[arg->i] == 'd' || arg->format[arg->i] == 'i' \
-			|| arg->format[arg->i] == 'o' || arg->format[arg->i] == 'u'))
+			|| arg->format[arg->i] == 'o' || arg->format[arg->i] == 'u' || arg->format[arg->i] == 'x' || arg->format[arg->i] == 'C'))
 		arg->iszero = 0;
 	if (arg->iszero == 1 && arg->isdash == 1)
 		arg->iszero = 0;
@@ -52,6 +51,8 @@ size_t	ft_check_errors(t_print *arg)
 
 	if (arg->precision_field == 1)
 		arg->isdash = 0;
+	if (arg->precision_field == 1 && (arg->format[arg->i] == 'c' || arg->format[arg->i] == 'C'))
+		arg->precision_field = 0;
 /*
 ** Length error checks
 */

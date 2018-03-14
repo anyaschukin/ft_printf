@@ -76,7 +76,10 @@ static char	*apply_zero_dash(t_print *arg, t_out *out)
 	intmax_t	move;
 
 	len = ft_strlen(out->string);
-	vlen = ft_strlen(out->value);
+	if (arg->converter == 'C')
+		vlen = ft_strwlen(out->value);
+	else
+		vlen = ft_strlen(out->value);
 	if (arg->iszero == 1 && arg->width > vlen)
 	{
 		arg->isnegative ? arg->width++ : 0;
@@ -97,7 +100,7 @@ static char	*apply_zero_dash(t_print *arg, t_out *out)
 char	*combine(t_print *arg, t_out *out, intmax_t len)
 {
 	arg->precision_field == 1 ? apply_precision(arg, out, len) : 0;
-	(arg->isplus || arg->isspace || arg->ishash) ? apply_plus_space_hash(arg, out) : 0;
+	apply_plus_space_hash(arg, out);
 	arg->width_field == 1 ? apply_width(arg, out, ft_strlen(out->string)) : 0;
 	(arg->isdash == 1 || arg->iszero == 1) ? apply_zero_dash(arg, out) : 0;
 	return (out->string);

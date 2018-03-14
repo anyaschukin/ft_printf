@@ -6,17 +6,14 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/12 10:05:05 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/25 17:10:10 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/14 13:51:26 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putwstr(wchar_t *s)
+void	ft_putwstr(wchar_t *wstr)
 {
-	while (*s != '\0')
-	{
-		ft_putwchar(*s);
-		s++;
-	}
+	while (*wstr)
+		ft_putwchar(*wstr++);
 }

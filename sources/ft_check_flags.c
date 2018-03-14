@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 18:39:14 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/06 21:02:35 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/14 16:59:47 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@ static int	is_flag(char c)
 
 size_t	ft_check_flags(t_print *arg)
 {
-//	char *cpy;
-
-//	cpy = (char *)format;
 	while (is_flag(arg->format[arg->i]))
 	{
 		arg->format[arg->i] == '-' ? arg->isdash = 1 : 0;

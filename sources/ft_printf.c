@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/13 19:14:41 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/14 17:25:12 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 			arg.ret++;
 		}
 	}
-	ft_print_struct(&arg);
+//	ft_print_struct(&arg);
 	return (arg.ret);
 }
 

@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/13 16:02:13 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/14 16:45:39 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	flag_o(va_list *ap, t_print *arg)
 	t_out	out;
 
 	nb = length_o(ap, arg);
-	arg->converter = 'o';
 	len = ft_count(nb);
 	out.value = ft_utoa_base(nb, 8);
 	if(!(out.string = (char*)malloc(sizeof(char) * len + 1)))

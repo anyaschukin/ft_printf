@@ -6,7 +6,7 @@
 #    By: aschukin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 17:33:54 by aschukin          #+#    #+#              #
-#    Updated: 2018/03/13 17:51:06 by aschukin         ###   ########.fr        #
+#    Updated: 2018/03/14 15:40:37 by aschukin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@ SRCS = ft_atoi.c \
 	   ft_strjoin.c \
 	   ft_strjoin_free.c \
 	   ft_strlen.c \
+	   ft_strwlen.c \
 	   ft_strmap.c \
 	   ft_strmapi.c \
 	   ft_strncat.c \
@@ -84,6 +85,7 @@ SRCS = ft_atoi.c \
 	   ft_strtoupper.c \
 	   ft_tolower.c \
 	   ft_toupper.c \
+	   ft_unicode.c \
 	   ft_utoa_base.c \
 
 FLAGS = -Wall -Werror -Wextra

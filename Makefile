@@ -6,7 +6,7 @@
 #    By: aschukin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/26 10:27:55 by aschukin          #+#    #+#              #
-#    Updated: 2018/03/08 16:40:20 by aschukin         ###   ########.fr        #
+#    Updated: 2018/03/14 13:48:15 by aschukin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ SRC_NAME = ft_printf.c \
 			ft_printf_conversion.c \
 			flag_c.c flag_d.c flag_p.c flag_o.c flag_s.c flag_u.c flag_x.c \
 			flag_capx.c ft_pointer_address.c \
-			ft_putwchar.c ft_putwstr.c \
 			combine.c \
 			ft_print_struct.c
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))

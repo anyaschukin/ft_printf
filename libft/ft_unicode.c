@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putwchar.c                                      :+:      :+:    :+:   */
+/*   ft_unicode.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/08 16:23:28 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/14 13:39:39 by aschukin         ###   ########.fr       */
+/*   Created: 2018/03/14 13:32:58 by aschukin          #+#    #+#             */
+/*   Updated: 2018/03/14 15:55:29 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putwchar(wchar_t c)
+char	*ft_unicode(wchar_t c)
 {
+	char    *str;
+
+	str = ft_strnew(4);
 	if (c <= 0x7F)
-	{
-		ft_putchar(c);
-	}
+		str[0] = c;
 	else if (c <= 0x7FF)
 	{
-		ft_putchar((c >> 6) + 0xC0);
-		ft_putchar((c & 0x3F) + 0x80);
+		str[0] = (c >> 6) + 0xC0;
+		str[1] = (c & 0x3F) + 0x80;
 	}
-	else if (c <= 0x7FFF)
+	else if (c < 0xFFFF)
 	{
-	ft_putchar((c >> 12) + 0xE0);
-	ft_putchar(((c >> 6) & 0x3F) + 0x80);
-	ft_putchar((c & 0x3F) + 0x80);
+		str[0] = (c >> 12) + 0xE0;
+		str[1] = ((c >> 6) & 0x3F) + 0x80;
+		str[2] = (c & 0x3F) + 0x80;
 	}
 	else
 	{
-	ft_putchar((c >> 18) + 0xF0);
-	ft_putchar(((c >> 12) & 0x3F) + 0x80);
-	ft_putchar(((c >> 6) & 0x3F) + 0x80);
-	ft_putchar((c & 0x3F) + 0x80);
+		str[0] = ((c >> 18) + 0xF0);
+		str[1] = ((c >> 12) & 0x3F) + 0x80;
+		str[2] = ((c >> 6) & 0x3F) + 0x80;
+		str[3] = (c & 0x3F) + 0x80;
 	}
+	return (str);
 }
+

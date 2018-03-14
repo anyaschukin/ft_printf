@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 18:38:45 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/24 16:13:09 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/14 17:11:40 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,11 @@ size_t	ft_check_precision(t_print *arg)
 
 	multi = 1;
 	tmp = 0;
-//	cpy = (char *)format; // cast to prevent const char warnings
 	arg->format[arg->i] == '.' ? arg->precision_field = 1 : 0;
-	if (arg->format[arg->i] == '.')
-		arg->i++;
+	arg->format[arg->i] == '.' ? arg->i++ : 0;
+//if (arg->format[arg->i] == '.')
+//		arg->i++;
 	save = arg->i;
-//	if (!(ft_isdigit(cpy[i])))
-//		arg->precision_field = 0;
 	while (arg->format[arg->i] >= '0' && arg->format[arg->i] <= '9')
 		arg->i++;
 	while (arg->i > save)

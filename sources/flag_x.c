@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/13 19:54:40 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/14 16:42:00 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	flag_x(va_list *ap, t_print *arg)
 	t_out	out;
 
 	nb = length_x(ap, arg);
-	arg->format[arg->i] == 'x' ? (arg->converter = 'x') : (arg->converter = 'X');
-	len = ft_count(nb);
+//	arg->format[arg->i] == 'x' ? (arg->converter = 'x') : (arg->converter = 'X');
 	out.value = ft_utoa_base(nb, 16);
+	len = ft_strlen(out.value);
 	if(!(out.string = (char*)malloc(sizeof(char) * len + 1)))
 		error_exit(ERROR, 1);
 	out.string = ft_strcpy(out.string, out.value);
