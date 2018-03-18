@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 15:00:58 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/14 17:34:42 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/18 21:24:37 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,9 @@ int	main(void)
 ** d TESTS
 */
 
+	printf("\n%s\n", "-----------------");
 	printf("\n%s\n", "d tests");
+	printf("\n%s\n", "-----------------");
 	
 	mr = ft_printf("MINE>\t[%d]\n", 650);
 	or = printf("ORIG>\t[%d]\n", 650);
@@ -129,9 +131,9 @@ int	main(void)
 	or = printf("ORIG>\t[%05d]\n", -650);
 	ft_print_result(mr, or, __LINE__);
 
-	mr = ft_printf("MINE15>\t[%s %+08d %s]\n", RED, -650, EOC);
-	or = printf("ORIG15>\t[%s %+08d %s]\n", RED, -650, EOC);
-	ft_print_result(mr, or, __LINE__);
+//	mr = ft_printf("MINE15>\t[%s %+08d %s]\n", RED, -650, EOC);
+//	or = printf("ORIG15>\t[%s %+08d %s]\n", RED, -650, EOC);
+//	ft_print_result(mr, or, __LINE__);
 
 	mr = ft_printf("MINE>\t[%-05d]\n", -650);
 	or = printf("ORIG>\t[%-05d]\n", -650);
@@ -215,8 +217,10 @@ int	main(void)
 **  u TESTS
 */ 
 
+	printf("\n%s\n", "-----------------");
 	printf("\n%s\n", "u tests");
-	
+	printf("\n%s\n", "-----------------");
+/*	
 	mr = ft_printf("MINE>\t[%u]\n", 123);
 	or = printf("ORIG>\t[%u]\n", 123);
 	ft_print_result(mr, or, __LINE__);
@@ -252,11 +256,11 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%+05.10u]\n", 123);
 	or = printf("ORIG>\t[%+05.10u]\n", 123);
 	ft_print_result(mr, or, __LINE__);
-
+*/
 	mr = ft_printf("MINE10>\t[%h5u]\n", 123456789123456);
 	or = printf("ORIG10>\t[%h5u]\n", 123456789123456);
 	ft_print_result(mr, or, __LINE__);
-
+/*
 	mr = ft_printf("MINE>\t[%.5u]\n", 123);
 	or = printf("ORIG>\t[%.5u]\n", 123);
 	ft_print_result(mr, or, __LINE__);
@@ -264,14 +268,18 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%.0u]\n", 123);
 	or = printf("ORIG>\t[%.0u]\n", 123);
 	ft_print_result(mr, or, __LINE__);
-
+*/
 
 /*
 **  o TESTS
 */ 
 
-	printf("\n%s\n", "o tests");
 
+	printf("\n%s\n", "-----------------");
+	printf("\n%s\n", "o tests");
+	printf("\n%s\n", "-----------------");
+	
+/*
 	mr = ft_printf("MINE>\t[%o]\n", 1000);
 	or = printf("ORIG>\t[%o]\n", 1000);
 	ft_print_result(mr, or, __LINE__);
@@ -284,8 +292,8 @@ int	main(void)
 	or = printf("ORIG>\t[%#o]\n", 0);
 	ft_print_result(mr, or, __LINE__);
 
-	mr = ft_printf("MINE>\t[%#o]\n", 1000);
-	or = printf("ORIG>\t[%#o]\n", 1000);
+	mr = ft_printf("MINE>\t[%#o]\n", 3000);
+	or = printf("ORIG>\t[%#o]\n", 3000);
 	ft_print_result(mr, or, __LINE__);
 
 	mr = ft_printf("MINE5>\t[%#+o]\n", -896);
@@ -295,11 +303,11 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%hho]\n", (unsigned char)-12);
 	or = printf("ORIG>\t[%hho]\n", (unsigned char)-12);
 	ft_print_result(mr, or, __LINE__);
-
+*/
 	mr = ft_printf("MINE>\t[%ho]\n", (unsigned short)1475);
 	or = printf("ORIG>\t[%ho]\n", (unsigned short)1475);
 	ft_print_result(mr, or, __LINE__);
-
+/*
 	mr = ft_printf("MINE>\t[%lo]\n", (unsigned long)258);
 	or = printf("ORIG>\t[%lo]\n", (unsigned long)258);
 	ft_print_result(mr, or, __LINE__);
@@ -335,22 +343,26 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%6o]\n", 01423);
 	or = printf("ORIG>\t[%6o]\n", 01423);
 	ft_print_result(mr, or, __LINE__);
-	
+
 	mr = ft_printf("MINE>\t[%#-2o]\n", 874);
 	or = printf("ORIG>\t[%#-2o]\n", 874);
 	ft_print_result(mr, or, __LINE__);
-
+	
 	mr = ft_printf("MINE>\t[%-8.30o]\n", 120);
 	or = printf("ORIG>\t[%-8.30o]\n", 120);
 	ft_print_result(mr, or, __LINE__);
-
+*/
 
 /*
 ** x TESTS
 */
 
+
+	printf("\n%s\n", "-----------------");
 	printf("\n%s\n", "x tests");
+	printf("\n%s\n", "-----------------");
 	
+/*	
 	mr = ft_printf("MINE>\t[%x]\n", 0);
 	or = printf("ORIG>\t[%x]\n", 0);
 	ft_print_result(mr, or, __LINE__);
@@ -422,11 +434,11 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%01hhx]\n", 0xaabb);
 	or = printf("ORIG>\t[%01hhx]\n", 0xaabb);
 	ft_print_result(mr, or, __LINE__);
-
+*/
 	mr = ft_printf("MINE>\t[%#7.5X%0006.2x and %lX]\n", 0xab, 0x876, 0xff11ff11ff1);
 	or = printf("ORIG>\t[%#7.5X%0006.2x and %lX]\n", 0xab, 0x876, 0xff11ff11ff1);
 	ft_print_result(mr, or, __LINE__);
-
+/*
 	mr = ft_printf("MINE20>\t[%0##0.4X %#4.2x oh boy]\n", 0x037a, 0x9e);
 	or = printf("ORIG20>\t[%0##0.4X %#4.2x oh boy]\n", 0x037a, 0x9e);
 	ft_print_result(mr, or, __LINE__);
@@ -466,14 +478,18 @@ int	main(void)
 	mr = ft_printf("MINE30>\t[%.0x]\n", 650);
 	or = printf("ORIG30>\t[%.0x]\n", 650);
 	ft_print_result(mr, or, __LINE__);
-
+*/
 
 
 /*
 ** p TESTS
 */
 
-	printf("\n%s\n", "P tests");
+/*
+	printf("\n%s\n", "-----------------");
+	printf("\n%s\n", "p tests");
+	printf("\n%s\n", "-----------------");
+	
 
 	mr = ft_printf("MINE>\t[%p]\n", NULL);
 	or = printf("ORIG>\t[%p]\n", NULL);
@@ -499,16 +515,16 @@ int	main(void)
 	or = printf("ORIG>\t[%#p]\n", (void*)30);
 	ft_print_result(mr, or, __LINE__);
 
-	mr = ft_printf("MINE>\t[%-p]\n", (void*)30);
-	or = printf("ORIG>\t[%-p]\n", (void*)30);
+	mr = ft_printf("MINE>\t[%-10p]\n", (void*)30);
+	or = printf("ORIG>\t[%-10p]\n", (void*)30);
 	ft_print_result(mr, or, __LINE__);
 
 	mr = ft_printf("MINE>\t[%+p]\n", (void*)30);
 	or = printf("ORIG>\t[%+p]\n", (void*)30);
 	ft_print_result(mr, or, __LINE__);
 
-	mr = ft_printf("MINE>\t[%0p]\n", (void*)30);
-	or = printf("ORIG>\t[%0p]\n", (void*)30);
+	mr = ft_printf("MINE>\t[%.0p]\n", (void*)30);
+	or = printf("ORIG>\t[%.0p]\n", (void*)30);
 	ft_print_result(mr, or, __LINE__);
 
 	mr = ft_printf("MINE10>\t[%3p]\n", (void*)30);
@@ -554,14 +570,17 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%.10p]\n", (void*)14785478);
 	or = printf("ORIG>\t[%.10p]\n", (void*)14785478);
 	ft_print_result(mr, or, __LINE__);
-
+*/
 
 /*
 ** C TESTS
 */
 
+/*
+	printf("\n%s\n", "-----------------");
 	printf("\n%s\n", "C tests");
-
+	printf("\n%s\n", "-----------------");
+	
 	mr = ft_printf("MINE>\t[%C]\n", L'Å'); 
 	or = printf("ORIG>\t[%C]\n",  L'Å');
 	ft_print_result(mr, or, __LINE__);
@@ -641,7 +660,99 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%.10C]\n", L'♥');
 	or = printf("ORIG>\t[%.10C]\n", L'♥');
 	ft_print_result(mr, or, __LINE__);
+*/
 
+/*
+** S TESTS
+*/
+
+/*
+	printf("\n%s\n", "-----------------");
+	printf("\n%s\n", "S tests");
+	printf("\n%s\n", "-----------------");
+	
+
+	mr = ft_printf("MINE>\t[%S]\n", L"こんにちは私は月面です"); 
+	or = printf("ORIG>\t[%S]\n",  L"こんにちは私は月面です");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%S]\n", L"Для меня нет полонийного чая, спасибо");
+	or = printf("ORIG>\t[%S]\n", L"Для меня нет полонийного чая, спасибо");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%S]\n", L"هل الجو حار هنا أم هو نظام الأبوية؟");
+	or = printf("ORIG>\t[%S]\n", L"هل الجو حار هنا أم هو نظام الأبوية؟");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE5>\t[% S]\n", L"You're my favorite ♥");
+	or = printf("ORIG5>\t[% S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%#S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%#S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%-S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%-S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%+S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%+S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%0S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%0S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE10>\t[%3S]\n", L"You're my favorite ♥");
+	or = printf("ORIG10>\t[%3S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%0S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%0S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%15S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%15S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%-15S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%-15S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%-.15S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%-.15S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%15.0S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%15.0S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%010S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%010S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%#0+15S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%#0+15S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%.0S]\n", L"You're my favorite ♥");
+	or = printf("ORIG>\t[%.0S]\n", L"You're my favorite ♥");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%.10S]\n", L"こんにちは私は月面です");
+	or = printf("ORIG>\t[%.10S]\n", L"こんにちは私は月面です");
+	ft_print_result(mr, or, __LINE__);
+
+*/
 
 	return(0);
 }

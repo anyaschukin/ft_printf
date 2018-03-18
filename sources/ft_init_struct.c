@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 19:50:18 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/13 15:27:02 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/18 21:15:24 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	ft_init_struct(t_print *arg)
 	arg->ishash = 0;
 	arg->width_field = 0;
 	arg->width = 0;
-	arg->precision_field = 0;
+	arg->precision_field = -1;
 	arg->precision = 0;
+	arg->length = 1;
 	arg->ispositive = 0;
 	arg->isnegative = 0;
 }

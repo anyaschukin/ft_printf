@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:49:26 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/14 15:52:38 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/16 15:15:38 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void				ft_strdel(char **as);
 char				*ft_strtrim(char const *s);
 char				*ft_strtolower(char *str);
 char				*ft_strtoupper(char *str);
+char				*ft_strunicode(wchar_t *s);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 char				*ft_unicode(wchar_t c);

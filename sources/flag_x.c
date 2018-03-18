@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/14 16:42:00 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/16 18:15:30 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	flag_x(va_list *ap, t_print *arg)
 	if(!(out.string = (char*)malloc(sizeof(char) * len + 1)))
 		error_exit(ERROR, 1);
 	out.string = ft_strcpy(out.string, out.value);
-	out.string = combine(arg, &out, len);
+	if (*out.value != '0')
+		out.string = combine(arg, &out, len);
 	arg->ret += ft_strlen(out.string);
 	arg->converter == 'x' ? ft_strtolower(out.string) : ft_strtoupper(out.string);
 	ft_putstr(out.string);

@@ -6,7 +6,7 @@
 #    By: aschukin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 17:33:54 by aschukin          #+#    #+#              #
-#    Updated: 2018/03/14 15:40:37 by aschukin         ###   ########.fr        #
+#    Updated: 2018/03/16 15:15:55 by aschukin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ SRCS = ft_atoi.c \
 	   ft_strtrim.c \
 	   ft_strtolower.c \
 	   ft_strtoupper.c \
+	   ft_strunicode.c \
 	   ft_tolower.c \
 	   ft_toupper.c \
 	   ft_unicode.c \

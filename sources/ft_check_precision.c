@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 18:38:45 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/14 17:11:40 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/18 17:31:36 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,16 @@ size_t	ft_check_precision(t_print *arg)
 		multi *= 10;
 	}
 	arg->i += tmp;
-	if (arg->precision > INT_MAX || arg->precision <= 0)
+	if (arg->precision > INT_MAX || (int)arg->precision < 0)
 	{
 		arg->precision_field = -1;
 		arg->precision = 0;
 	}
+
+
+//	if (arg->precision > INT_MAX || arg->precision < INT_MIN)
+//		arg->precision = (int)arg->precision;
+//	if (((int)arg->precision < 0) && arg->precision_field)
+//		arg->precision = -arg->precision;
 	return (arg->i);
 }

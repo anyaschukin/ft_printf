@@ -18,7 +18,15 @@ static char	*apply_precision(t_print *arg, t_out *out, intmax_t len)
 	char		*add;
 	intmax_t	tmp;
 
+//	(arg->converter == 'p' && arg->precision_field  != 1) ? (arg->precision += 2) : 0;
 	tmp = arg->precision - len;
+	if (arg->converter == 'S' || arg->converter == 's')
+	{
+		while ((out->string[arg->precision] & 0xC0) == 0x80) // shifting back to the code point range, and putting a '\0' at the code point range, so that half the character doesn't get printed
+			arg->precision--;
+		out->string[arg->precision] = '\0';
+		arg->precision < len ? ft_strclr(out->string + arg->precision) : 0;
+	}
 	if (arg->precision > len)
 	{
 		if(!(add = (char*)malloc(sizeof(char) * tmp + 1)))
@@ -56,6 +64,8 @@ static char	*apply_width(t_print *arg, t_out *out, intmax_t len)
 	intmax_t	tmp;
 
 	tmp = arg->width - len;
+	if (arg->converter == 'p' && arg->width_field == 1 && arg->iszero == 1) 
+		tmp -= 2;
 	if (arg->width > len)
 	{
 		if(!(add = (char*)malloc(sizeof(char) * tmp + 1)))
@@ -99,10 +109,14 @@ static char	*apply_zero_dash(t_print *arg, t_out *out)
 
 char	*combine(t_print *arg, t_out *out, intmax_t len)
 {
+//	if (arg->converter == 'p')
+//		arg->width -= (arg->iszero) ? 2 : 0;
+//	arg->converter == 'p' ? out->string = ft_strjoin_free("0x", out->string, 2) : 0;
 	arg->precision_field == 1 ? apply_precision(arg, out, len) : 0;
 	apply_plus_space_hash(arg, out);
 	arg->width_field == 1 ? apply_width(arg, out, ft_strlen(out->string)) : 0;
 	(arg->isdash == 1 || arg->iszero == 1) ? apply_zero_dash(arg, out) : 0;
+//	arg->converter == 'p' ? out->string = ft_strjoin_free("0x", out->string, 2) : 0;
 	return (out->string);
 }
 

@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:56:29 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/14 17:26:10 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/16 18:26:02 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_check_errors(t_print *arg)
 ** Space error checks
 */
 
-	if (arg->isspace == 1 && (arg->format[arg->i] == 'c' || arg->format[arg->i] == 'C' || arg->format[arg->i] == 'x' || arg->format[arg->i] == 'X' || arg->format[arg->i] == 'p'))
+	if (arg->isspace == 1 && (arg->format[arg->i] == 'c' || arg->format[arg->i] == 'C' || arg->format[arg->i] == 's' || arg->format[arg->i] == 'S' || arg->format[arg->i] == 'x' || arg->format[arg->i] == 'X' || arg->format[arg->i] == 'p'))
 			arg->isspace = 0;
 	if (arg->isspace == 1 && arg->isplus == 1)
 		arg->isspace = 0;
@@ -36,7 +36,8 @@ size_t	ft_check_errors(t_print *arg)
 /*
 ** Zero error checks
 */
-	if (arg->iszero == 1 && !(arg->format[arg->i] == 'd' || arg->format[arg->i] == 'i' \
+	if (arg->iszero == 1 && ft_strchr("sS", arg->format[arg->i]))
+		//!(arg->format[arg->i] == 'd' || arg->format[arg->i] == 'i' \
 			|| arg->format[arg->i] == 'o' || arg->format[arg->i] == 'u' || arg->format[arg->i] == 'x' || arg->format[arg->i] == 'C'))
 		arg->iszero = 0;
 	if (arg->iszero == 1 && arg->isdash == 1)
