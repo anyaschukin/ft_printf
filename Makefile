@@ -6,7 +6,7 @@
 #    By: aschukin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/26 10:27:55 by aschukin          #+#    #+#              #
-#    Updated: 2018/03/14 13:48:15 by aschukin         ###   ########.fr        #
+#    Updated: 2018/03/20 12:48:09 by aschukin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,9 @@ SRC_PATH = sources
 SRC_NAME = ft_printf.c \
 			ft_init_struct.c ft_check_flags.c ft_check_length.c \
 			ft_check_precision.c ft_check_width.c ft_check_errors.c \
-			ft_length_conversion.c ft_ulength_conversion.c \
 			ft_printf_conversion.c \
 			flag_c.c flag_d.c flag_p.c flag_o.c flag_s.c flag_u.c flag_x.c \
-			flag_capx.c ft_pointer_address.c \
-			combine.c \
+			flag_percent.c combine.c \
 			ft_print_struct.c
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
@@ -32,7 +30,7 @@ INC_PATH = includes
 INC_NAME = ft_printf.h
 INCLUDES = $(addprefix $(INC_PATH)/,$(INC_NAME))
 
-#CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 LIB = libft/libft.a
 

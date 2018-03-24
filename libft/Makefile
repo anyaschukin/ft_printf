@@ -6,7 +6,7 @@
 #    By: aschukin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 17:33:54 by aschukin          #+#    #+#              #
-#    Updated: 2018/03/16 15:15:55 by aschukin         ###   ########.fr        #
+#    Updated: 2018/03/20 15:47:48 by aschukin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRCS = ft_atoi.c \
 	   ft_putnbr_fd.c \
 	   ft_putstr.c \
 	   ft_putstr_fd.c \
+	   ft_putnstr.c \
 	   ft_putwstr.c \
 	   ft_strcapitalize.c \
 	   ft_strcat.c \

@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 11:08:54 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/10 22:21:11 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/24 17:47:18 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 #include "libft.h"
 
-char	*ft_itoa(int num)
+char	*ft_itoa(long long num)
 {
 	char	*str;
 	int		count;

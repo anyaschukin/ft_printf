@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 18:39:49 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/18 21:14:54 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/19 11:01:26 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ size_t	ft_check_length(t_print *arg)
 {
 	while (what_length(arg->format[arg->i]))
 	{
-		arg->format[arg->i] == 'h' ? arg->length = h : 0;
-		arg->format[arg->i] == 'j' ? arg->length = j : 0;
-		arg->format[arg->i] == 'l' ? arg->length = l : 0;
-		arg->format[arg->i] == 'z' ? arg->length = z : 0;
+		arg->format[arg->i] == 'h' ? arg->length = 3 : 0;
+		arg->format[arg->i] == 'j' ? arg->length = 4 : 0;
+		arg->format[arg->i] == 'l' ? arg->length = 5 : 0;
+		arg->format[arg->i] == 'z' ? arg->length = 7 : 0;
 		if (arg->format[arg->i] == 'h' && arg->format[arg->i + 1] == 'h')
 		{
 			arg->length = 2;

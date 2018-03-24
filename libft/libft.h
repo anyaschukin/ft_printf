@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:49:26 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/16 15:15:38 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/20 15:47:29 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
-char				*ft_itoa(int n);
+char				*ft_itoa(long long num);
+char				*ft_itoa_base(long long num , int base);
 int					ft_lstcount(t_list *lst);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
@@ -50,6 +51,7 @@ void				*ft_memset(void *b, int c, size_t len);
 void				ft_putchar(char c);
 void				ft_putwchar(wchar_t c);
 void				ft_putstr(char const *s);
+void				ft_putnstr(char const *s);
 void				ft_putwstr(wchar_t *wstr);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);

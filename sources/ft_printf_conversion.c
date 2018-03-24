@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 17:48:07 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/14 17:18:10 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/20 17:07:10 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ size_t	ft_printf_conversion(va_list *ap, t_print *arg)
 	arg->format[arg->i] == 'U' ? flag_u(ap, arg) : 0;
 	arg->format[arg->i] == 'x' ? flag_x(ap, arg) : 0;
 	arg->format[arg->i] == 'X' ? flag_x(ap, arg) : 0;
+	arg->format[arg->i] == '%' ? flag_c(ap, arg) : 0;
 	arg->i++;
 	return (arg->i);
 }
