@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:49:26 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/20 15:47:29 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/27 15:05:53 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct		s_list
 }					t_list;
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
-size_t				ft_count(long long num);
+intmax_t			ft_count(long long num);
 int					ft_delim_count(char const *s, char delimter);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -54,7 +54,7 @@ void				ft_putstr(char const *s);
 void				ft_putnstr(char const *s);
 void				ft_putwstr(wchar_t *wstr);
 void				ft_putendl(char const *s);
-void				ft_putnbr(int n);
+void				ft_putnbr(long long n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);

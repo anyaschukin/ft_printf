@@ -6,12 +6,13 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:02:06 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/20 16:57:14 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/27 20:24:51 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include <stdarg.h>
+#include <stdio.h>
 
 /*static unsigned char	length_c(va_list *ap, t_print *arg)
 {
@@ -44,9 +45,8 @@ void	flag_c(va_list *ap, t_print *arg)
 	{
 		if (!(c = va_arg(*ap, intmax_t)))
 			c = '\0';
-		out.value = ft_strnew(len);
+		out.value = ft_strnew(c);
 		out.value[0] = c;
-		//if (out.value = c;
 	}
 	if (!(out.string = (char*)malloc(sizeof(char) * len + 1)))
 		error_exit(ERROR, 1);

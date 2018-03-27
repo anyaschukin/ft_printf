@@ -28,12 +28,15 @@ static char	*apply_precision(t_print *arg, t_out *out, intmax_t len)
 	}
 	if (arg->precision > len && arg->converter != 's')
 	{
+		arg->isnegative ? tmp += 2 : 0;
 		if (!(add = (char*)malloc(sizeof(char) * tmp + 1)))
 			error_exit(ERROR, 1);
 		add[tmp] = '\0';
 		ft_memset(add, '0', tmp);
 		if (!(out->string = ft_strjoin_free(add, out->string, 3)))
 			error_exit(ERROR, 1);
+		(arg->precision > arg->width && arg->isdash) ? arg->isdash = 0 : 0;
+	//	arg->isnegative ? *out->string = '-' : 0;
 	}
 	return (out->string);
 }
@@ -62,6 +65,7 @@ static char	*apply_width(t_print *arg, t_out *out, intmax_t len)
 	char		*add;
 	intmax_t	tmp;
 
+	(arg->converter == 'c' && ft_strcmp("\0", out->value) == 0) ? len = 1 : 0;
 	tmp = arg->width - len;
 	if (arg->converter == 'p' && arg->width_field == 1 && arg->iszero == 1) 
 		tmp -= 2;
@@ -71,14 +75,17 @@ static char	*apply_width(t_print *arg, t_out *out, intmax_t len)
 			error_exit(ERROR, 1);
 		add[tmp] = '\0';
 		ft_memset(add, ' ', tmp);
-//		if (arg->isdash == 1 && (arg->width_field && arg->precision_field) && (arg->width > arg->precision) && (arg->converter == 's' || arg->converter == 'S'))
-//		{
-//			if (!(out->string = ft_strjoin_free(out->string, add, 3)))
-//				error_exit(ERROR, 1);
-//		}
-//		else
+		if (arg->precision > 1 && arg->isdash && (arg->converter != 'c'))
+ 		{
+			if (!(out->string = ft_strjoin_free(out->string, add, 3)))
+				error_exit(ERROR, 1);
+			arg->isdash = 0;
+		}
+		else
+		{
 			if (!(out->string = ft_strjoin_free(add, out->string, 3)))
 				error_exit(ERROR, 1);
+		}
 	}
 	return (out->string);
 }

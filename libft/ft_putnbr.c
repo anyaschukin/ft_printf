@@ -6,13 +6,13 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 14:16:02 by aschukin          #+#    #+#             */
-/*   Updated: 2018/02/25 17:31:22 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/27 14:54:15 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int nb)
+void	ft_putnbr(long long nb)
 {
 	long long a;
 

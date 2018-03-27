@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 15:00:58 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/24 17:16:55 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/27 18:41:04 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,6 +211,10 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%14d]\n", 650);
 	mr = ft_printf("MINE>\t[%14d]\n", 650);
 
+	mr = ft_printf("MINE>\t[%-10.5d]\n", 4242);
+	or = printf("ORIG>\t[%-10.5d]\n", 4242);
+	ft_print_result(mr, or, __LINE__);
+
 */
 
 /*
@@ -350,6 +354,10 @@ int	main(void)
 	
 	mr = ft_printf("MINE>\t[%-8.30o]\n", 120);
 	or = printf("ORIG>\t[%-8.30o]\n", 120);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%-5.10o]\n", 2500);
+	or = printf("ORIG>\t[%-5.10o]\n", 2500);
 	ft_print_result(mr, or, __LINE__);
 */
 
@@ -751,18 +759,50 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%.10S]\n", L"こんにちは私は月面です");
 	or = printf("ORIG>\t[%.10S]\n", L"こんにちは私は月面です");
 	ft_print_result(mr, or, __LINE__);
-*/
+
 	mr = ft_printf("MINE>\t[%#-6o]\n", 2500);
 	or = printf("ORIG>\t[%#-6o]\n", 2500);
+	ft_print_result(mr, or, __LINE__);
+
+/*
+** c and s TESTS
+*/
+/*
+	printf("\n%s\n", "-----------------");
+	printf("\n%s\n", "S tests");
+	printf("\n%s\n", "-----------------");
+
+	mr = ft_printf("MINE>\t[%2c]\n", 0);
+	or = printf("ORIG>\t[%2c]\n", 0);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%-5.2s is a string]\n", "this");
+	or = printf("ORIG>\t[%-5.2s is a string]\n", "this");
 	ft_print_result(mr, or, __LINE__);
 
 	mr = ft_printf("MINE>\t[%.2s is a string]\n", "");
 	or = printf("ORIG>\t[%.2s is a string]\n", "");
 	ft_print_result(mr, or, __LINE__);
 
-	mr = ft_printf("MINE>\t[%-5.2s is a string]\n", "this");
-	or = printf("ORIG>\t[%-5.2s is a string]\n", "this");
+	mr = ft_printf("MINE>\t[%-.2s is a string]\n", "");
+	or = printf("ORIG>\t[%-.2s is a string]\n", "");
 	ft_print_result(mr, or, __LINE__);
+*/
+	mr = ft_printf("MINE>\t[%#08x]\n", 42);
+	or = printf("ORIG>\t[%#08x]\n", 42);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[@moulitest: %.10d]\n", -42);
+	or = printf("ORIG>\t[@moulitest: %.10d]\n", -42);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[@moulitest: %.d %.0d]\n", 0, 0);
+	or = printf("ORIG>\t[@moulitest: %.d %.0d]\n", 0, 0);
+	ft_print_result(mr, or, __LINE__);
+
+
+//	mr = ft_printf("MINE>\t[%lld]\n", -9223372036854775808);
+//	or = printf("ORIG>\t[%lld]\n", -9223372036854775808);
 
 	ft_putchar(42);
 	return(0);

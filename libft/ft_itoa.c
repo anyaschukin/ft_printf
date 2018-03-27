@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 11:08:54 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/24 17:47:18 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/27 14:49:29 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ char	*ft_itoa(long long num)
 	if (!(str = (char *)malloc((count + 1) * sizeof(char))))
 		return (NULL);
 	i = count - 1;
-	if (num == -2147483648)
-		return (ft_strdup("-2147483648"));
 	if (num == 0)
 		str[0] = '0';
 	if (num < 0)
@@ -45,6 +43,5 @@ char	*ft_itoa(long long num)
 		i--;
 	}
 	str[count] = '\0';
-	//free(str);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:58:38 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/24 17:40:02 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/27 20:24:31 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	flag_d(va_list *ap, t_print *arg)
 		   : (arg->isnegative = 1);
 	len = ft_count(nb);
 	out.value = ft_itoa(nb);
+//	nb == 0 ? out.value = "\0" : 0;
 	if(!(out.string = (char*)malloc(sizeof(char) * len + 1)))
 		error_exit(ERROR, 1);
 	out.string = ft_strcpy(out.string, out.value);
