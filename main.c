@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 15:00:58 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/27 18:41:04 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/28 16:07:06 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,10 @@ int	main(void)
 
 	mr = ft_printf("MINE>\t[%-10.5d]\n", 4242);
 	or = printf("ORIG>\t[%-10.5d]\n", 4242);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[@moulitest: %.d %.0d]\n", 0, 0);
+	or = printf("ORIG>\t[@moulitest: %.d %.0d]\n", 0, 0);
 	ft_print_result(mr, or, __LINE__);
 
 */
@@ -788,6 +792,8 @@ int	main(void)
 	or = printf("ORIG>\t[%-.2s is a string]\n", "");
 	ft_print_result(mr, or, __LINE__);
 */
+
+/*
 	mr = ft_printf("MINE>\t[%#08x]\n", 42);
 	or = printf("ORIG>\t[%#08x]\n", 42);
 	ft_print_result(mr, or, __LINE__);
@@ -795,11 +801,18 @@ int	main(void)
 	mr = ft_printf("MINE>\t[@moulitest: %.10d]\n", -42);
 	or = printf("ORIG>\t[@moulitest: %.10d]\n", -42);
 	ft_print_result(mr, or, __LINE__);
-
-	mr = ft_printf("MINE>\t[@moulitest: %.d %.0d]\n", 0, 0);
-	or = printf("ORIG>\t[@moulitest: %.d %.0d]\n", 0, 0);
+*/
+	mr = ft_printf("MINE>\t[%03.2d]\n", 0);
+	or = printf("ORIG>\t[%03.2d]\n", 0);
 	ft_print_result(mr, or, __LINE__);
 
+	mr = ft_printf("MINE>\t[%03.2d]\n", 1);
+	or = printf("ORIG>\t[%03.2d]\n", 1);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%05.2d]\n", -1);
+	or = printf("ORIG>\t[%05.2d]\n", -1);
+	ft_print_result(mr, or, __LINE__);
 
 //	mr = ft_printf("MINE>\t[%lld]\n", -9223372036854775808);
 //	or = printf("ORIG>\t[%lld]\n", -9223372036854775808);

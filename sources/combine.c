@@ -26,9 +26,9 @@ static char	*apply_precision(t_print *arg, t_out *out, intmax_t len)
 		arg->precision > arg->width ? out->string[arg->precision] = '\0' : 0;
 		arg->precision < len ? ft_strclr(out->string + arg->precision) : 0;
 	}
-	if (arg->precision > len && arg->converter != 's')
+	if (arg->precision >= len && arg->converter != 's')
 	{
-		arg->isnegative ? tmp += 2 : 0;
+		arg->isnegative ? tmp += 1 : 0;
 		if (!(add = (char*)malloc(sizeof(char) * tmp + 1)))
 			error_exit(ERROR, 1);
 		add[tmp] = '\0';
@@ -36,7 +36,6 @@ static char	*apply_precision(t_print *arg, t_out *out, intmax_t len)
 		if (!(out->string = ft_strjoin_free(add, out->string, 3)))
 			error_exit(ERROR, 1);
 		(arg->precision > arg->width && arg->isdash) ? arg->isdash = 0 : 0;
-	//	arg->isnegative ? *out->string = '-' : 0;
 	}
 	return (out->string);
 }
@@ -49,9 +48,15 @@ static char	*apply_plus_space_hash(t_print *arg, t_out *out)
 	if (arg->ishash == 1)
 	{
 		if (arg->converter == 'o')
-			out->string = ft_strjoin_free("0", out->string, 2);
+		{
+			if (!(out->string = ft_strjoin_free("0", out->string, 2)))
+				error_exit(ERROR, 1);
+		}
 		if (arg->converter == 'x' || arg->converter == 'X')
-			out->string = ft_strjoin_free("0x", out->string, 2);
+		{
+			if (!(out->string = ft_strjoin_free("0x", out->string, 2)))
+				error_exit(ERROR, 1);
+		}
 	}
 	if (arg->isplus == 1 && arg->ispositive == 1)
 		out->string = ft_strjoin_free("+", out->string, 2);

@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 11:08:54 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/27 14:49:29 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/28 14:25:57 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,27 @@
 
 #include "libft.h"
 
-char	*ft_itoa(long long num)
+static char	*negative_case(intmax_t num, char *str, int i, int count)
 {
-	char	*str;
-	int		count;
-	int		i;
+	uintmax_t neg;
+
+	str[0] = '-';
+	neg = -num;
+		while(neg > 0)
+		{
+			str[i] = '0' + (neg % 10);
+			neg = neg / 10;
+			i--;
+		}
+	str[count] = '\0';
+	return(str);
+}
+
+char		*ft_itoa(intmax_t num)
+{
+	char		*str;
+	int			count;
+	int			i;
 
 	count = ft_count(num);
 	if (!(str = (char *)malloc((count + 1) * sizeof(char))))
@@ -33,15 +49,15 @@ char	*ft_itoa(long long num)
 		str[0] = '0';
 	if (num < 0)
 	{
-		str[0] = '-';
-		num = -num;
+		return(negative_case(num, str, i, count));
 	}
-	while (num > 0)
-	{
-		str[i] = '0' + (num % 10);
-		num = num / 10;
-		i--;
-	}
+	else
+		while (num > 0)
+		{
+			str[i] = '0' + (num % 10);
+			num = num / 10;
+			i--;
+		}
 	str[count] = '\0';
 	return (str);
 }

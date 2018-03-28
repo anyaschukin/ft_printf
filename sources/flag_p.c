@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:46:48 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/19 12:01:58 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/28 17:41:03 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	flag_p(va_list *ap, t_print *arg)
 	out.value = ft_utoa_base(nb, 16);
 	len = ft_strlen(out.value);
 	if (arg->width_field == 1 && arg->iszero != 1)
-		out.value = ft_strjoin_free("0x", out.value, 2);
+		if (!(out.value = ft_strjoin_free("0x", out.value, 2)))
+			error_exit(ERROR, 1);
 	if(!(out.string = (char*)malloc(sizeof(char) * len + 1)))
 		error_exit(ERROR, 1);
 	out.string = ft_strcpy(out.string, out.value);

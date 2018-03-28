@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:49:26 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/27 15:05:53 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/28 14:05:11 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ typedef struct		s_list
 }					t_list;
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
-intmax_t			ft_count(long long num);
+intmax_t			ft_count(intmax_t num);
 int					ft_delim_count(char const *s, char delimter);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
-char				*ft_itoa(long long num);
+char				*ft_itoa(intmax_t num);
 char				*ft_itoa_base(long long num , int base);
 int					ft_lstcount(t_list *lst);
 t_list				*ft_lstnew(void const *content, size_t content_size);

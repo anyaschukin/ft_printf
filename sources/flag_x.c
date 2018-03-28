@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/24 15:35:10 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/28 14:39:00 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ void	flag_x(va_list *ap, t_print *arg)
 		out.string = combine(arg, &out, len);
 	arg->ret += ft_strlen(out.string);
 //	!ft_strchr(out.string, 'X') ? out.string[1] = 'x' : 0;
-//	if (arg->ishash == 1 && (!ft_strchr(out.string, 'x') || !ft_strchr(out.string, 'X')))
-//		out.string[1] = 'x';
+	if (arg->ishash == 1 && nb != 0 && (out.string[1] == '0') && (!ft_strchr(out.string, 'x') || !ft_strchr(out.string, 'X')))
+		out.string[1] = 'x';
 	arg->converter == 'x' ? ft_strtolower(out.string) : ft_strtoupper(out.string);
 	ft_putstr(out.string);
 	ft_strdel(&out.string);
