@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 13:19:35 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/14 17:09:05 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/24 16:21:17 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FT_PRINTF_H
@@ -31,6 +31,7 @@ typedef struct s_print
 	unsigned int iszero : 1;
 	unsigned int isspace : 1;
 	unsigned int ishash : 1;
+	unsigned int ispercent : 1;
 
 	unsigned int width_field;
 	unsigned int width;
@@ -70,7 +71,7 @@ typedef struct s_out
 
 size_t		ft_printf(const char *format, ...);
 size_t		ft_printf_conversion(va_list *ap, t_print *arg);
-void	ft_init_struct(t_print *arg);
+void	ft_init_struct(t_print *arg, t_out *out);
 size_t	ft_check_flags(t_print *arg);
 size_t	ft_check_width(t_print *arg);
 size_t	ft_check_precision(t_print *arg);
@@ -104,7 +105,7 @@ void	flag_p(va_list *ap, t_print *arg);
 void	flag_s(va_list *ap, t_print *arg);
 void	flag_u(va_list *ap, t_print *arg);
 void	flag_x(va_list *ap, t_print *arg);
-
+void	flag_percent(va_list *ap, t_print *arg);
 
 /*
 **

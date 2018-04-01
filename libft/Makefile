@@ -6,7 +6,7 @@
 #    By: aschukin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 17:33:54 by aschukin          #+#    #+#              #
-#    Updated: 2018/03/20 15:47:48 by aschukin         ###   ########.fr        #
+#    Updated: 2018/04/01 19:32:45 by aschukin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,7 +90,7 @@ SRCS = ft_atoi.c \
 	   ft_unicode.c \
 	   ft_utoa_base.c \
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
 
 OBJ = $(SRCS:.c=.o)
 

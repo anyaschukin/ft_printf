@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 15:00:58 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/19 17:58:40 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/31 16:35:30 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef unsigned long long	ull;
 typedef long long			ll;
 typedef unsigned long		ul;
 
-typedef enum	e_modifier
+typedef enum
 {
 	NONE,
 		HH,
@@ -33,7 +33,7 @@ typedef enum	e_modifier
 		J,
 		T,
 		Z
-};
+}e_modifier;
 
 void	ft_print_result(int mr, int or, int line)
 {
@@ -63,14 +63,14 @@ int	main(void)
 	test = malloc(sizeof(char*));
 	or = 0;
 	mr = 0;
-	printf("\033[1;37m======== %%d ========\033[0m\n");
+//	printf("\033[1;37m======== %%d ========\033[0m\n");
 
 	setlocale(LC_ALL, "");
 
 /*
 ** d TESTS
 */
-
+/*
 	printf("\n%s\n", "-----------------");
 	printf("\n%s\n", "d tests");
 	printf("\n%s\n", "-----------------");
@@ -211,12 +211,40 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%14d]\n", 650);
 	mr = ft_printf("MINE>\t[%14d]\n", 650);
 
+	mr = ft_printf("MINE>\t[%-10.5d]\n", 4242);
+	or = printf("ORIG>\t[%-10.5d]\n", 4242);
+	ft_print_result(mr, or, __LINE__);
 
+	mr = ft_printf("MINE>\t[@moulitest: %.d %.0d]\n", 0, 0);
+	or = printf("ORIG>\t[@moulitest: %.d %.0d]\n", 0, 0);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%03.2d]\n", 0);
+	or = printf("ORIG>\t[%03.2d]\n", 0);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%03.2d]\n", 1);
+	or = printf("ORIG>\t[%03.2d]\n", 1);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%05.2d]\n", -1);
+	or = printf("ORIG>\t[%05.2d]\n", -1);
+	ft_print_result(mr, or, __LINE__);
+
+	//	mr = ft_printf("MINE>\t[%lld]\n", -9223372036854775808);
+	//	or = printf("ORIG>\t[%lld]\n", -9223372036854775808);
+
+	mr = ft_printf("MINE>\t[@moulitest: %.10d]\n", -42);
+	or = printf("ORIG>\t[@moulitest: %.10d]\n", -42);
+	ft_print_result(mr, or, __LINE__);
+
+
+*/
 
 /*
 **  u TESTS
 */ 
-
+/*
 	printf("\n%s\n", "-----------------");
 	printf("\n%s\n", "u tests");
 	printf("\n%s\n", "-----------------");
@@ -269,11 +297,35 @@ int	main(void)
 	or = printf("ORIG>\t[%.0u]\n", 123);
 	ft_print_result(mr, or, __LINE__);
 
+	mr = ft_printf("MINE>\t[%u%u%u%u%u]\n", 1, 100, 999, 42, 999988888);
+	or = printf("ORIG>\t[%u%u%u%u%u]\n", 1, 100, 999, 42, 999988888);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[a%ub%uc%ud]\n", 0, 55555, 100000);
+	or = printf("ORIG>\t[a%ub%uc%ud]\n", 0, 55555, 100000);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%u]\n", UINT_MAX);
+	or = printf("ORIG>\t[%u]\n", UINT_MAX);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%U]\n", 42);
+	or = printf("ORIG>\t[%U]\n", 42);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%U]\n", ULONG_MAX / 2);
+	or = printf("ORIG>\t[%U]\n", ULONG_MAX / 2);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%U]\n", ULONG_MAX);
+	or = printf("ORIG>\t[%U]\n", ULONG_MAX);
+	ft_print_result(mr, or, __LINE__);
+*/
 
 /*
 **  o TESTS
 */ 
-
+/*
 
 	printf("\n%s\n", "-----------------");
 	printf("\n%s\n", "o tests");
@@ -352,11 +404,19 @@ int	main(void)
 	or = printf("ORIG>\t[%-8.30o]\n", 120);
 	ft_print_result(mr, or, __LINE__);
 
+	mr = ft_printf("MINE>\t[%-5.10o]\n", 2500);
+	or = printf("ORIG>\t[%-5.10o]\n", 2500);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%-#6o]\n", 2500);
+	or = printf("ORIG>\t[%-#6o]\n", 2500);
+	ft_print_result(mr, or, __LINE__);
+*/
 
 /*
 ** x TESTS
 */
-
+/*
 
 	printf("\n%s\n", "-----------------");
 	printf("\n%s\n", "x tests");
@@ -479,12 +539,16 @@ int	main(void)
 	or = printf("ORIG30>\t[%.0x]\n", 650);
 	ft_print_result(mr, or, __LINE__);
 
+	mr = ft_printf("MINE>\t[%#08x]\n", 42);
+	or = printf("ORIG>\t[%#08x]\n", 42);
+	ft_print_result(mr, or, __LINE__);
 
+*/
 
 /*
 ** p TESTS
 */
-
+/*
 
 	printf("\n%s\n", "-----------------");
 	printf("\n%s\n", "p tests");
@@ -570,7 +634,7 @@ int	main(void)
 	mr = ft_printf("MINE>\t[%.10p]\n", (void*)14785478);
 	or = printf("ORIG>\t[%.10p]\n", (void*)14785478);
 	ft_print_result(mr, or, __LINE__);
-
+*/
 
 /*
 ** C TESTS
@@ -666,7 +730,7 @@ int	main(void)
 ** S TESTS
 */
 
-
+/*
 	printf("\n%s\n", "-----------------");
 	printf("\n%s\n", "S tests");
 	printf("\n%s\n", "-----------------");
@@ -752,7 +816,113 @@ int	main(void)
 	or = printf("ORIG>\t[%.10S]\n", L"こんにちは私は月面です");
 	ft_print_result(mr, or, __LINE__);
 
+	mr = ft_printf("MINE>\t[%#-6o]\n", 2500);
+	or = printf("ORIG>\t[%#-6o]\n", 2500);
+	ft_print_result(mr, or, __LINE__);
+*/
+/*
+** c and s TESTS
+*/
+/*
+	printf("\n%s\n", "-----------------");
+	printf("\n%s\n", "S tests");
+	printf("\n%s\n", "-----------------");
 
+	mr = ft_printf("MINE>\t[%2c]\n", 0);
+	or = printf("ORIG>\t[%2c]\n", 0);
+	ft_print_result(mr, or, __LINE__);
 
+	mr = ft_printf("MINE>\t[%-5.2s is a string]\n", "this");
+	or = printf("ORIG>\t[%-5.2s is a string]\n", "this");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%.2s is a string]\n", "");
+	or = printf("ORIG>\t[%.2s is a string]\n", "");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%-.2s is a string]\n", "");
+	or = printf("ORIG>\t[%-.2s is a string]\n", "");
+	ft_print_result(mr, or, __LINE__);
+
+		mr = ft_printf("MINE>\t[%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \
+%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\
+%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c]\n", ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-',
+'.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';',
+'<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
+'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e',
+'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+'t', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}');
+	or = printf("ORIG>\t[%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \
+%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\
+%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c]\n", ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-',
+'.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';',
+'<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
+'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e',
+'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+'t', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}');
+	ft_print_result(mr, or, __LINE__);
+*/
+
+/*
+** % TESTS
+*/
+
+/*
+	mr = ft_printf("%");
+	or = printf("%");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%%]\n");
+	or = printf("ORIG>\t[%%]\n");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[aa%%bb]\n");
+	or = printf("ORIG>\t[aa%%bb]\n");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%%%%%%%%%%]\n");
+	or = printf("ORIG>\t[%%%%%%%%%%]\n");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[.%%.%%.%%.%%.%%.%%.%%.%%.]\n");
+	or = printf("ORIG>\t[.%%.%%.%%.%%.%%.%%.%%.%%.]\n");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%]\n");
+	or = printf("ORIG>\t[%]\n");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[% Zoooo]\n");
+	or = printf("ORIG>\t[% Zoooo]\n");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%]\n");
+	or = printf("ORIG>\t[%]\n");
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[{% %}]\n");
+	or = printf("ORIG>\t[{% %}]\n");
+	ft_print_result(mr, or, __LINE__);
+*/
+
+	mr = ft_printf("MINE>\t[%u]\n", UINT_MAX);
+	or = printf("ORIG>\t[%u]\n", UINT_MAX);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%U]\n", 42);
+	or = printf("ORIG>\t[%U]\n", 42);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%U]\n", ULONG_MAX / 2);
+	or = printf("ORIG>\t[%U]\n", ULONG_MAX / 2);
+	ft_print_result(mr, or, __LINE__);
+
+	mr = ft_printf("MINE>\t[%U]\n", ULONG_MAX);
+	or = printf("ORIG>\t[%U]\n", ULONG_MAX);
+	ft_print_result(mr, or, __LINE__);
+
+	ft_putchar(42);
 	return(0);
 }
