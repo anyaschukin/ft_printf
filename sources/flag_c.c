@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:02:06 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/01 15:19:02 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/01 16:27:45 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	flag_c(va_list *ap, t_print *arg)
 	{
 		w = va_arg(*ap, wchar_t);
 		out.value = ft_unicode(w);
-		out.value = NULL ? out.value = ft_strdup(("(null)")) : 0;
+		out.value = NULL ? out.value = ("(null)") : 0;
 		len = ft_strwlen(out.value);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/01 14:54:05 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/01 17:07:17 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static size_t	ft_printf_parse(va_list *ap, t_print *arg)
 		ft_check_length(arg);
 		ft_check_errors(arg);
 	}
-	ft_printf_conversion(ap, arg);
+	if (ft_strchr("cCdDioOpsSuUxX%", arg->format[arg->i]))
+		ft_printf_conversion(ap, arg);
 	return (arg->i);
 }
 
@@ -43,7 +44,8 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 		if (arg.format[arg.i] == '%')
 		{
 			arg.i++;
-			arg.format[arg.i] == '\0' ? error_exit("fuck you", 1) : 0;
+			if (arg.format[arg.i] == '\0')
+				return(arg.ret);
 			ft_init_struct(&arg, &out);
 			ft_printf_parse(ap, &arg); // have this return the len of what I printed
 	//	if (arg.format[arg.i] == '\0' || arg.ret == -1 || arg.ret == '\0')
