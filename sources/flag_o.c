@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/20 17:24:55 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/31 17:40:02 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static uintmax_t	length_o(va_list *ap, t_print *arg)
 	else if (arg->length == 7)
 		return ((size_t)va_arg(*ap, uintmax_t));
 	else
-		return ((unsigned int)va_arg(*ap, uintmax_t));
+	//	return ((unsigned int)va_arg(*ap, uintmax_t));
+		return (va_arg(*ap, uintmax_t));
 }
 
 
@@ -41,14 +42,15 @@ void	flag_o(va_list *ap, t_print *arg)
 	nb = length_o(ap, arg);
 //	nb == 0 ? arg->ishash = 0 : 0;
 	len = ft_count(nb);
-	out.value = (nb == 0 && arg->precision_field == 1) ? "" \
-		: ft_utoa_base(nb, 8);
+	out.value = (nb == 0 && arg->precision_field == 1) ? ft_strdup("\0") \
+		: ft_strdup(ft_utoa_base(nb, 8));
 	if(!(out.string = (char*)malloc(sizeof(char) * len + 1)))
 		error_exit(ERROR, 1);
 	out.string = ft_strcpy(out.string, out.value);
 	out.string = combine(arg, &out, len);
 	arg->ret += ft_strlen(out.string);
 	ft_putstr(out.string);
+	ft_strdel(&out.value);
 	ft_strdel(&out.string);
 }
 

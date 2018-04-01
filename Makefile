@@ -6,7 +6,7 @@
 #    By: aschukin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/26 10:27:55 by aschukin          #+#    #+#              #
-#    Updated: 2018/03/20 12:48:09 by aschukin         ###   ########.fr        #
+#    Updated: 2018/03/31 20:33:06 by aschukin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC_NAME = ft_printf.c \
 			ft_check_precision.c ft_check_width.c ft_check_errors.c \
 			ft_printf_conversion.c \
 			flag_c.c flag_d.c flag_p.c flag_o.c flag_s.c flag_u.c flag_x.c \
-			flag_percent.c combine.c \
+			combine.c \
 			ft_print_struct.c
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
@@ -59,6 +59,7 @@ $(INC_PATH):
 clean:
 	@make clean -C libft/
 	@rm -f $(OBJ)
+	@rm -f $(OBJ_NAME)
 	@rmdir $(OBJ_PATH) 2> /dev/null || true
 	@echo "\033[32;1m Cleanup Complete! \033[0m"
 

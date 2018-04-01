@@ -76,8 +76,9 @@ static char	*apply_width(t_print *arg, t_out *out, intmax_t len)
 		tmp -= 2;
 	if (arg->width > len)
 	{
-		if (!(add = (char*)malloc(sizeof(char) * tmp + 1)))
-			error_exit(ERROR, 1);
+//		if (!(add = (char*)malloc(sizeof(char) * tmp + 1)))
+//			error_exit(ERROR, 1);
+		add = ft_strnew(tmp);
 		add[tmp] = '\0';
 		ft_memset(add, ' ', tmp);
 		if (arg->precision > 1 && arg->isdash && (arg->converter != 'c'))

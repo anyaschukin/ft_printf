@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/28 13:37:43 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/01 14:54:05 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 static size_t	ft_printf_parse(va_list *ap, t_print *arg)
 {
-	while (!(ft_strchr("cCdDioOpsSuUxX%", arg->format[arg->i])) && arg->format[arg->i] != '\0')
+//	while (!(ft_strchr("cCdDioOpsSuUxX%", arg->format[arg->i])) && arg->format[arg->i] != '\0')
+	while (ft_strchr("-+0 #0123456789.hljz", arg->format[arg->i]) && arg->format[arg->i] != '\0')
 	{
 		ft_check_flags(arg);
 		ft_check_width(arg);
@@ -42,9 +43,10 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 		if (arg.format[arg.i] == '%')
 		{
 			arg.i++;
+			arg.format[arg.i] == '\0' ? error_exit("fuck you", 1) : 0;
 			ft_init_struct(&arg, &out);
 			ft_printf_parse(ap, &arg); // have this return the len of what I printed
-	//	if (arg.ret == -1 || arg.ret == '\0')
+	//	if (arg.format[arg.i] == '\0' || arg.ret == -1 || arg.ret == '\0')
 	//		break;
 		//	ft_init_struct(&arg);
 		}

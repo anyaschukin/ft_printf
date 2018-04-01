@@ -6,12 +6,11 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 16:29:59 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/12 11:22:09 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/31 17:40:57 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	ft_count_ubase(uintmax_t num, int base)
 {
@@ -49,7 +48,7 @@ char	*ft_utoa_base(uintmax_t num, int base)
 		num = num / base;
 		i--;
 	}
-//	free(str);
+	free(str);
 	return (str);
 }
 

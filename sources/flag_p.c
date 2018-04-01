@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:46:48 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/28 17:41:03 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/01 15:19:53 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static uintmax_t	length_p(va_list *ap, t_print *arg)
 	else if (arg->length == 7)
 		return ((size_t)va_arg(*ap, uintmax_t));
 	else
-		return ((unsigned int)va_arg(*ap, uintmax_t));
+	//	return ((unsigned int)va_arg(*ap, uintmax_t));
+		return (va_arg(*ap, uintmax_t));
 }
 
 void	flag_p(va_list *ap, t_print *arg)
@@ -39,7 +40,7 @@ void	flag_p(va_list *ap, t_print *arg)
 	(void)arg;
 
 	nb = length_p(ap, arg);
-	out.value = ft_utoa_base(nb, 16);
+	out.value = ft_strdup(ft_utoa_base(nb, 16));
 	len = ft_strlen(out.value);
 	if (arg->width_field == 1 && arg->iszero != 1)
 		if (!(out.value = ft_strjoin_free("0x", out.value, 2)))
@@ -48,9 +49,12 @@ void	flag_p(va_list *ap, t_print *arg)
 		error_exit(ERROR, 1);
 	out.string = ft_strcpy(out.string, out.value);
 	out.string = combine(arg, &out, len);
-	!(ft_strstr(out.string, "0x")) ? out.string = ft_strjoin_free("0x", out.string, 2) : 0;
+	if (!(ft_strstr(out.string, "0x")))
+		if(!(out.string = ft_strjoin_free("0x", out.string, 2)))
+			error_exit(ERROR, 1);
 	arg->ret += ft_strlen(out.string);
 	ft_strtolower(out.string);
 	ft_putstr(out.string);
+	ft_strdel(&out.value);
 	ft_strdel(&out.string);
 }

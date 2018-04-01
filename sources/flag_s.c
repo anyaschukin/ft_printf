@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:06:02 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/21 16:08:41 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/01 15:21:20 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	flag_s(va_list *ap, t_print *arg)
 	{
 		wstr = va_arg(*ap, wchar_t *);
 		out.value = ft_strunicode(wstr);
-		out.value == NULL ? out.value = ("(null)") : 0;
+		out.value == NULL ? out.value = ft_strdup(("(null)")) : 0;
 		len = ft_strwlen(out.value);
 	}
 	else
@@ -32,7 +32,7 @@ void	flag_s(va_list *ap, t_print *arg)
 		str = va_arg(*ap, char *);
 		str == NULL ? str = ("(null)") : 0;
 		len = ft_strlen(str);
-		out.value =  str;
+		out.value = str;
 	}
 	if(!(out.string = (char*)malloc(sizeof(char) * len + 1)))
 		error_exit(ERROR, 1);

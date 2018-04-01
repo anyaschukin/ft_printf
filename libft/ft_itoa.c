@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 11:08:54 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/28 14:25:57 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/03/31 16:24:58 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ char		*ft_itoa(intmax_t num)
 			i--;
 		}
 	str[count] = '\0';
+	free(str);
 	return (str);
 }
