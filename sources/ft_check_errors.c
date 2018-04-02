@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:56:29 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/28 16:06:38 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/02 14:06:47 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ size_t	ft_check_errors(t_print *arg)
 ** Zero error checks
 */
 	if (arg->iszero == 1 && ft_strchr("sS", arg->format[arg->i]))
-		//!(arg->format[arg->i] == 'd' || arg->format[arg->i] == 'i' \
-			|| arg->format[arg->i] == 'o' || arg->format[arg->i] == 'u' || arg->format[arg->i] == 'x' || arg->format[arg->i] == 'C'))
 		arg->iszero = 0;
 	if (arg->iszero == 1 && arg->isdash == 1)
 		arg->iszero = 0;

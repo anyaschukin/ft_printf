@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:06:02 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/01 15:24:44 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/02 18:25:14 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,18 @@ void	flag_s(va_list *ap, t_print *arg)
 		wstr = va_arg(*ap, wchar_t *);
 		out.value = ft_strunicode(wstr);
 		out.value == NULL ? out.value = ft_strdup(("(null)")) : 0;
-		len = ft_strwlen(out.value);
 	}
 	else
 	{
 		str = va_arg(*ap, char *);
 		str == NULL ? str = ("(null)") : 0;
-		len = ft_strlen(str);
-		out.value = str;
+		out.value = ft_strdup(str);
 	}
-	if(!(out.string = (char*)malloc(sizeof(char) * len + 1)))
-		error_exit(ERROR, 1);
-	out.string = ft_strcpy(out.string, out.value);
+	len = ft_strwlen(out.value);
+	out.string = ft_strdup(out.value);
 	out.string = combine(arg, &out, len);
 	arg->ret += ft_strlen(out.string);
 	ft_putstr(out.string);
 	ft_strdel(&out.string);
+	ft_strdel(&out.value);
 }

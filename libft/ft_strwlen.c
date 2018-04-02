@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 14:42:03 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/14 15:52:51 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/02 10:31:51 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 intmax_t	ft_strwlen(char *str)
 {
 	intmax_t	len;
-	int	i;
+	int			i;
 	
 	len = 0;
 	i = 0;

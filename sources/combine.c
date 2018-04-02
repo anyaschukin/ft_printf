@@ -42,8 +42,8 @@ static char	*apply_precision(t_print *arg, t_out *out, intmax_t len)
 
 static char	*apply_plus_space_hash(t_print *arg, t_out *out)
 {
-	char		*temp;
-	intmax_t	tmp;
+	//char		*temp;
+	//intmax_t	tmp;
 
 	if (arg->ishash == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/01 18:15:01 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/02 17:55:04 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static size_t	ft_printf_parse(va_list *ap, t_print *arg)
 
 static size_t	ft_check_printf(const char *format, va_list *ap)
 {
-	char buf[BUFF_SIZE];
 	t_print arg;
 	t_out out;
 
@@ -45,7 +44,7 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 		{
 			arg.i++;
 			if (arg.format[arg.i] == '\0')
-				return(arg.ret);
+				return (arg.ret);
 			ft_init_struct(&arg, &out);
 			ft_printf_parse(ap, &arg); // have this return the len of what I printed
 	//	if (arg.format[arg.i] == '\0' || arg.ret == -1 || arg.ret == '\0')
@@ -55,7 +54,7 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 		else
 		{
 			ft_putchar(arg.format[arg.i]);
-			arg.i++; // also increment len every time I print something
+			arg.i++;
 			arg.ret++;
 		}
 	}

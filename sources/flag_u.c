@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:10:53 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/01 17:20:06 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/02 18:09:18 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,8 @@ void	flag_u(va_list *ap, t_print *arg)
 
 	nb = length_u(ap, arg);
 	len = ft_count(nb);
-	out.value = ft_utoa_base(nb, 10);
-	if(!(out.string = (char*)malloc(sizeof(char) * len + 1)))
-		error_exit(ERROR, 1);
-	out.string = ft_strcpy(out.string, out.value);
+	out.value = ft_strdup(ft_utoa_base(nb, 10));
+	out.string = ft_strdup(out.value);
 	out.string = combine(arg, &out, len);
 	arg->ret += ft_strlen(out.string);
 	ft_putstr(out.string);

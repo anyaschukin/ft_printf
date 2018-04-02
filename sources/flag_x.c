@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/31 17:39:49 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/02 18:13:06 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,6 @@ uintmax_t   length_x(va_list *ap, t_print *arg)
 		return (va_arg(*ap, uintmax_t));
 }
 
-/*
-static uintmax_t	length_x(va_list *ap, t_print *ap)
-{
-	if (arg->length == 2 && arg->format[arg->i] != 'X')
-		return ((unsigned char)va_arg(*ap, uintmax_t));
-	else if (arg->length == 3 && arg->format[arg->i] != 'X')
-		return ((unsigned short int)va_arg(*ap, uintmax_t));
-	else if (arg->length == 5 || arg->format[arg->i] == 'X')
-		return ((unsigned long)va_arg(*ap, uintmax_t));
-	else if (arg->length == 6)
-		return ((unsigned long long)va_arg(*ap, uintmax_t));
-	else if (arg->length == 4)
-		return ((uintmax_t)va_arg(*ap, uintmax_t));
-	else if (arg->length == 7)
-		return ((size_t)va_arg(*ap, uintmax_t));
-	else
-		return ((unsigned int)va_arg(*ap, uintmax_t));
-}*/
-
 void	flag_x(va_list *ap, t_print *arg)
 {
 	intmax_t	nb;
@@ -69,9 +50,7 @@ void	flag_x(va_list *ap, t_print *arg)
 	else
 		out.value = ft_strdup(ft_utoa_base(nb, 16));
 	len = ft_strlen(out.value);
-	if (!(out.string = (char*)malloc(sizeof(char) * len + 1)))
-		error_exit(ERROR, 1);
-	out.string = ft_strcpy(out.string, out.value);
+	out.string = ft_strdup(out.value);
 	if (*out.value != '0')
 		out.string = combine(arg, &out, len);
 	arg->ret += ft_strlen(out.string);

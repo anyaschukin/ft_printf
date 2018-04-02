@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 13:19:35 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/24 16:21:17 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/02 17:56:22 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FT_PRINTF_H
@@ -54,8 +54,6 @@ typedef struct s_print
 		z,    // 7
 	} length;
 
-	size_t index;
-	char buf[BUFF_SIZE];
 }				t_print;
 
 typedef struct s_out

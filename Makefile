@@ -6,7 +6,7 @@
 #    By: aschukin <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/26 10:27:55 by aschukin          #+#    #+#              #
-#    Updated: 2018/04/01 19:33:19 by aschukin         ###   ########.fr        #
+#    Updated: 2018/04/02 14:05:38 by aschukin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ $(NAME): libftcomp $(OBJ) $(LIB)
 	@echo "\033[32;1m Compilation completed! \033[0m"
 
 $(OBJ): $(OBJ_PATH) $(SRC) $(INC_PATH)
-	@gcc -c $(SRC) -g
+	@gcc $(CFLAGS) -c $(SRC)
 	@mv $(OBJ_NAME) $(OBJ_PATH)
 
 $(OBJ_PATH):

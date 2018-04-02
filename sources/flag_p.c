@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:46:48 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/01 15:25:10 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/02 18:16:58 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ void	flag_p(va_list *ap, t_print *arg)
 	if (arg->width_field == 1 && arg->iszero != 1)
 		if (!(out.value = ft_strjoin_free("0x", out.value, 2)))
 			error_exit(ERROR, 1);
-	if(!(out.string = (char*)malloc(sizeof(char) * len + 1)))
-		error_exit(ERROR, 1);
-	out.string = ft_strcpy(out.string, out.value);
+	out.string = ft_strdup(out.value);
 	out.string = combine(arg, &out, len);
 	if (!(ft_strstr(out.string, "0x")))
 		if(!(out.string = ft_strjoin_free("0x", out.string, 2)))
