@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/02 17:55:04 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/03 18:44:12 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static size_t	ft_printf_parse(va_list *ap, t_print *arg)
 		ft_check_length(arg);
 		ft_check_errors(arg);
 	}
-	if (ft_strchr("cCdDioOpsSuUxX%", arg->format[arg->i]))
+	if (ft_strchr("cCdDioOpsSuUxX%RZ", arg->format[arg->i]))
 		ft_printf_conversion(ap, arg);
 	return (arg->i);
 }

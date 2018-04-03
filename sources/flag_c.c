@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:02:06 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/02 18:34:26 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/03 19:52:03 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,19 @@ void	flag_c(va_list *ap, t_print *arg)
 	intmax_t	len;
 	t_out		out;
 
-	c = 1;
-	w = 1;
-	if (arg->converter == '%')
+	//c = 1;
+	//w = 1;
+	if (arg->converter != 'c' && arg->converter != 'C' && arg->converter != '%' && arg->converter != 'R')
+	{
+		if (!(c = va_arg(*ap, intmax_t)))
+			c = '\0';
+		out.value = ft_strnew(1);
+		out.value[0] = arg->converter;
+		arg->converter = 'c';
+	}
+	else if (arg->converter == 'R')
+		out.value = "R";
+	else if (arg->converter == '%')
 		out.value = "%";
 	else if (arg->length == 5 || arg->converter == 'C')
 	{
@@ -36,10 +46,8 @@ void	flag_c(va_list *ap, t_print *arg)
 	{
 		if (!(c = va_arg(*ap, intmax_t)))
 			c = '\0';
-	//	out.value = ft_memset(out.value, 2, 0);
-		out.value = &c;
-	//	out.value = ft_strnew(1);
-	//	out.value[0] = c;
+		out.value = ft_strnew(1);
+		out.value[0] = c;
 	}
 	len = ft_strwlen(out.value);
 	out.string = ft_strdup(out.value);

@@ -76,8 +76,6 @@ static char	*apply_width(t_print *arg, t_out *out, intmax_t len)
 		tmp -= 2;
 	if (arg->width > len)
 	{
-//		if (!(add = (char*)malloc(sizeof(char) * tmp + 1)))
-//			error_exit(ERROR, 1);
 		add = ft_strnew(tmp);
 		add[tmp] = '\0';
 		ft_memset(add, ' ', tmp);
@@ -119,7 +117,7 @@ static char	*apply_zero_dash(t_print *arg, t_out *out)
 	}
 	else if (arg->isdash == 1)
 	{
-		(ft_strchr(out->string, 'X') || ft_strchr(out->string, 'x')) ? vlen += 2 : 0;
+		(arg->converter != 'p' && (ft_strchr(out->string, 'X') || ft_strchr(out->string, 'x'))) ? vlen += 2 : 0;
 		(arg->converter == 'o' && arg->ishash == 1) ? vlen += 1 : 0;
 		move = vlen - len;
 		ft_strrotate(out->string, len, move);

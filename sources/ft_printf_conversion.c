@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 17:48:07 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/01 16:58:05 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/03 19:37:18 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ size_t	ft_printf_conversion(va_list *ap, t_print *arg)
 	arg->format[arg->i] == 'x' ? flag_x(ap, arg) : 0;
 	arg->format[arg->i] == 'X' ? flag_x(ap, arg) : 0;
 	arg->format[arg->i] == '%' ? flag_c(ap, arg) : 0;
+	arg->format[arg->i] == 'R' ? flag_c(ap, arg) : 0;
+	!(ft_strchr("cCdDioOpsSuUxX%R", arg->format[arg->i])) ? flag_c(ap, arg) : 0;
 	arg->i++;
 	return (arg->i);
 }
