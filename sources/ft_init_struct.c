@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 19:50:18 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/01 21:04:17 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/03 20:27:28 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	ft_init_pstruct(t_print *arg)
 	arg->ispercent = 0;
 	arg->width_field = 0;
 	arg->width = 0;
-	arg->precision_field = -1;
+	arg->precision_field = 0;
+//	arg->precision_field = -1;
 	arg->precision = 0;
 	arg->length = 1;
 	arg->ispositive = 0;

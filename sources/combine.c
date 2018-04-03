@@ -47,7 +47,7 @@ static char	*apply_plus_space_hash(t_print *arg, t_out *out)
 
 	if (arg->ishash == 1)
 	{
-		if (arg->converter == 'o')
+		if (arg->converter == 'o' || arg->converter == 'O')
 		{
 			if (!(out->string = ft_strjoin_free("0", out->string, 2)))
 				error_exit(ERROR, 1);
@@ -76,6 +76,8 @@ static char	*apply_width(t_print *arg, t_out *out, intmax_t len)
 		tmp -= 2;
 	if (arg->width > len)
 	{
+//		if (!(add = (char*)malloc(sizeof(char) * tmp + 1)))
+//			error_exit(ERROR, 1);
 		add = ft_strnew(tmp);
 		add[tmp] = '\0';
 		ft_memset(add, ' ', tmp);
