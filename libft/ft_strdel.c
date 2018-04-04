@@ -6,17 +6,17 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 16:52:48 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/10 21:54:07 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/04 21:00:26 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+void	ft_strdel(char *as)
 {
-	if (as && *as)
+	if (as)
 	{
-		free(*as);
-		*as = NULL;
+		free(as);
+		as = NULL;
 	}
 }

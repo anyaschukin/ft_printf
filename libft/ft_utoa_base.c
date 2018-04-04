@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 16:29:59 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/01 17:22:42 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/04 20:56:43 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_utoa_base(uintmax_t num, int base)
 		num = num / base;
 		i--;
 	}
-	free(str);
+//	free(str);
 	return (str);
 }
 

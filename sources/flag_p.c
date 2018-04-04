@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:46:48 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/04 16:03:45 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/04 21:06:38 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	flag_p(va_list *ap, t_print *arg)
 	(void)arg;
 
 	nb = length_p(ap, arg);
-	out.value = (nb == 0 && arg->precision_field == 1) ? ft_strdup("\0") : ft_strdup(ft_utoa_base(nb, 16));
+	out.value = (nb == 0 && arg->precision_field == 1) ? ft_strdup("\0") : ft_utoa_base(nb, 16);
 //	len = ft_strlen(out.value);
 	if (arg->width_field == 1 && arg->iszero != 1)
 		if (!(out.value = ft_strjoin_free("0x", out.value, 2)))
@@ -54,6 +54,6 @@ void	flag_p(va_list *ap, t_print *arg)
 	arg->ret += ft_strlen(out.string);
 	ft_strtolower(out.string);
 	ft_putstr(out.string);
-	ft_strdel(&out.string);
-	ft_strdel(&out.value);
+	ft_strdel(out.string);
+	ft_strdel(out.value);
 }

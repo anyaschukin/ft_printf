@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/02 18:13:06 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/04 21:13:51 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	flag_x(va_list *ap, t_print *arg)
 		arg->ishash = 0;
 	}
 	else
-		out.value = ft_strdup(ft_utoa_base(nb, 16));
+		out.value = ft_utoa_base(nb, 16);
 	len = ft_strlen(out.value);
 	out.string = ft_strdup(out.value);
 	if (*out.value != '0')
@@ -58,6 +58,6 @@ void	flag_x(va_list *ap, t_print *arg)
 		out.string[1] = 'x';
 	arg->converter == 'x' ? ft_strtolower(out.string) : ft_strtoupper(out.string);
 	ft_putstr(out.string);
-	ft_strdel(&out.string);
-	ft_strdel(&out.value);
+	ft_strdel(out.value);
+	ft_strdel(out.string);
 }

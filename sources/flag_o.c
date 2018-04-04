@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/04 16:48:46 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/04 21:06:20 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	flag_o(va_list *ap, t_print *arg)
 	len = ft_count(nb);
 //	ft_putnbr(len);
 	out.value = (nb == 0 && arg->precision_field == 1) ? ft_strdup("\0") \
-		: ft_strdup(ft_utoa_base(nb, 8));
+		: ft_utoa_base(nb, 8);
 	out.string = ft_strdup(out.value);
 	out.string = combine(arg, &out, len);
 	arg->ret += ft_strlen(out.string);
 	ft_putstr(out.string);
-	ft_strdel(&out.value);
-	ft_strdel(&out.string);
+	ft_strdel(out.value);
+	ft_strdel(out.string);
 }

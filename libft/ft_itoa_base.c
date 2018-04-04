@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 14:31:42 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/24 17:45:53 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/04 20:56:25 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ char	*ft_itoa_base(long long num, int base)
 		num = num / base;
 		i--;
 	}
-	free(str);
+//	free(str);
 	return (str);
 }

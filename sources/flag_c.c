@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:02:06 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/03 19:55:53 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/04 21:16:29 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	flag_c(va_list *ap, t_print *arg)
 	len == 0 ? arg->ret += 1 : 0;
 	len == 0 ? ft_putnstr(out.string) : 0;
 	len > 0 ? ft_putstr(out.string) : 0;
-//	ft_strdel(&out.value);
-	ft_strdel(&out.string);
+//	ft_strdel(out.value);
+	ft_strdel(out.string);
 }

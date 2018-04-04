@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 15:24:46 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/27 16:26:57 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/04 21:00:45 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ char	*ft_strjoin_free(char *s1, char *s2, size_t to_free)
 	ft_memmove(str, s1, s1_size);
 	ft_memmove(str + s1_size, s2, s2_size);
 	if (to_free == 1)
-		ft_strdel(&s1);
+		ft_strdel(s1);
 	if (to_free == 2)
-		ft_strdel(&s2);
+		ft_strdel(s2);
 	if (to_free == 3)
 	{
-		ft_strdel(&s1);
-		ft_strdel(&s2);
+		ft_strdel(s1);
+		ft_strdel(s2);
 	}
 	return(str);
 }
