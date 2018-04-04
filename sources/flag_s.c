@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:06:02 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/03 17:55:10 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/04 16:32:38 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	flag_s(va_list *ap, t_print *arg)
 	else
 	{
 		str = va_arg(*ap, char *);
+	//	str == 0 ? str = "\0" : 0;
 		str == NULL ? str = ("(null)") : 0;
 		out.value = ft_strdup(str);
 	}

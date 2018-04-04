@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:58:38 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/03 20:46:19 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/04 11:25:55 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	flag_d(va_list *ap, t_print *arg)
 	len = ft_count(nb);
 	out.string = ft_strdup(out.value);
 	out.string = combine(arg, &out, len);
-	if (arg->isnegative && arg->precision)
+	if (arg->isnegative && arg->precision && ft_strchr(out.string, '0'))
 	{
 		n = ft_strchr(out.string, '-');
 		m = ft_strchr(out.string, '0');
