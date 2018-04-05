@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:02:06 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/04 21:16:29 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/05 15:50:59 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ void	flag_c(va_list *ap, t_print *arg)
 		arg->converter = 'c';
 	}
 	else if (arg->converter == 'R')
-		out.value = "R";
+		out.value = ft_strdup("R");
 	else if (arg->converter == '%')
-		out.value = "%";
+		out.value = ft_strdup("%");
 	else if (arg->length == 5 || arg->converter == 'C')
 	{
 		w = va_arg(*ap, wchar_t);
 		out.value = ft_unicode(w);
 		if (out.value == NULL)
-			out.value = ("(null)");
+			out.value = ft_strdup(("(null)"));
 	}
 	else
 	{
@@ -56,6 +56,6 @@ void	flag_c(va_list *ap, t_print *arg)
 	len == 0 ? arg->ret += 1 : 0;
 	len == 0 ? ft_putnstr(out.string) : 0;
 	len > 0 ? ft_putstr(out.string) : 0;
-//	ft_strdel(out.value);
+	ft_strdel(out.value);
 	ft_strdel(out.string);
 }

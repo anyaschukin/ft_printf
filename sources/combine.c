@@ -42,9 +42,6 @@ static char	*apply_precision(t_print *arg, t_out *out, intmax_t len)
 
 static char	*apply_plus_space_hash(t_print *arg, t_out *out)
 {
-	//char		*temp;
-	//intmax_t	tmp;
-
 	if (arg->ishash == 1)
 	{
 		if (arg->converter == 'o' || arg->converter == 'O')
@@ -62,6 +59,7 @@ static char	*apply_plus_space_hash(t_print *arg, t_out *out)
 		out->string = ft_strjoin_free("+", out->string, 2);
 	else if (arg->isspace == 1 && !(arg->isnegative == 1))
 		out->string = ft_strjoin_free(" ", out->string, 2);
+	//	printf("%s\n", out->value);
 	return (out->string);
 }
 
@@ -71,13 +69,14 @@ static char	*apply_width(t_print *arg, t_out *out, intmax_t len)
 	intmax_t	tmp;
 
 	(arg->converter == 'c' && ft_strcmp("\0", out->value) == 0) ? len = 1 : 0;
+//	(arg->converter == 'd' && !arg->precision_field && ft_strcmp("0", out->value) == 0) ? len = 2 : 0;
+//	ft_putstr(out->value);
+//	ft_putstr("\n");
 	tmp = arg->width - len;
 	if (arg->converter == 'p' && arg->width_field == 1 && arg->iszero == 1) 
 		tmp -= 2;
 	if (arg->width > len)
 	{
-//		if (!(add = (char*)malloc(sizeof(char) * tmp + 1)))
-//			error_exit(ERROR, 1);
 		add = ft_strnew(tmp);
 		add[tmp] = '\0';
 		ft_memset(add, ' ', tmp);

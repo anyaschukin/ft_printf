@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 15:09:54 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/16 15:30:12 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/05 15:47:01 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strunicode(wchar_t *s)
 	{
 		del = str;
 		tmp = ft_unicode(s[i]);
-		str = ft_strjoin_free(str, tmp, 2);
+		str = ft_strjoin_free(str, tmp, 3);
 		i++;
 	}
 	return (str);
