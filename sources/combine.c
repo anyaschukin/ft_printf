@@ -10,8 +10,6 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 static char	*apply_precision(t_print *arg, t_out *out, intmax_t len)
 {
@@ -59,7 +57,6 @@ static char	*apply_plus_space_hash(t_print *arg, t_out *out)
 		out->string = ft_strjoin_free("+", out->string, 2);
 	else if (arg->isspace == 1 && !(arg->isnegative == 1))
 		out->string = ft_strjoin_free(" ", out->string, 2);
-	//	printf("%s\n", out->value);
 	return (out->string);
 }
 
@@ -111,6 +108,7 @@ static char	*apply_zero_dash(t_print *arg, t_out *out)
 		arg->isnegative ? arg->width++ : 0;
 		arg->converter == 'p' ? vlen += 2 : 0;
 		ft_memset(out->string, '0', arg->width - vlen);
+		(arg->isspace && arg->converter == 'd') ? *out->string = ' ' : 0;
 		if (arg->isplus && arg->ispositive == 1)
 			*out->string = '+';
 		else if (arg->isnegative == 1)

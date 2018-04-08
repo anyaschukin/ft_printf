@@ -6,12 +6,12 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 15:40:39 by aschukin          #+#    #+#             */
-/*   Updated: 2018/01/15 16:47:50 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 18:29:12 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** The strdup() function allocates sufficient memory for a copy
+** The ft_strdup() function allocates sufficient memory for a copy
 ** of the string s1, does the copy, and returns a pointer to it.
 */
 

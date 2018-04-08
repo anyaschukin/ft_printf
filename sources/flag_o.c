@@ -6,12 +6,11 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/05 14:37:59 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 18:39:22 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdarg.h>
 
 static uintmax_t	length_o(va_list *ap, t_print *arg)
 {
@@ -29,11 +28,10 @@ static uintmax_t	length_o(va_list *ap, t_print *arg)
 		return ((size_t)va_arg(*ap, uintmax_t));
 	else
 		return ((unsigned int)va_arg(*ap, uintmax_t));
-	//	return (va_arg(*ap, uintmax_t));
 }
 
 
-void	flag_o(va_list *ap, t_print *arg)
+void				flag_o(va_list *ap, t_print *arg)
 {
 	uintmax_t	nb;
 	intmax_t	len;
@@ -41,8 +39,7 @@ void	flag_o(va_list *ap, t_print *arg)
 
 	nb = length_o(ap, arg);
 	(nb == 0 && !arg->precision_field) ? arg->ishash = 0 : 0;
-//	len = ft_count(nb);
-//	ft_putnbr(len);
+	(nb != 0 && arg->precision_field == 1 && !arg->width_field) ? arg->ishash = 0 : 0;
 	out.value = (nb == 0 && arg->precision_field == 1) ? ft_strdup("\0") \
 		: ft_utoa_base(nb, 8);
 	len = ft_strlen(out.value);

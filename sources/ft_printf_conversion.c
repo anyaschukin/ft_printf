@@ -6,13 +6,11 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 17:48:07 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/03 19:37:18 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 18:20:57 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 size_t	ft_printf_conversion(va_list *ap, t_print *arg)
 {

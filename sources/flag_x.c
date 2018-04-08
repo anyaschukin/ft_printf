@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/04 21:13:51 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 18:30:42 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ uintmax_t   length_x(va_list *ap, t_print *arg)
 	else if (arg->length == 4)
 		return ((uintmax_t)va_arg(*ap, uintmax_t));
 	else
-	//	return ((unsigned long)va_arg(*ap, uintmax_t));
 		return (va_arg(*ap, uintmax_t));
 }
 
@@ -44,7 +43,7 @@ void	flag_x(va_list *ap, t_print *arg)
 	nb = length_x(ap, arg);
 	if (nb == 0 && arg->precision_field == 1)
 	{
-		out.value = strdup("\0");
+		out.value = ft_strdup("\0");
 		arg->ishash = 0;
 	}
 	else

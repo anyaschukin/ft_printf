@@ -6,17 +6,14 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/03 18:44:12 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 18:25:14 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 static size_t	ft_printf_parse(va_list *ap, t_print *arg)
 {
-//	while (!(ft_strchr("cCdDioOpsSuUxX%", arg->format[arg->i])) && arg->format[arg->i] != '\0')
 	while (ft_strchr("-+0 #0123456789.hljz", arg->format[arg->i]) && arg->format[arg->i] != '\0')
 	{
 		ft_check_flags(arg);
@@ -49,7 +46,6 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 			ft_printf_parse(ap, &arg); // have this return the len of what I printed
 	//	if (arg.format[arg.i] == '\0' || arg.ret == -1 || arg.ret == '\0')
 	//		break;
-		//	ft_init_struct(&arg);
 		}
 		else
 		{
@@ -58,12 +54,11 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 			arg.ret++;
 		}
 	}
-//	ft_print_struct(&arg);
 	return (arg.ret);
 }
 
 
-size_t	ft_printf(const char *format, ...)
+size_t	ft_printf(const char *format, ...)  // CHANGE size_t to INT!!!!!
 {
 	va_list	ap;
 	size_t	ret;

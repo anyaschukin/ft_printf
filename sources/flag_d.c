@@ -6,13 +6,11 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:58:38 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/05 14:57:43 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 18:20:21 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 intmax_t    length_d(va_list *ap, t_print *arg)
 {
@@ -45,7 +43,6 @@ void	flag_d(va_list *ap, t_print *arg)
 	(nb >= 0) ? (arg->ispositive = 1) \
 		   : (arg->isnegative = 1);
 	len = ft_strlen(out.value);
-	//	len = ft_count(nb);
 	out.string = ft_strdup(out.value);
 	out.string = combine(arg, &out, len);
 	if (arg->isnegative && arg->precision && ft_strchr(out.string, '0'))

@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:56:29 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/03 20:46:24 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 18:16:16 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ size_t	ft_check_errors(t_print *arg)
 
 	if (arg->isspace == 1 && ft_strchr("cCsSuUxXp%", arg->format[arg->i]))
 		arg->isspace = 0;
-	//		(arg->format[arg->i] == 'c' || arg->format[arg->i] == 'C' || arg->format[arg->i] == '%' || arg->format[arg->i] == 's' || arg->format[arg->i] == 'S' || arg->format[arg->i] == 'x' || arg->format[arg->i] == 'X' || arg->format[arg->i] == 'p'))
 	if (arg->isspace == 1 && arg->isplus == 1)
 		arg->isspace = 0;
 
@@ -37,8 +36,7 @@ size_t	ft_check_errors(t_print *arg)
 /*
 ** Zero error checks
 */
-//	if (arg->iszero == 1 && ft_strchr("sS", arg->format[arg->i]))
-//		arg->iszero = 0;
+
 	if (arg->iszero == 1 && arg->isdash == 1)
 		arg->iszero = 0;
 	if (arg->iszero == 1 && arg->precision_field == 1 && (arg->format[arg->i] == 'd' \
@@ -49,10 +47,9 @@ size_t	ft_check_errors(t_print *arg)
 ** Precision error checks
 */
 
-//	if (arg->precision_field == 1)
-//		arg->isdash = 0;
 	if (arg->precision_field == 1 && (arg->format[arg->i] == 'c' || arg->format[arg->i] == 'C'))
 		arg->precision_field = 0;
+
 /*
 ** Length error checks
 */
@@ -63,11 +60,6 @@ size_t	ft_check_errors(t_print *arg)
 
 	if (arg->format[arg->i] == '\'')
 		arg->i++;
-	/*	flag_err
-	width_err
-	precision_err
-	length_err
-*/
 
 	return (arg->i);
 }

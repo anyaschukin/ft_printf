@@ -6,13 +6,11 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:02:06 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/05 15:50:59 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 18:31:24 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdarg.h>
-#include <stdio.h>
 
 void	flag_c(va_list *ap, t_print *arg)
 {
@@ -21,8 +19,6 @@ void	flag_c(va_list *ap, t_print *arg)
 	intmax_t	len;
 	t_out		out;
 
-	//c = 1;
-	//w = 1;
 	if (arg->converter != 'c' && arg->converter != 'C' && arg->converter != '%' && arg->converter != 'R')
 	{
 		if (!(c = va_arg(*ap, intmax_t)))
@@ -34,7 +30,10 @@ void	flag_c(va_list *ap, t_print *arg)
 	else if (arg->converter == 'R')
 		out.value = ft_strdup("R");
 	else if (arg->converter == '%')
+	{
 		out.value = ft_strdup("%");
+		arg->precision_field == 1 ? arg->precision_field = 0 : 0;
+	}
 	else if (arg->length == 5 || arg->converter == 'C')
 	{
 		w = va_arg(*ap, wchar_t);

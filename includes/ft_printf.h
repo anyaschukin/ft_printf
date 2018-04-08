@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 13:19:35 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/02 17:56:22 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 18:28:32 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef FT_PRINTF_H
@@ -79,7 +79,6 @@ intmax_t	ft_length_conversion(intmax_t nb, t_print *arg);
 uintmax_t	ft_ulength_conversion(uintmax_t nb, t_print *arg);
 char	*combine(t_print *arg, t_out *out, intmax_t len);
 
-//int	ft_old_printf_conversion(char *format, va_list *ap, t_print arg);
 void	ft_print_struct(t_print *arg);
 
 /*
