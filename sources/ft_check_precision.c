@@ -20,7 +20,7 @@ size_t	ft_check_precision(t_print *arg)
 
 	multi = 1;
 	tmp = 0;
-	arg->format[arg->i] == '.' ? arg->precision_field = 1 : 0;
+	arg->format[arg->i] == '.' ? PFIELD = 1 : 0;
 	arg->format[arg->i] == '.' ? arg->i++ : 0;
 	save = arg->i;
 	while (arg->format[arg->i] >= '0' && arg->format[arg->i] <= '9')
@@ -29,14 +29,14 @@ size_t	ft_check_precision(t_print *arg)
 	{
 		tmp++;
 		arg->i--;
-		arg->precision = arg->precision + (arg->format[arg->i] - 48) * multi;
+		PREC = PREC + (arg->format[arg->i] - 48) * multi;
 		multi *= 10;
 	}
 	arg->i += tmp;
-	if (arg->precision > INT_MAX || (int)arg->precision < 0)
+	if (PREC > INT_MAX || (int)PREC < 0)
 	{
-		arg->precision_field = -1;
-		arg->precision = 0;
+		PFIELD = -1;
+		PREC = 0;
 	}
 	return (arg->i);
 }

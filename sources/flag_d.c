@@ -6,13 +6,13 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:58:38 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/08 18:20:21 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 17:56:43 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-intmax_t    length_d(va_list *ap, t_print *arg)
+intmax_t	length_d(va_list *ap, t_print *arg)
 {
 	if (arg->length == 2 && arg->format[arg->i] != 'D')
 		return ((long long)((signed char)va_arg(*ap, int)));
@@ -30,7 +30,7 @@ intmax_t    length_d(va_list *ap, t_print *arg)
 		return ((long long)va_arg(*ap, intmax_t));
 }
 
-void	flag_d(va_list *ap, t_print *arg)
+void		flag_d(va_list *ap, t_print *arg)
 {
 	intmax_t	nb;
 	intmax_t	len;
@@ -39,13 +39,14 @@ void	flag_d(va_list *ap, t_print *arg)
 	t_out		out;
 
 	nb = length_d(ap, arg);
-	out.value = (nb == 0 && !arg->isplus && (arg->precision_field == 1 && arg->precision == 0) && arg->length == 1) ? ft_strdup("\0") : ft_itoa(nb);
-	(nb >= 0) ? (arg->ispositive = 1) \
-		   : (arg->isnegative = 1);
+	out.value = (nb == 0 && !PLUS && (PFIELD == 1 && PREC == 0) &&
+			arg->length == 1) ? ft_strdup("\0") : ft_itoa(nb);
+	(nb >= 0) ? (arg->ispositive = 1) :
+		(arg->isnegative = 1);
 	len = ft_strlen(out.value);
 	out.string = ft_strdup(out.value);
 	out.string = combine(arg, &out, len);
-	if (arg->isnegative && arg->precision && ft_strchr(out.string, '0'))
+	if (arg->isnegative && PREC && ft_strchr(out.string, '0'))
 	{
 		n = ft_strchr(out.string, '-');
 		m = ft_strchr(out.string, '0');

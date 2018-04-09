@@ -22,11 +22,11 @@ size_t		ft_check_flags(t_print *arg)
 {
 	while (is_flag(arg->format[arg->i]))
 	{
-		arg->format[arg->i] == '-' ? arg->isdash = 1 : 0;
-		arg->format[arg->i] == '+' ? arg->isplus = 1 : 0;
-		arg->format[arg->i] == '0' ? arg->iszero = 1 : 0;
-		arg->format[arg->i] == ' ' ? arg->isspace = 1 : 0;
-		arg->format[arg->i] == '#' ? arg->ishash = 1 : 0;
+		arg->format[arg->i] == '-' ? DASH = 1 : 0;
+		arg->format[arg->i] == '+' ? PLUS = 1 : 0;
+		arg->format[arg->i] == '0' ? ZERO = 1 : 0;
+		arg->format[arg->i] == ' ' ? SPACE = 1 : 0;
+		arg->format[arg->i] == '#' ? HASH = 1 : 0;
 		arg->i++;
 	}
 	return (arg->i);

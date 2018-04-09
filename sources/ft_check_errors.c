@@ -14,18 +14,18 @@
 
 size_t	ft_check_errors(t_print *arg)
 {
-	if (arg->isspace == 1 && ft_strchr("cCsSuUxXp%", arg->format[arg->i]))
-		arg->isspace = 0;
-	if (arg->isspace == 1 && arg->isplus == 1)
-		arg->isspace = 0;
-	if (arg->ishash == 1 && ft_strchr("cCdipsu", arg->format[arg->i]))
-		arg->ishash = 0;
-	if (arg->iszero == 1 && arg->isdash == 1)
-		arg->iszero = 0;
-	if (arg->iszero == 1 && arg->precision_field == 1 && ft_strchr("diou", arg->format[arg->i]))
-		arg->iszero = 0;
-	if (arg->precision_field == 1 && ft_strchr("cC", arg->format[arg->i]))
-		arg->precision_field = 0;
+	if (SPACE == 1 && ft_strchr("cCsSuUxXp%", arg->format[arg->i]))
+		SPACE = 0;
+	if (SPACE == 1 && PLUS == 1)
+		SPACE = 0;
+	if (HASH == 1 && ft_strchr("cCdipsu", arg->format[arg->i]))
+		HASH = 0;
+	if (ZERO == 1 && DASH == 1)
+		ZERO = 0;
+	if (ZERO == 1 && PFIELD == 1 && ft_strchr("diou", arg->format[arg->i]))
+		ZERO = 0;
+	if (PFIELD == 1 && ft_strchr("cC", arg->format[arg->i]))
+		PFIELD = 0;
 	if (arg->length == 1 && ft_strchr("cCpsS", arg->format[arg->i]))
 		return (-1);
 	if (arg->format[arg->i] == '\'')

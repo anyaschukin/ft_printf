@@ -18,7 +18,7 @@ void	flag_percent(t_print *arg)
 	t_out		out;
 
 	out.value = ft_strdup("%");
-	arg->precision_field == 1 ? arg->precision_field = 0 : 0;
+	PFIELD == 1 ? PFIELD = 0 : 0;
 	len = ft_strwlen(out.value);
 	out.string = ft_strdup(out.value);
 	out.string = combine(arg, &out, len);

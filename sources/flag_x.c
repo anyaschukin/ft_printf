@@ -40,10 +40,10 @@ void		flag_x(va_list *ap, t_print *arg)
 	t_out		out;
 
 	nb = length_x(ap, arg);
-	if (nb == 0 && arg->precision_field == 1)
+	if (nb == 0 && PFIELD == 1)
 	{
 		out.value = ft_strdup("\0");
-		arg->ishash = 0;
+		HASH = 0;
 	}
 	else
 		out.value = ft_utoa_base(nb, 16);
@@ -52,10 +52,10 @@ void		flag_x(va_list *ap, t_print *arg)
 	if (*out.value != '0')
 		out.string = combine(arg, &out, len);
 	arg->ret += ft_strlen(out.string);
-	if (arg->ishash == 1 && nb != 0 && (out.string[1] == '0') &&
+	if (HASH == 1 && nb != 0 && (out.string[1] == '0') &&
 			(!ft_strchr(out.string, 'x') || !ft_strchr(out.string, 'X')))
 		out.string[1] = 'x';
-	arg->converter == 'x' ? ft_strtolower(out.string) :
+	CONV == 'x' ? ft_strtolower(out.string) :
 		ft_strtoupper(out.string);
 	ft_putstr(out.string);
 	ft_strdel(out.value);

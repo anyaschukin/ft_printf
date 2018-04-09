@@ -38,7 +38,7 @@ void				flag_u(va_list *ap, t_print *arg)
 	t_out				out;
 
 	nb = length_u(ap, arg);
-	out.value = (nb == 0 && arg->precision_field == 1) ? ft_strdup("\0") \
+	out.value = (nb == 0 && PFIELD == 1) ? ft_strdup("\0") \
 		: ft_utoa_base(nb, 10);
 	len = ft_strlen(out.value);
 	out.string = ft_strdup(out.value);

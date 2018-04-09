@@ -16,17 +16,17 @@
 void	ft_print_struct(t_print *arg)
 {
 	printf("\n");
-	printf("Dash: %u\n", arg->isdash);
-	printf("Plus: %u\n", arg->isplus);
-	printf("Zero: %u\n", arg->iszero);
-	printf("Space: %u\n", arg->isspace);
-	printf("Hash: %u\n", arg->ishash);
+	printf("Dash: %u\n", DASH);
+	printf("Plus: %u\n", PLUS);
+	printf("Zero: %u\n", ZERO);
+	printf("Space: %u\n", SPACE);
+	printf("Hash: %u\n", HASH);
 	printf("Positive: %u\n", arg->ispositive);
 	printf("Negative: %u\n", arg->isnegative);
-	printf("Width Field: %u\n", arg->width_field);
-	printf("Width: %u\n", arg->width);
-	printf("Precision Field: %d\n", arg->precision_field);
-	printf("Precision: %d\n", arg->precision);
+	printf("Width Field: %u\n", WFIELD);
+	printf("Width: %u\n", WIDTH);
+	printf("Precision Field: %d\n", PFIELD);
+	printf("Precision: %d\n", PREC);
 	printf("Length: %d\n", arg->length);
 	printf("i: %d\n", arg->i);
 	printf("Origial format: %s\n", arg->format);

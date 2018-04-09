@@ -17,10 +17,16 @@
 # include <stdarg.h>
 # include <limits.h>
 
+# define DASH arg->isdash
+# define PLUS arg->isplus
+# define ZERO arg->iszero
+# define SPACE arg->isspace
+# define HASH arg->ishash
 # define PFIELD arg->precision_field
 # define PREC arg->precision
 # define WFIELD arg->width_field
-# define CFLAG arg->converter
+# define WIDTH arg->width
+# define CONV arg->converter
 # define ERROR "Error: out of memory. Exiting"
 
 typedef struct	s_print

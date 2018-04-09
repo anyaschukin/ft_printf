@@ -25,16 +25,16 @@ size_t	ft_check_width(t_print *arg)
 		return (arg->i);
 	while (arg->format[arg->i] >= '0' && arg->format[arg->i] <= '9')
 		arg->i++;
-	arg->width_field = 1;
+	WFIELD = 1;
 	while (arg->i > save)
 	{
 		tmp++;
 		arg->i--;
-		arg->width = arg->width + (arg->format[arg->i] - 48) * multi;
+		WIDTH = WIDTH + (arg->format[arg->i] - 48) * multi;
 		multi *= 10;
 	}
 	arg->i += tmp;
-	if (arg->width > INT_MAX || arg->width <= 0)
-		arg->width = 0;
+	if (WIDTH > INT_MAX || WIDTH <= 0)
+		WIDTH = 0;
 	return (arg->i);
 }

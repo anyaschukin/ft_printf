@@ -14,17 +14,16 @@
 
 void	ft_init_pstruct(t_print *arg)
 {
-	arg->converter = 0;
-	arg->isdash = 0;
-	arg->isplus = 0;
-	arg->iszero = 0;
-	arg->isspace = 0;
-	arg->ishash = 0;
-	arg->ispercent = 0;
-	arg->width_field = 0;
-	arg->width = 0;
-	arg->precision_field = 0;
-	arg->precision = 0;
+	CONV = 0;
+	DASH = 0;
+	PLUS = 0;
+	ZERO = 0;
+	SPACE = 0;
+	HASH = 0;
+	WFIELD = 0;
+	WIDTH = 0;
+	PFIELD = 0;
+	PREC = 0;
 	arg->length = 1;
 	arg->ispositive = 0;
 	arg->isnegative = 0;

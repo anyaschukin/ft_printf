@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:46:48 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/09 16:10:32 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 17:57:27 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ void				flag_p(va_list *ap, t_print *arg)
 	t_out		out;
 
 	nb = length_p(ap, arg);
-	out.value = (nb == 0 && arg->precision_field == 1) ? ft_strdup("\0") : ft_utoa_base(nb, 16);
-	if (arg->width_field == 1 && arg->iszero != 1)
+	out.value = (nb == 0 && PFIELD == 1) ? ft_strdup("\0") :
+		ft_utoa_base(nb, 16);
+	if (WFIELD == 1 && ZERO != 1)
 		if (!(out.value = ft_strjoin_free("0x", out.value, 2)))
 			error_exit(ERROR, 1);
 	len = ft_strlen(out.value);

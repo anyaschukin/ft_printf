@@ -14,7 +14,7 @@
 
 size_t	ft_printf_conversion(va_list *ap, t_print *arg)
 {
-	arg->converter = arg->format[arg->i];
+	CONV = arg->format[arg->i];
 	arg->format[arg->i] == 'C' ? flag_c(ap, arg) : 0;
 	arg->format[arg->i] == 'c' ? flag_c(ap, arg) : 0;
 	arg->format[arg->i] == 'd' ? flag_d(ap, arg) : 0;
