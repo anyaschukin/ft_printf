@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-size_t	ft_check_errors(t_print *arg)
+int	ft_check_errors(t_print *arg)
 {
 	if (SPACE == 1 && ft_strchr("cCsSuUxXp%", arg->format[arg->i]))
 		SPACE = 0;

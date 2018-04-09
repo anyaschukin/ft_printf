@@ -77,14 +77,14 @@ typedef struct	s_out
 ** ft_printf Functions
 */
 
-size_t			ft_printf(const char *format, ...);
-size_t			ft_printf_conversion(va_list *ap, t_print *arg);
+int				ft_printf(const char *format, ...);
+int				ft_printf_conversion(va_list *ap, t_print *arg);
 void			ft_init_struct(t_print *arg, t_out *out);
-size_t			ft_check_flags(t_print *arg);
-size_t			ft_check_width(t_print *arg);
-size_t			ft_check_precision(t_print *arg);
-size_t			ft_check_length(t_print *arg);
-size_t			ft_check_errors(t_print *arg);
+int				ft_check_flags(t_print *arg);
+int				ft_check_width(t_print *arg);
+int				ft_check_precision(t_print *arg);
+int				ft_check_length(t_print *arg);
+int				ft_check_errors(t_print *arg);
 intmax_t		ft_length_conversion(intmax_t nb, t_print *arg);
 uintmax_t		ft_ulength_conversion(uintmax_t nb, t_print *arg);
 char			*combine(t_print *arg, t_out *out, intmax_t len);

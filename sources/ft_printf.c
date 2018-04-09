@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-static size_t	ft_printf_parse(va_list *ap, t_print *arg)
+static int	ft_printf_parse(va_list *ap, t_print *arg)
 {
 	while (ft_strchr("-+0 #0123456789.hljz", arg->format[arg->i])
 			&& arg->format[arg->i] != '\0')
@@ -28,7 +28,7 @@ static size_t	ft_printf_parse(va_list *ap, t_print *arg)
 	return (arg->i);
 }
 
-static size_t	ft_check_printf(const char *format, va_list *ap)
+static int	ft_check_printf(const char *format, va_list *ap)
 {
 	t_print	arg;
 	t_out	out;
@@ -56,10 +56,10 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 	return (arg.ret);
 }
 
-size_t			ft_printf(const char *format, ...)  // CHANGE size_t to INT!!!!!
+int			ft_printf(const char *format, ...)
 {
 	va_list	ap;
-	size_t	ret;
+	int		ret;
 
 	va_start(ap, format);
 	ret = ft_check_printf(format, &ap);

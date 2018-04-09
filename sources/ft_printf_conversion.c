@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-size_t	ft_printf_conversion(va_list *ap, t_print *arg)
+int	ft_printf_conversion(va_list *ap, t_print *arg)
 {
 	CONV = arg->format[arg->i];
 	arg->format[arg->i] == 'C' ? flag_c(ap, arg) : 0;

@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-size_t	ft_check_width(t_print *arg)
+int	ft_check_width(t_print *arg)
 {
 	int		multi;
 	int		save;

@@ -18,7 +18,7 @@ static int	is_flag(char c)
 	return (c == '-' || c == '+' || c == '0' || c == ' ' || c == '#');
 }
 
-size_t		ft_check_flags(t_print *arg)
+int			ft_check_flags(t_print *arg)
 {
 	while (is_flag(arg->format[arg->i]))
 	{

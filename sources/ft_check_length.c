@@ -17,7 +17,7 @@ static int	what_length(char c)
 	return (c == 'h' || c == 'j' || c == 'l' || c == 'z');
 }
 
-size_t		ft_check_length(t_print *arg)
+int			ft_check_length(t_print *arg)
 {
 	while (what_length(arg->format[arg->i]))
 	{
