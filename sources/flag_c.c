@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flag_c.c                                        :+:      :+:    :+:   */
+/*   flag_c.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:02:06 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/08 18:31:24 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 16:09:11 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@ void	flag_c(va_list *ap, t_print *arg)
 	}
 	else if (arg->converter == 'R')
 		out.value = ft_strdup("R");
-	else if (arg->converter == '%')
-	{
-		out.value = ft_strdup("%");
-		arg->precision_field == 1 ? arg->precision_field = 0 : 0;
-	}
 	else if (arg->length == 5 || arg->converter == 'C')
 	{
 		w = va_arg(*ap, wchar_t);

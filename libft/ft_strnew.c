@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 11:59:25 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/31 17:02:21 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 16:01:46 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char	*ft_strnew(size_t size)
 	char	*new;
 
 	if (!(new = (char*)malloc((size + 1) * sizeof(char))))
-//	if (!(new = (char*)malloc((sizeof(char) * (size + 1)))))
 		return (NULL);
 	ft_bzero(new, size + 1);
 	return (new);

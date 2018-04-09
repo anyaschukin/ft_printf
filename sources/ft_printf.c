@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:32:11 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/08 18:25:14 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 14:51:22 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static size_t	ft_printf_parse(va_list *ap, t_print *arg)
 {
-	while (ft_strchr("-+0 #0123456789.hljz", arg->format[arg->i]) && arg->format[arg->i] != '\0')
+	while (ft_strchr("-+0 #0123456789.hljz", arg->format[arg->i])
+			&& arg->format[arg->i] != '\0')
 	{
 		ft_check_flags(arg);
 		ft_check_width(arg);
@@ -29,13 +30,13 @@ static size_t	ft_printf_parse(va_list *ap, t_print *arg)
 
 static size_t	ft_check_printf(const char *format, va_list *ap)
 {
-	t_print arg;
-	t_out out;
+	t_print	arg;
+	t_out	out;
 
 	arg.i = 0;
 	arg.ret = 0;
 	arg.format = format;
-	while(arg.format[arg.i])
+	while (arg.format[arg.i])
 	{
 		if (arg.format[arg.i] == '%')
 		{
@@ -43,9 +44,7 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 			if (arg.format[arg.i] == '\0')
 				return (arg.ret);
 			ft_init_struct(&arg, &out);
-			ft_printf_parse(ap, &arg); // have this return the len of what I printed
-	//	if (arg.format[arg.i] == '\0' || arg.ret == -1 || arg.ret == '\0')
-	//		break;
+			ft_printf_parse(ap, &arg);
 		}
 		else
 		{
@@ -57,8 +56,7 @@ static size_t	ft_check_printf(const char *format, va_list *ap)
 	return (arg.ret);
 }
 
-
-size_t	ft_printf(const char *format, ...)  // CHANGE size_t to INT!!!!!
+size_t			ft_printf(const char *format, ...)  // CHANGE size_t to INT!!!!!
 {
 	va_list	ap;
 	size_t	ret;

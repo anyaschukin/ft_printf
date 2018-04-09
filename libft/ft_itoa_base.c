@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 14:31:42 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/04 20:56:25 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 16:02:59 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_count_base(long long num, int base)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	if (num == 0)
@@ -27,8 +27,7 @@ static int	ft_count_base(long long num, int base)
 	return (i);
 }
 
-
-char	*ft_itoa_base(long long num, int base)
+char		*ft_itoa_base(long long num, int base)
 {
 	char	*str;
 	int		count;
@@ -48,16 +47,11 @@ char	*ft_itoa_base(long long num, int base)
 	while (num > 0)
 	{
 		if ((num % base) <= 9)
-		{
 			str[i] = (num % base) + '0';
-		}
 		else
-		{	
 			str[i] = (num % base) + 'A' - 10;
-		}
 		num = num / base;
 		i--;
 	}
-//	free(str);
 	return (str);
 }

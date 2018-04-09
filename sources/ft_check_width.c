@@ -6,20 +6,17 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 18:40:15 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/16 17:54:22 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 18:45:45 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdarg.h>
-#include <limits.h>
-#include <stdio.h>
 
 size_t	ft_check_width(t_print *arg)
 {
-	int	multi;
-	int	save;
-	int tmp;
+	int		multi;
+	int		save;
+	int		tmp;
 
 	multi = 1;
 	save = arg->i;

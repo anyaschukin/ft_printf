@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:46:48 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/08 18:38:53 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 16:10:32 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void				flag_p(va_list *ap, t_print *arg)
 	out.string = ft_strdup(out.value);
 	out.string = combine(arg, &out, len);
 	if (!(ft_strstr(out.string, "0x")))
-		if(!(out.string = ft_strjoin_free("0x", out.string, 2)))
+		if (!(out.string = ft_strjoin_free("0x", out.string, 2)))
 			error_exit(ERROR, 1);
 	arg->ret += ft_strlen(out.string);
 	ft_strtolower(out.string);

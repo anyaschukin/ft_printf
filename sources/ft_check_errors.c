@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:56:29 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/08 18:16:16 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 15:02:47 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,21 @@
 
 size_t	ft_check_errors(t_print *arg)
 {
-
-/*
-** Space error checks
-*/
-
 	if (arg->isspace == 1 && ft_strchr("cCsSuUxXp%", arg->format[arg->i]))
 		arg->isspace = 0;
 	if (arg->isspace == 1 && arg->isplus == 1)
 		arg->isspace = 0;
-
-/*
-** Hash error checks
-*/
-
-	if (arg->ishash == 1 && (arg->format[arg->i] == 'c' || arg->format[arg->i] == 'C' || arg->format[arg->i] == 'd' \
-			|| arg->format[arg->i] == 'i' || arg->format[arg->i] == 'p' || arg->format[arg->i]  == 's' \
-			|| arg->format[arg->i] == 'u'))
+	if (arg->ishash == 1 && ft_strchr("cCdipsu", arg->format[arg->i]))
 		arg->ishash = 0;
-
-/*
-** Zero error checks
-*/
-
 	if (arg->iszero == 1 && arg->isdash == 1)
 		arg->iszero = 0;
-	if (arg->iszero == 1 && arg->precision_field == 1 && (arg->format[arg->i] == 'd' \
-			|| arg->format[arg->i] == 'i' || arg->format[arg->i] == 'o' || arg->format[arg->i] == 'u'))
+	if (arg->iszero == 1 && arg->precision_field == 1 && ft_strchr("diou", arg->format[arg->i]))
 		arg->iszero = 0;
-
-/*
-** Precision error checks
-*/
-
-	if (arg->precision_field == 1 && (arg->format[arg->i] == 'c' || arg->format[arg->i] == 'C'))
+	if (arg->precision_field == 1 && ft_strchr("cC", arg->format[arg->i]))
 		arg->precision_field = 0;
-
-/*
-** Length error checks
-*/
-
-	if (arg->length == 1 && (arg->format[arg->i] == 'c' || arg->format[arg->i] == 'C' \
-			|| arg->format[arg->i] == 'p' || arg->format[arg->i] == 's' || arg->format[arg->i] == 'S'))
-		return (-1); // what do I want it to return here?
-
+	if (arg->length == 1 && ft_strchr("cCpsS", arg->format[arg->i]))
+		return (-1);
 	if (arg->format[arg->i] == '\'')
 		arg->i++;
-
 	return (arg->i);
 }

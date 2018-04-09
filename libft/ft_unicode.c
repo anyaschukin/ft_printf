@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 13:32:58 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/14 15:55:29 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 15:58:48 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_unicode(wchar_t c)
 {
-	char    *str;
+	char	*str;
 
 	str = ft_strnew(4);
 	if (c <= 0x7F)
@@ -39,4 +39,3 @@ char	*ft_unicode(wchar_t c)
 	}
 	return (str);
 }
-

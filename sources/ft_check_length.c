@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_length.c                                    :+:      :+:    :+:   */
+/*   ft_check_length.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 18:39:49 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/19 11:01:26 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 15:54:42 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static int	what_length(char c)
 {
-	return (c == 'h' || c == 'j' || c == 'l'|| c == 'z');
+	return (c == 'h' || c == 'j' || c == 'l' || c == 'z');
 }
 
-size_t	ft_check_length(t_print *arg)
+size_t		ft_check_length(t_print *arg)
 {
 	while (what_length(arg->format[arg->i]))
 	{

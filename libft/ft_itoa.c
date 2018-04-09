@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 11:08:54 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/04 20:56:08 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 16:02:16 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ static char	*negative_case(intmax_t num, char *str, int i, int count)
 
 	str[0] = '-';
 	neg = -num;
-		while(neg > 0)
-		{
-			str[i] = '0' + (neg % 10);
-			neg = neg / 10;
-			i--;
-		}
+	while (neg > 0)
+	{
+		str[i] = '0' + (neg % 10);
+		neg = neg / 10;
+		i--;
+	}
 	str[count] = '\0';
-	return(str);
+	return (str);
 }
 
 char		*ft_itoa(intmax_t num)
@@ -49,7 +49,7 @@ char		*ft_itoa(intmax_t num)
 		str[0] = '0';
 	if (num < 0)
 	{
-		return(negative_case(num, str, i, count));
+		return (negative_case(num, str, i, count));
 	}
 	else
 		while (num > 0)
@@ -59,6 +59,5 @@ char		*ft_itoa(intmax_t num)
 			i--;
 		}
 	str[count] = '\0';
-//	free(str);
 	return (str);
 }

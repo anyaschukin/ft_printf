@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:10:53 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/08 15:59:05 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 18:43:13 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ static uintmax_t	length_u(va_list *ap, t_print *arg)
 		return ((unsigned long long)va_arg(*ap, size_t));
 	else
 		return ((unsigned int)va_arg(*ap, uintmax_t));
-	//	return (va_arg(*ap, uintmax_t));
 }
 
-void	flag_u(va_list *ap, t_print *arg)
+void				flag_u(va_list *ap, t_print *arg)
 {
 	unsigned long long	nb;
 	intmax_t			len;

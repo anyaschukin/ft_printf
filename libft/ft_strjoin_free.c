@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 15:24:46 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/05 15:40:37 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 19:06:19 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 /*
 ** Mallocs a new string s1 + s2 and frees the the strings passed as parameters
-*/ 
+*/
 
-char	*ft_strjoin_free(char *s1, char *s2, size_t to_free)
+char		*ft_strjoin_free(char *s1, char *s2, size_t to_free)
 {
 	char	*str;
 	size_t	s1_size;

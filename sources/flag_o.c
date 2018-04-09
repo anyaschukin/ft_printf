@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/08 18:39:22 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 16:10:04 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static uintmax_t	length_o(va_list *ap, t_print *arg)
 	else
 		return ((unsigned int)va_arg(*ap, uintmax_t));
 }
-
 
 void				flag_o(va_list *ap, t_print *arg)
 {

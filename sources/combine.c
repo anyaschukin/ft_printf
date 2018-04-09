@@ -66,11 +66,8 @@ static char	*apply_width(t_print *arg, t_out *out, intmax_t len)
 	intmax_t	tmp;
 
 	(arg->converter == 'c' && ft_strcmp("\0", out->value) == 0) ? len = 1 : 0;
-//	(arg->converter == 'd' && !arg->precision_field && ft_strcmp("0", out->value) == 0) ? len = 2 : 0;
-//	ft_putstr(out->value);
-//	ft_putstr("\n");
 	tmp = arg->width - len;
-	if (arg->converter == 'p' && arg->width_field == 1 && arg->iszero == 1) 
+	if (arg->converter == 'p' && arg->width_field == 1 && arg->iszero == 1)
 		tmp -= 2;
 	if (arg->width > len)
 	{
@@ -78,7 +75,7 @@ static char	*apply_width(t_print *arg, t_out *out, intmax_t len)
 		add[tmp] = '\0';
 		ft_memset(add, ' ', tmp);
 		if (arg->precision > 1 && arg->isdash && (arg->converter != 'c'))
- 		{
+		{
 			if (!(out->string = ft_strjoin_free(out->string, add, 3)))
 				error_exit(ERROR, 1);
 			arg->isdash = 0;
@@ -124,7 +121,7 @@ static char	*apply_zero_dash(t_print *arg, t_out *out)
 	return (out->string);
 }
 
-char	*combine(t_print *arg, t_out *out, intmax_t len)
+char		*combine(t_print *arg, t_out *out, intmax_t len)
 {
 	arg->precision_field == 1 ? apply_precision(arg, out, len) : 0;
 	apply_plus_space_hash(arg, out);
@@ -132,10 +129,3 @@ char	*combine(t_print *arg, t_out *out, intmax_t len)
 	(arg->isdash == 1 || arg->iszero == 1) ? apply_zero_dash(arg, out) : 0;
 	return (out->string);
 }
-
-// NEED TO CLEAN UP LEN VARIABLES
-
-
-
-
-

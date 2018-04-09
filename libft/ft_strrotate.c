@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/10 14:51:06 by aschukin          #+#    #+#             */
-/*   Updated: 2018/03/10 15:13:09 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 16:01:13 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static char	*ft_reverse(char *str, intmax_t size)
 	return (str);
 }
 
-char	*ft_strrotate(char *str, intmax_t size, intmax_t amt)
+char		*ft_strrotate(char *str, intmax_t size, intmax_t amt)
 {
 	if (amt < 0)
 		amt = size + amt;

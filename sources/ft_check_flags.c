@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 18:39:14 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/08 18:25:41 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 15:55:17 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	is_flag(char c)
 	return (c == '-' || c == '+' || c == '0' || c == ' ' || c == '#');
 }
 
-size_t	ft_check_flags(t_print *arg)
+size_t		ft_check_flags(t_print *arg)
 {
 	while (is_flag(arg->format[arg->i]))
 	{

@@ -6,14 +6,13 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:14:20 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/08 18:30:42 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 14:52:09 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdarg.h>
 
-uintmax_t   length_x(va_list *ap, t_print *arg)
+uintmax_t	length_x(va_list *ap, t_print *arg)
 {
 	if (arg->length == 1 && arg->format[arg->i] != 'U'
 			&& arg->format[arg->i] != 'O')
@@ -34,11 +33,11 @@ uintmax_t   length_x(va_list *ap, t_print *arg)
 		return (va_arg(*ap, uintmax_t));
 }
 
-void	flag_x(va_list *ap, t_print *arg)
+void		flag_x(va_list *ap, t_print *arg)
 {
 	intmax_t	nb;
 	intmax_t	len;
-	t_out	out;
+	t_out		out;
 
 	nb = length_x(ap, arg);
 	if (nb == 0 && arg->precision_field == 1)
@@ -53,9 +52,11 @@ void	flag_x(va_list *ap, t_print *arg)
 	if (*out.value != '0')
 		out.string = combine(arg, &out, len);
 	arg->ret += ft_strlen(out.string);
-	if (arg->ishash == 1 && nb != 0 && (out.string[1] == '0') && (!ft_strchr(out.string, 'x') || !ft_strchr(out.string, 'X')))
+	if (arg->ishash == 1 && nb != 0 && (out.string[1] == '0') &&
+			(!ft_strchr(out.string, 'x') || !ft_strchr(out.string, 'X')))
 		out.string[1] = 'x';
-	arg->converter == 'x' ? ft_strtolower(out.string) : ft_strtoupper(out.string);
+	arg->converter == 'x' ? ft_strtolower(out.string) :
+		ft_strtoupper(out.string);
 	ft_putstr(out.string);
 	ft_strdel(out.value);
 	ft_strdel(out.string);

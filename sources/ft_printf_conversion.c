@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 17:48:07 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/08 18:20:57 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 15:08:38 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,47 +29,9 @@ size_t	ft_printf_conversion(va_list *ap, t_print *arg)
 	arg->format[arg->i] == 'U' ? flag_u(ap, arg) : 0;
 	arg->format[arg->i] == 'x' ? flag_x(ap, arg) : 0;
 	arg->format[arg->i] == 'X' ? flag_x(ap, arg) : 0;
-	arg->format[arg->i] == '%' ? flag_c(ap, arg) : 0;
+	arg->format[arg->i] == '%' ? flag_percent(arg) : 0;
 	arg->format[arg->i] == 'R' ? flag_c(ap, arg) : 0;
 	!(ft_strchr("cCdDioOpsSuUxX%R", arg->format[arg->i])) ? flag_c(ap, arg) : 0;
 	arg->i++;
 	return (arg->i);
 }
-
-
-/*
-t_funct g_flagtab[]=
-{
-	{&flag_c, 'c'},
-	{&flag_c, 'C'},
-	{&flag_d, 'd'},
-	{&flag_d, 'D'},
-	{&flag_d, 'i'},
-	{&flag_o, 'o'},
-	{&flag_o, 'O'},
-	{&flag_p, 'p'},
-	{&flag_s, 's'},
-	{&flag_s, 'S'},
-	{&flag_u, 'u'},
-	{&flag_u, 'u'},
-	{&flag_x, 'x'},
-	{&flag_capx, 'X'},
-	{NULL, -1}
-};
-
-
-size_t	ft_printf_conversion(char *format, va_list *ap, t_print *arg, size_t i)
-{
-	int x;
-
-	x = 0;
-	while (g_flagtab[x].flag != -1)
-	{
-		if (g_flagtab[x].flag == *format)
-			 g_flagtab[x].ptrfunct(format, ap, arg);
-		x++;
-	}
-	i++;
-	return (i);
-}
-*/

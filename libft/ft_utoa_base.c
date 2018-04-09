@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 16:29:59 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/04 20:56:43 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 15:59:49 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_count_ubase(uintmax_t num, int base)
 	return (i);
 }
 
-char	*ft_utoa_base(uintmax_t num, int base)
+char		*ft_utoa_base(uintmax_t num, int base)
 {
 	char				*str;
 	unsigned long long	count;
@@ -48,17 +48,5 @@ char	*ft_utoa_base(uintmax_t num, int base)
 		num = num / base;
 		i--;
 	}
-//	free(str);
 	return (str);
 }
-
-/*int	main()
-{
-	unsigned long long num;
-	int base;
-
-	num = 0xffffffffffffffff; // this is the max of an unsigned long long
-	base = 8;
-	printf("%s\n", ft_utoa_base(num, base));
-	return (0);
-}*/

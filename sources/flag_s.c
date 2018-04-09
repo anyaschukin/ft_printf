@@ -6,12 +6,11 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 16:06:02 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/05 15:33:59 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/08 18:42:46 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdarg.h>
 
 void	flag_s(va_list *ap, t_print *arg)
 {
@@ -29,7 +28,6 @@ void	flag_s(va_list *ap, t_print *arg)
 	else
 	{
 		str = va_arg(*ap, char *);
-	//	str == 0 ? str = "\0" : 0;
 		str == NULL ? str = ("(null)") : 0;
 		out.value = ft_strdup(str);
 	}

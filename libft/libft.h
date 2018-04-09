@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:49:26 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/04 21:00:14 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/09 16:00:31 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
 char				*ft_itoa(intmax_t num);
-char				*ft_itoa_base(long long num , int base);
+char				*ft_itoa_base(long long num, int base);
 int					ft_lstcount(t_list *lst);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
@@ -86,7 +86,7 @@ char				**ft_strsplit(char const *s, char c);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack, const char *needle,
 					size_t len);
-char				*ft_strsub(char const *s, unsigned int start, size_t len);					
+char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strnew(size_t size);
 void				ft_strdel(char *as);
 char				*ft_strtrim(char const *s);
