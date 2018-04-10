@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/09 18:34:13 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/09 18:34:57 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/10 14:36:59 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*apply_precision(t_print *arg, t_out *out, intmax_t len)
 	tmp = PREC - len;
 	if (CONV == 'S' || CONV == 's')
 	{
-		while ((out->string[PREC] & 0xC0) == 0x80) // shifting back to the code point range, and putting a '\0' at the code point range, so that half the character doesn't get printed
+		while ((out->string[PREC] & 0xC0) == 0x80)
 			PREC--;
 		PREC > WIDTH ? out->string[PREC] = '\0' : 0;
 		PREC < len ? ft_strclr(out->string + PREC) : 0;
@@ -111,7 +111,7 @@ static char	*apply_zero_dash(t_print *arg, t_out *out)
 	}
 	else if (DASH == 1)
 	{
-		(CONV != 'p' && (ft_strchr(out->string, 'X') || ft_strchr(out->string, 'x'))) ? vlen += 2 : 0;
+		(CONV != 'p' && (ft_strchr(out->string, 'x'))) ? vlen += 2 : 0;
 		(CONV == 'o' && HASH == 1) ? vlen += 1 : 0;
 		move = vlen - len;
 		ft_strrotate(out->string, len, move);

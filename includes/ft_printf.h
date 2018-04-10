@@ -6,7 +6,7 @@
 /*   By: aschukin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 13:19:35 by aschukin          #+#    #+#             */
-/*   Updated: 2018/04/09 16:39:41 by aschukin         ###   ########.fr       */
+/*   Updated: 2018/04/10 16:29:48 by aschukin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct	s_print
 	unsigned int	ispositive : 1;
 	unsigned int	isnegative : 1;
 
-	// need padding?
 	enum
 	{
 		none,
@@ -88,8 +87,6 @@ int				ft_check_errors(t_print *arg);
 intmax_t		ft_length_conversion(intmax_t nb, t_print *arg);
 uintmax_t		ft_ulength_conversion(uintmax_t nb, t_print *arg);
 char			*combine(t_print *arg, t_out *out, intmax_t len);
-
-void			ft_print_struct(t_print *arg);
 
 /*
 ** Conversion Character Functions
