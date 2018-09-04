@@ -21,7 +21,7 @@ Normal library functions such as ```realloc```, ```strjoin```, ```strdup```, etc
 ```ft_printf``` must conform to the [42 Norm](https://cdn.intra.42.fr/pdf/pdf/960/norme.en.pdf). It must not have any leaks. Errors must be handled carefully. <br />
 In no way can it quit in an unexpected manner (segmentation fault, bus error, double free, etc).
 
-```ft_printf``` must be formatted and behave in the same way as libc's ```printf```.
+```ft_printf``` must be formatted and behave in the same way as libc's ```printf```:
 
 ```c
   ft_printf("%d is the answer to %s.", 42, "life, the universe, and everything");
