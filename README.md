@@ -24,8 +24,8 @@ In no way can it quit in an unexpected manner (segmentation fault, bus error, do
 ```ft_printf``` must be formatted and behave in the same way as libc's ```printf```:
 
 ```c
-  ft_printf("%d is the answer to %s.", 42, "life, the universe, and everything");
-  printf("%d is the answer to %s.", 42, "life, the universe, and everything");
+  ft_printf("%d is the answer to %s, %s, and %s.", 42, "life, "the universe", "everything");
+  printf("%d is the answer to %s, %s, and %s.", 42, "life, "the universe", "everything");
 ```
 Should output:
 
